@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import datetime
 import re
 from pathlib import Path
 from zipfile import ZipFile
