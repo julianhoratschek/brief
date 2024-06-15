@@ -1,3 +1,5 @@
+from patient import Patient
+
 class Treatments:
     doctor_list: list[str] = [
         "Akupunktur", "Allgemeinmedizin", "Apotheker", "Bademeister", "Chiropraktiker",
@@ -19,6 +21,23 @@ class Treatments:
         self.doctors: str = doctors
         self.alternatives: str = alternatives
         self.physio: str = physio
+        self.acute_medication: str = ""
+        self.basis_medication: str = ""
+
+    def set_medication(self, patient: Patient):
+        self.basis_medication = ("Versuche einer Kopfschmerzprophylaxe waren leitliniengerecht mit "
+                                 + ", ".join(patient.former_basis_medication)
+                                 + " unternommen worden")
+        self.acute_medication = ("Zur Akutschmerzmedikation kamen "
+                                 + ", ".join(patient.former_acute_medication)
+                                 + " zum Einsatz")
+
+    def valid(self) -> bool:
+        return self.doctors != ""
+
+    def __str__(self):
+        return (f"{self.doctors}. {self.basis_medication}. "
+                f"{self.acute_medication}. {self.alternatives}. {self.physio}")
 
     @classmethod
     def build(cls, choices: list[bool]):
@@ -32,6 +51,7 @@ class Treatments:
             "Alternativmedizinische Behandlungsversuche umfassten "
             + ", ".join([cls.doctor_list[idx] for idx in cls.alt_medicine_idx if choices[idx]]),
 
-            "{pat_nom} erhielt " + "und ".join([cls.doctor_list[idx] for idx in (29, 11) if choices[idx]])
+            ("{pat_nom} erhielt " + "und ".join([cls.doctor_list[idx] for idx in (29, 11) if choices[idx]]) + ".")
             if choices[11] or choices[29] else ""
         )
+

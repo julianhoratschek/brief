@@ -35,7 +35,7 @@ def ui_get_patient_file(matches) -> Path | None:
 
 def ensure_input(fn, conv, prompt) -> str:
     while True:
-        user_input: str = "skip" # input(prompt)
+        user_input: str = input(prompt)
         if user_input == "skip":
             return ""
 
@@ -52,7 +52,12 @@ if __name__ == "__main__":
 
     midas: str = ensure_input(get_midas, numbers_list, "MIDAS-Score [5 Zahlen]: ")
     whodas: str = ensure_input(get_whodas, numbers_list, "WHODAS-Score [3 Zahlen]: ")
-    treatments: Treatments = Treatments.build(check_list(input("Vorbehandlungen [40 x]: ")))
+
+    while True:
+        treatments: Treatments = Treatments.build(check_list(input("Vorbehandlungen [40 x]: ")))
+        if treatments.valid():
+            break
+
     eval_depression: str = ensure_input(get_depression_score, numbers_list, "Depression-Score [19 Zahlen]: ")
     eval_personality: str = ensure_input(get_personality_score, check_list, "Personality-Score [15 x]: ")
 

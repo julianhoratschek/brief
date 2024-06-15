@@ -1,6 +1,5 @@
 from zipfile import ZipFile
 import re
-from pathlib import Path
 
 
 from patient import Patient, get_patient_file_matches

@@ -14351,15 +14351,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>{prev_doctors}</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00213423">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>{prev_altmed}</w:t>
+                <w:t>{prev_treatment}</w:t>
             </w:r>
             <w:r w:rsidRPr="00213423">
                 <w:rPr>
@@ -14447,24 +14439,7 @@
                     <w:szCs w:val="18"/>
                 </w:rPr>
                 <w:t>gebrauchskopfschmerzen. Es besteht ein Fehlgebrauch aufgrund nicht spezifischer Differenzierung der
-                    Akutmedikation in der Akutbehandlung der Migräne, Spannungskopfschmerzen und der Intervallkop
-                </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00213423">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>f</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00213423">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>schmerzen. Es besteht ein Fehlgebrauch indem Triptane erst dann eingenommen werden, wenn die
+                    Akutmedikation in der Akutbehandlung der Migräne, Spannungskopfschmerzen und der Intervallkopfschmerzen. Es besteht ein Fehlgebrauch indem Triptane erst dann eingenommen werden, wenn die
                     Migräneattacke ihre höchste Kopfschmerzintensität erreicht hat. Es besteht ein Fehlgebrauch aufgrund
                     Wiederholung des primär eingesetzten Triptans bei primärer Unwirksamkeit im Anfall. Es besteht ein
                     Fehlgebrauch bei der Anwendung von Escape-Medikation bei primärer Unwirksamkeit des Triptans. Bei

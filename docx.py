@@ -19,6 +19,8 @@ def write_data(patient: Patient,
                treatments: Treatments,
                self_eval_text: str):
 
+    treatments.set_medication(patient)
+
     file_path: Path = copy(template_file,
              output_folder / f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx")
     replace_text: str = ""
@@ -34,8 +36,7 @@ def write_data(patient: Patient,
             "assigned_therapist": patient.psychologist,
             "midas": midas_text,
             "whodas": whodas_text,
-            "prev_doctors": treatments.doctors,
-            "prev_altmed": treatments.alternatives,
+            "prev_treatment": treatments,
             "self_evaluation": self_eval_text,
         })
 

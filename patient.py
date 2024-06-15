@@ -21,6 +21,10 @@ class Patient:
         self.doctor: str = ""
         self.psychologist: str = ""
         self.allergies: str = ""
+
+        self.former_acute_medication: list[str] = []
+        self.former_basis_medication: list[str] = []
+
         self.birth_date: datetime = datetime.now()
         self.admission: datetime = datetime.now()
         self.discharge: datetime = datetime.now()
@@ -93,12 +97,16 @@ class Patient:
                         case 55:
                             # TODO sonstige meds
                             pass
+
                         case 58:
-                            # TODO meds früher akut
-                            pass
+                            patient.former_acute_medication = [medication.strip()
+                                                               for meds in extract_text(m.group(1)).splitlines()[1:]
+                                                               for medication in meds.split(",")]
+
                         case 59:
-                            # TODO meds früher basis
-                            pass
+                            patient.former_basis_medication = [medication.strip()
+                                                               for meds in extract_text(m.group(1)).splitlines()[1:]
+                                                               for medication in meds.split(",")]
                         case 60:
                             break
         return patient
