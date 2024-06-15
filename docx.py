@@ -2,15 +2,16 @@ from patient import Patient
 from shutil import copy
 from pathlib import Path
 from zipfile import ZipFile
-from treatments import Treatments
 
 
+# Paths to templates. This should not be changed.
 template_file: Path = Path("./template.docx")
 document_template_file: Path = Path("./document_template.xml")
 header1_template_file: Path = Path("./header1_template.xml")
 output_folder: Path = Path("./output")
 
 
+# Create output folder if necessary
 if not output_folder.exists():
     output_folder.mkdir()
 
@@ -20,9 +21,11 @@ def write_data(patient: Patient,
                treatments: str,
                self_eval_text: str):
 
+    # Copy template file with generated name into output-folder
     file_path: Path = copy(template_file,
              output_folder / f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx")
 
+    # Read the document text from document template, insert text fields
     with open(document_template_file, "rb") as xml_file:
         document_text: str = xml_file.read().decode("utf-8").format(**{
             "patient_discharge": patient.discharge.strftime('%d.%m.%Y'),
@@ -38,11 +41,13 @@ def write_data(patient: Patient,
             "self_evaluation": self_eval_text,
         })
 
+    # Read header-data from template file and insert text fields
     with open(header1_template_file, "rb") as xml_file:
         header_text: str = xml_file.read().decode("utf-8").format(**{
             "patient_data": f"{patient.last_name}, {patient.first_name}, *{patient.birth_date.strftime('%d.%m.%Y')}",
         })
 
+    # Write missing files with generated content to the *.docx file
     with ZipFile(file_path, "a") as zip_file:
         zip_file.writestr("word/document.xml", document_text.encode("utf-8"))
         zip_file.writestr("word/header1.xml", header_text.encode("utf-8"))
