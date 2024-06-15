@@ -2,14 +2,14 @@ from patient import Patient
 
 class Treatments:
     doctor_list: list[str] = [
-        "Akupunktur", "Allgemeinmedizin", "Apotheker", "Bademeister", "Chiropraktiker",
-        "Endokrinologie", "Geistheiler", "Dermatologie", "Hypnotiseur", "Pädiatrie",
-        "Krankenschwester", "Masseur", "Naturheilkundler", "Neurologie", "Onkologie",
+        "Akupunktur", "Allgemeinmedizin", "Apotheker", "Versorgung durch Bademeister", "Chiropraxie",
+        "Endokrinologie", "Besuche beim Geistheiler", "Dermatologie", "Hypnosen", "Pädiatrie",
+        "Krankenschwester", "Massagen", "Naturheilkundliche Behandlungen", "Neurologie", "Onkologie",
         "Proktologie", "Psychiatrie", "Psychotherapie", "Rheumatologie", "Urologie",
         "Allergologie", "Anästhesiologie", "Ophthalmologie", "Kardiologie", "Chirurgie",
-        "Gynäkologie", "HNO-Heilkunde", "Heilpraktiker", "Internist", "Physiotherapeut",
+        "Gynäkologie", "HNO-Heilkunde", "Besuche beim Heilpraktiker", "Internist", "Physiotherapie",
         "Pulmologie", "MKG-Chirurgie", "Nervenarzt", "Neurochirurgie", "Orthopädie",
-        "Priester", "Dipl.-Psychologe", "Radiologie", "Schmerztherapie", "Zahnheilkunde"
+        "Priesterkonsultation", "Dipl.-Psychologe", "Radiologie", "Schmerztherapie", "Zahnheilkunde"
     ]
 
     medical_idx: list[int] = [1, 2, 5, 7, 9, 10, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 30, 31, 32,
@@ -51,7 +51,8 @@ class Treatments:
             "Alternativmedizinische Behandlungsversuche umfassten "
             + ", ".join([cls.doctor_list[idx] for idx in cls.alt_medicine_idx if choices[idx]]),
 
-            ("{pat_nom} erhielt " + "und ".join([cls.doctor_list[idx] for idx in (29, 11) if choices[idx]]) + ".")
+            ("Zudem betätigte {pat_nom} sich regelmäßig sportlich, erhielt "
+             + "und ".join([cls.doctor_list[idx] for idx in (29, 11) if choices[idx]]) + ".")
             if choices[11] or choices[29] else ""
         )
 

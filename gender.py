@@ -13,7 +13,7 @@ _gender_dict_female: dict[str, str] = {
     "pat_gen": "der Patientin",
     "pat_akk": "die Patientin",
     "pron_nom": "sie",
-    "pron_gen_sf": "ihrer",
+    "pron_gen_sf": "ihre",
     "pron_gen_pf": "ihrer"
 }
 

@@ -61,11 +61,13 @@ if __name__ == "__main__":
     eval_depression: str = ensure_input(get_depression_score, numbers_list, "Depression-Score [19 Zahlen]: ")
     eval_personality: str = ensure_input(get_personality_score, check_list, "Personality-Score [15 x]: ")
 
+    treatments.set_medication(patient)
+
     write_data(patient,
                apply_gender(midas),
                apply_gender(whodas),
-               treatments,
-               apply_gender(eval_depression + eval_personality))
+               apply_gender(str(treatments)),
+               apply_gender(f"{eval_depression}. {eval_personality}"))
 
 
 

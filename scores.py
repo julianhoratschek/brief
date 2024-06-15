@@ -18,7 +18,8 @@ def get_midas(numbers: list[int]) -> str | None:
 
 
 def get_whodas(numbers: list[int]) -> str | None:
-    categories: list = ["Verständnis und Kommunikation", "Mobilität", "Selbstversorgung", "Umgang mit anderen Menschen", "Tätigkeiten des alltäglichen Lebens", "Teilnahme am gesellschaftlichen Leben"]
+    categories: list = ["Verständnis und Kommunikation", "Mobilität", "Selbstversorgung", "Umgang mit anderen Menschen",
+                        "Tätigkeiten des alltäglichen Lebens", "Teilnahme am gesellschaftlichen Leben"]
 
     if len(numbers) != 3:
         return None
@@ -78,11 +79,11 @@ def get_personality_score(choices: list[bool]) -> str | None:
         "in den Alltagsaktivitäten beeinträchtigt zu sein",
         "häufig Ärzte, Therapeuten oder Kliniken aufzusuchen",
         "in gesellschaftlichen und familiären Aktivitäten beeinträchtigt zu sein",
-        ". Es sei bereits zu Spannungen in Beruf und Familie gekommen."
+        "es sei bereits zu Spannungen in Beruf und Familie gekommen."
     ]
 
     if len(choices) != len(options):
         return None
 
-    return "Insgesamt gibt {pat_nom} an" + ", ".join([options[i] for i, choice in enumerate(choices) if choice])
+    return "Insgesamt gibt {pat_nom} an, " + ", ".join([options[i] for i, choice in enumerate(choices) if choice])
 

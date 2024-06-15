@@ -14555,9 +14555,7 @@
                     <w:highlight w:val="yellow"/>
                 </w:rPr>
                 <w:t>Eine analgetische Behandlung dieser ebenfalls mit Schmerzen einhergehenden Erkrankungen
-                    interferiert gravierend mit der Behandlung der chronischen Migräne. Es besteht eine
-                    Aufrechterhaltung und weite-re Verstärkung des sowieso bestehenden Kopfschmerzes bei
-                    Medikamentenübergebrauch.
+                    interferiert gravierend mit der Behandlung der chronischen Migräne. Es besteht eine Aufrechterhaltung und weitere Verstärkung des sowieso bestehenden Kopfschmerzes bei Medikamentenübergebrauch.
                 </w:t>
             </w:r>
             <w:r w:rsidRPr="00213423">
@@ -14566,7 +14564,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> Diese Erkran-kungen erschweren die Schmerztherapie gravierend.</w:t>
+                <w:t xml:space="preserve"> Diese Erkrankungen erschweren die Schmerztherapie gravierend.</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="00213423">
@@ -15116,9 +15114,7 @@
                     <w:szCs w:val="18"/>
                     <w:highlight w:val="yellow"/>
                 </w:rPr>
-                <w:t>ist im Tonus erhöht und verspannt. Es findet sich eine lokale Allodynie und Hyperpathie der
-                    Schulter-Nacken -Muskulatur.
-                </w:t>
+                <w:t>ist im Tonus erhöht und verspannt. Es findet sich eine lokale Allodynie und Hyperpathie der Schulter-Nacken -Muskulatur.</w:t>
             </w:r>
             <w:r>
                 <w:rPr>
@@ -18351,23 +18347,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> die verha</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00744612">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>l</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00744612">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>tenstherapeutischen Therapiemaßnahmen sowie Verlaufs- und Erfolgskontrollen regelmäßig anzuwe</w:t>
+                <w:t xml:space="preserve"> die verhaltenstherapeutischen Therapiemaßnahmen sowie Verlaufs- und Erfolgskontrollen regelmäßig anzuwe</w:t>
             </w:r>
             <w:r w:rsidRPr="00744612">
                 <w:rPr>

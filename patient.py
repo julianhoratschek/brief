@@ -8,7 +8,11 @@ _text_pattern: re.Pattern = re.compile(r"<w:t(?:\s.*?)?>(.*?)</w:t>")
 
 
 def extract_text(pre_match) -> str:
-    return "".join([text.group(1) for text in _text_pattern.finditer(pre_match)])
+    # return "".join([text.group(1) for text in _text_pattern.finditer(pre_match)])
+    result: list[str] = []
+    for line in pre_match.split("</w:p>"):
+        result.append("".join([text.group(1) for text in _text_pattern.finditer(line)]))
+    return "\n".join(filter(bool, result))
 
 
 class Patient:
@@ -42,7 +46,7 @@ class Patient:
     @classmethod
     def build(cls, admission_file: Path):
         patient = cls()
-        pattern = re.compile(r"<w:tc>.*?<w:p(?:\s.*?)?>(.*?)</w:p>")
+        pattern = re.compile(r"<w:tc>(.*?)</w:tc>")
 
         with ZipFile(admission_file, "r") as zip_file:
             with zip_file.open("word/document.xml") as docx_file:

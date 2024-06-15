@@ -3,7 +3,7 @@ import re
 
 
 from patient import Patient, get_patient_file_matches
-from leterip import ui_get_patient_file
+from gimme import ui_get_patient_file
 
 
 def extract_text(pre_match: str) -> str:
