@@ -1,5 +1,10 @@
 from zipfile import ZipFile
 import re
+from pathlib import Path
+
+
+from patient import Patient, get_patient_file_matches
+from leterip import ui_get_patient_file
 
 
 def extract_text(pre_match: str) -> str:
@@ -15,4 +20,7 @@ def show_all_fields():
                 print(f"{i}: {extract_text(m.group(1))}")
 
 
-show_all_fields()
+# show_all_fields()
+
+if __name__ == '__main__':
+    print(Patient.build(ui_get_patient_file(get_patient_file_matches("bali"))))
