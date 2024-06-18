@@ -1,54 +1,95 @@
-from patient import Patient
-from shutil import copy
-from pathlib import Path
-from zipfile import ZipFile
+from typing import Self, Optional
 
 
-# Paths to templates. This should not be changed.
-template_file: Path = Path("./template.docx")
-document_template_file: Path = Path("./document_template.xml")
-header1_template_file: Path = Path("./header1_template.xml")
-output_folder: Path = Path("./output")
+def melt(it) -> str:
+    return "".join(map(str, it))
 
 
-# Create output folder if necessary
-if not output_folder.exists():
-    output_folder.mkdir()
+class DocxParagraphProperty:
+    pass
 
 
-def write_data(patient: Patient,
-               midas_text: str, whodas_text: str,
-               treatments: str,
-               self_eval_text: str):
+class DocxRunProperty:
+    pass
 
-    # Copy template file with generated name into output-folder
-    file_path: Path = copy(template_file,
-             output_folder / f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx")
 
-    # Read the document text from document template, insert text fields
-    with open(document_template_file, "rb") as xml_file:
-        document_text: str = xml_file.read().decode("utf-8").format(**{
-            "patient_discharge": patient.discharge.strftime('%d.%m.%Y'),
-            "patient_name": f"{patient.first_name} {patient.last_name}",
-            "patient_birthdate": patient.birth_date.strftime("%d.%m.%Y"),
-            "patient_address": patient.address,
-            "patient_admission": patient.admission.strftime("%d.%m."),
-            "assigned_doctor": patient.doctor,
-            "assigned_therapist": patient.psychologist,
-            "midas": midas_text,
-            "whodas": whodas_text,
-            "prev_treatment": treatments,
-            "self_evaluation": self_eval_text,
-        })
+class DocxFontProperty(DocxRunProperty):
+    def __init__(self, font_name: str = "Lucida Sans Unicode"):
+        self.font_name = font_name
 
-    # Read header-data from template file and insert text fields
-    with open(header1_template_file, "rb") as xml_file:
-        header_text: str = xml_file.read().decode("utf-8").format(**{
-            "patient_data": f"{patient.last_name}, {patient.first_name}, *{patient.birth_date.strftime('%d.%m.%Y')}",
-        })
+    def __str__(self):
+        return f'<w:rFonts w:ascii="{self.font_name}" w:hAnsi="{self.font_name}" w:cs="{self.font_name}"/>'
 
-    # Write missing files with generated content to the *.docx file
-    with ZipFile(file_path, "a") as zip_file:
-        zip_file.writestr("word/document.xml", document_text.encode("utf-8"))
-        zip_file.writestr("word/header1.xml", header_text.encode("utf-8"))
+
+class DocxSizeProperty(DocxRunProperty):
+    def __init__(self, value: int = 18):
+        self.value = value
+
+    def __str__(self):
+        return f'<w:sz w:val="{self.value}"/><w:szCs w:val="{self.value}"/>'
+
+
+class DocxRunProperties(DocxParagraphProperty):
+    def __init__(self, properties: list[DocxRunProperty]):
+        self.properties = properties
+
+    def __str__(self):
+        return ("<w:rPr>"
+                + (melt(self.properties) if self.properties else "")
+                + "</w:rPr>")
+
+
+class DocxRun:
+    def __init__(self, text: str = "", properties: DocxRunProperties = None):
+        self.text: str = text
+        self.properties: DocxRunProperties = properties
+
+    def __str__(self):
+        return (f'<w:r>'
+                + (str(self.properties) if self.properties else "")
+                + ('<w:tab/>' if self.text == "\t" else f'<w:t>{self.text}</w:t>')
+                + '</w:r>')
+
+
+class DocxIdentationProperty(DocxParagraphProperty):
+    def __init__(self, left: int, hanging: int = 0):
+        self.left = left
+        self.hanging = hanging
+
+    def __str__(self):
+        return f'<w:ind w:left="{self.left}" w:hanging="{self.hanging}"/>'
+
+
+class DocxJustificationProperty(DocxParagraphProperty):
+    def __init__(self, value: str = "both"):
+        self.value = value
+
+    def __str__(self):
+        return f'<w:jc w:val="{self.value}"/>'
+
+
+class DocxParagraph:
+    def __init__(self, properties: list[DocxParagraphProperty]):
+        self.properties: list[DocxParagraphProperty] = properties
+        self.run_properties: DocxRunProperties | None = None
+        for p in filter(lambda x: isinstance(x, DocxRunProperties), self.properties):
+            self.run_properties = p
+        self.runs: list = []
+
+    def run(self, text: str, properties: DocxRunProperties = None) -> Self:
+        props = self.run_properties if self.run_properties is not None else properties
+
+        while text:
+            text_before, tab, text = text.partition("\t")
+            self.runs.append(DocxRun(text_before, props))
+            if tab:
+                self.runs.append(DocxRun(tab, props))
+
+        return self
+
+    def __str__(self):
+        return ("<w:p>"
+                + (f"<w:pPr>{melt(self.properties)}</w:pPr>" if self.properties else "")
+                + (melt(self.runs))
+                + "</w:p>")
 

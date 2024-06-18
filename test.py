@@ -22,4 +22,10 @@ def show_all_fields():
 # show_all_fields()
 
 if __name__ == '__main__':
-    print(Patient.build(ui_get_patient_file(get_patient_file_matches("bali"))))
+    d1 = {"A": 1, "B": 2, "C": 3, "D": 4, "E": 5}
+    d2 = {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5}
+
+    d3 = {**d1, **d2}
+
+    print(d3)
+

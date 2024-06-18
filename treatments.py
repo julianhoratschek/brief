@@ -4,7 +4,7 @@ class Treatments:
     doctor_list: list[str] = [
         "Akupunktur", "Allgemeinmedizin", "Apotheker", "Versorgung durch Bademeister", "Chiropraxie",
         "Endokrinologie", "Besuche beim Geistheiler", "Dermatologie", "Hypnosen", "Pädiatrie",
-        "Krankenschwester", "Massagen", "Naturheilkundliche Behandlungen", "Neurologie", "Onkologie",
+        "Krankenschwester#ausgelassen", "Massagen", "naturheilkundliche Behandlungen", "Neurologie", "Onkologie",
         "Proktologie", "Psychiatrie", "Psychotherapie", "Rheumatologie", "Urologie",
         "Allergologie", "Anästhesiologie", "Ophthalmologie", "Kardiologie", "Chirurgie",
         "Gynäkologie", "HNO-Heilkunde", "Besuche beim Heilpraktiker", "Internist", "Physiotherapie",
@@ -12,7 +12,7 @@ class Treatments:
         "Priesterkonsultation", "Dipl.-Psychologe", "Radiologie", "Schmerztherapie", "Zahnheilkunde"
     ]
 
-    medical_idx: list[int] = [1, 2, 5, 7, 9, 10, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 30, 31, 32,
+    medical_idx: list[int] = [1, 2, 5, 7, 9, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 30, 31, 32,
                               33, 34, 36, 37, 38, 39]
 
     alt_medicine_idx: list[int] = [0, 3, 4, 6, 8, 12, 27, 35]
@@ -52,7 +52,7 @@ class Treatments:
             + ", ".join([cls.doctor_list[idx] for idx in cls.alt_medicine_idx if choices[idx]]),
 
             ("Zudem betätigte {pat_nom} sich regelmäßig sportlich, erhielt "
-             + "und ".join([cls.doctor_list[idx] for idx in (29, 11) if choices[idx]]) + ".")
+             + " und ".join([cls.doctor_list[idx] for idx in (29, 11) if choices[idx]]) + ".")
             if choices[11] or choices[29] else ""
         )
 
