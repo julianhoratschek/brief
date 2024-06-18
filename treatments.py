@@ -1,5 +1,6 @@
 from patient import Patient
 
+
 class Treatments:
     doctor_list: list[str] = [
         "Akupunktur", "Allgemeinmedizin", "Apotheker", "Versorgung durch Bademeister", "Chiropraxie",
