@@ -2,7 +2,7 @@ from patient import Patient
 from docx import (DocxParagraph, DocxRunProperties,
                   DocxIdentationProperty, DocxJustificationProperty,
                   DocxFontProperty, DocxSizeProperty,
-                  DocxNumberingProperty, DocxTabsProperty, DocxHighlightProperty,
+                  DocxNumberingProperty, DocxTabsProperty, DocxHighlightProperty, DocxRun,
                   DocxBigProperty, melt)
 
 
@@ -35,12 +35,36 @@ def get_inserts(patient: Patient):
     cluster_new_episode = []
     tth_letter_recommendations = []
     overuse_base_recommendations = []
+    overuse_letter_paragraph = DocxParagraph([DocxTabsProperty([1701, 2268, 6804]), jc, rpr18])
+    overuse_letter_definition = []
+    overuse_additional_risk = []
     overuse_letter_recommendations = []
+    overuse_closing_statement = []
 
     for name, icd10 in patient.diagnosis:
         diagnoses_paragraphs.append(DocxParagraph(ppr_diagnoses).run(f"{icd10}\t{name}"))
 
         match icd10:
+            # Misuse of Medication
+            case 'F55.2':
+                hi = rpr18.having(yellow)
+                if not overuse_letter_definition:
+                    overuse_letter_definition.append(overuse_letter_paragraph)
+
+                (overuse_letter_paragraph
+                 .run("Es besteht ein Fehlgebrauch durch nicht-selektive Anwendung der Triptane bei Kopfschmerz "
+                      "vom Spannungstyp und Medikamentenübergebrauchskopfschmerzen. ", hi)
+                 .run("Es besteht ein Fehlgebrauch aufgrund nicht spezifischer Differenzierung der "
+                      "Akutmedikation in der Akutbehandlung der Migräne, Spannungskopfschmerzen und der "
+                      "Intervallkopfschmerzen. ", hi)
+                 .run("Es besteht ein Fehlgebrauch, indem Triptane erst dann eingenommen werden, wenn die "
+                      "Migräneattacke ihre höchste Kopfschmerzintensität erreicht hat. ", hi)
+                 .run("Es besteht ein Fehlgebrauch aufgrund Wiederholung des primär eingesetzten Triptans "
+                      "bei primärer Unwirksamkeit im Anfall. ", hi)
+                 .run("Es besteht ein Fehlgebrauch bei der Anwendung von Escape-Medikation bei primärer "
+                      "Unwirksamkeit des Triptans. ", hi)
+                 .run("Bei status migraenosus werden über 5 Tage täglich Schmerzmitteln und Triptane eingesetzt.", hi))
+
             # Migraine with aura
             case 'G43.1':
                 migraine_with_aura_letter_recommendations = [
@@ -89,7 +113,7 @@ def get_inserts(patient: Patient):
                                                "ausdosieren. Dosisreduktion von Verapamil nach Absetzen des Lithiums "
                                                "von weiteren 4-6 attackenfreien Wochen, hierbei nur schrittweise "
                                                "ausdosieren. Bei erneutem Ausbruch von Clusterattacken erneute "
-                                               "schrittweise Aufdosierung"),
+                                               "schrittweise Aufdosierung", rpr16.having(yellow)),
                     DocxParagraph(ppr_num).run("Die Bestimmung des Serumlithiumspiegels sollte in den ersten 4 Wochen "
                                                "wöchentlich vorgenom-men werden, danach ggf. bei weiterer Einnahme im "
                                                "ersten halben Jahr 1x monatlich und später im vierteljährlichen "
@@ -105,8 +129,9 @@ def get_inserts(patient: Patient):
                                                "Konzentrationsleistung, Desmopressin-Test und eine vierteljährliche "
                                                "Messung von Körpergewicht und Halsumfang. Bitte kardiologische "
                                                "Kontrolluntersuchung mit Echokardiographie, Langzeit- und "
-                                               "Belastungs-EKG zeitnah durchführen lassen"),
+                                               "Belastungs-EKG zeitnah durchführen lassen", rpr16.having(yellow)),
                 ]
+
                 cluster_new_episode = [
                     DocxParagraph(ppr_big).run("Vorgehen bei neuer aktiver Clusterperiode"),
                     DocxParagraph(ppr_big),
@@ -149,6 +174,7 @@ def get_inserts(patient: Patient):
                     DocxParagraph(ppr18),
                     DocxParagraph(ppr18),
                 ]
+
                 cluster_letter_recommendations = [
                     DocxParagraph(ppr18_jc).run("Die Dosierung des Verapamil retard (Isoptin®) sollte dem "
                                                "Krankheitsverlauf angepasst werden. Bei unzureichender Wirkung kann "
@@ -226,13 +252,30 @@ def get_inserts(patient: Patient):
                                           .run("Analgetikapause für insgesamt vier Wochen", rpr18.having(DocxBigProperty()))
                                           .run(". Medikamentenpause heißt: Alle Medikamente für die Akutbehandlung von "
                                                "Kopfschmerzen dürfen für einen bestimmten Zeitraum nicht eingenommen "
-                                               "werden. Die Pause hat nach spätestens vier bis sechs Wochen  ihr Ziel "
+                                               "werden. Die Pause hat nach spätestens vier bis sechs Wochen ihr Ziel "
                                                "erreicht und kann beendet werden. Attacken können dann wieder mit "
                                                "Akutmedikation behandelt werden. Eine medikamentöse Attackentherapie "
                                                "kann auch dann wieder beginnen. Nach Abschluss der Analgetikapause "
                                                "sollte eine Reevaluation der Kopfschmerzen und entsprechende "
                                                "Diagnosesicherung erfolgen.")
                 ]
+
+                if not overuse_letter_definition:
+                    overuse_letter_definition.append(overuse_letter_paragraph)
+
+                # Prepend Overuse sentence in paragraph
+                overuse_letter_paragraph.runs.insert(0, DocxRun(
+                    "Der Einsatz von Schmerzmitteln und/oder Triptanen an mehr als 10 Tagen "
+                    "im Monat überschreitet die Grenzschwellen für die Entstehung von "
+                    "Kopfschmerzen bei Medikamentenübergebrauch. ", rpr18))
+
+                overuse_additional_risk = [
+                    DocxRun("Eine analgetische Behandlung dieser ebenfalls mit Schmerzen einhergehenden "
+                            "Erkrankungen interferiert gravierend mit der Behandlung der chronischen Migräne. "
+                            "Es besteht eine Aufrechterhaltung und weitere Verstärkung des sowieso bestehenden "
+                            "Kopfschmerzes bei Medikamentenübergebrauch.", rpr18)
+                ]
+
                 overuse_letter_recommendations = [
                     DocxParagraph(ppr_hi).run("Mit Cortison:", rpr18_hi.having(big)),
                     DocxParagraph(ppr_hi).run("Wir führten eine konsequente ")
@@ -252,6 +295,13 @@ def get_inserts(patient: Patient):
                                               "zur Schmerzdistanzierung.")
                 ]
 
+                overuse_closing_statement = [
+                    DocxParagraph(ppr_hi).run("Des Weiteren empfehlen wir die ambulante Fortführung der ")
+                                         .run("Analgetikapause für insgesamt vier Wochen", rpr18_hi.having(big))
+                                         .run(patient.gender.apply(". In dieser Phase kann es sinnvoll sein {pat_nom} "
+                                                                   "arbeitsunfähig zu schreiben."))
+                ]
+
     return {
         "insert_diagnoses": melt(diagnoses_paragraphs),
         "migraine_with_aura_letter_recommendations": melt(migraine_with_aura_letter_recommendations),
@@ -260,6 +310,9 @@ def get_inserts(patient: Patient):
         "cluster_letter_recommendations": melt(cluster_letter_recommendations),
         "tth_letter_recommendations": melt(tth_letter_recommendations),
         "overuse_base_recommendations": melt(overuse_base_recommendations),
+        "overuse_letter_definition": melt(overuse_letter_definition),
+        "overuse_additional_risk": melt(overuse_additional_risk),
         "overuse_letter_recommendations": melt(overuse_letter_recommendations),
+        "overuse_closing_statement": melt(overuse_closing_statement)
     }
 

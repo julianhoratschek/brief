@@ -17,7 +17,7 @@ if not output_folder.exists():
     output_folder.mkdir()
 
 
-def write_data(appellation: str, patient: Patient,
+def write_data(patient: Patient,
                midas_text: str, whodas_text: str,
                treatments: str,
                self_eval_text: str):
@@ -29,7 +29,7 @@ def write_data(appellation: str, patient: Patient,
     # Read the document text from document template, insert text fields
     with open(document_template_file, "rb") as xml_file:
         document_text: str = xml_file.read().decode("utf-8").format(**{
-            "patient_appellation": f"{appellation} {patient.last_name}",
+            "patient_appellation": patient.gender.apply(f"{{pat_appell}} {patient.last_name}"),
             "patient_discharge": patient.discharge.strftime('%d.%m.%Y'),
             "patient_name": f"{patient.first_name} {patient.last_name}",
             "patient_birthdate": patient.birth_date.strftime("%d.%m.%Y"),
@@ -37,12 +37,13 @@ def write_data(appellation: str, patient: Patient,
             "patient_admission": patient.admission.strftime("%d.%m."),
             "assigned_doctor": patient.doctor,
             "assigned_therapist": patient.psychologist,
-            "midas": midas_text,
-            "whodas": whodas_text,
-            "prev_treatments": treatments,
-            "self_evaluation": self_eval_text,
+            "midas": patient.gender.apply(midas_text),
+            "whodas": patient.gender.apply(whodas_text),
+            "prev_treatments": patient.gender.apply(treatments),
+            "self_evaluation": patient.gender.apply(self_eval_text),
             "patient_allergies": patient.allergies,
-            **get_inserts(patient)
+            **get_inserts(patient),
+            **patient.gender.gender_dict
         })
 
     # Read header-data from template file and insert text fields

@@ -1,5 +1,5 @@
 from patient import Patient, get_patient_file_matches
-from gender import apply_male_gender, apply_female_gender
+from gender import Gender
 from scores import get_midas, get_whodas, get_depression_score, get_personality_score
 from treatments import Treatments
 from template_writer import write_data
@@ -70,11 +70,9 @@ if __name__ == "__main__":
         get_patient_file_matches(
             input("Nachname des Patienten: ").lower()))
 
-    # Retrieve data from admission file
-    patient: Patient = Patient(patient_file)
-
-    # Determine gender of patient to apply to each text
-    apply_gender = apply_male_gender if input("Geschlecht: ").lower() == "m" else apply_female_gender
+    # Retrieve data from admission file and determine gender
+    patient: Patient = Patient(patient_file,
+                               Gender(Gender.Male if input("Geschlecht: ").lower() == "m" else Gender.Female))
 
     # Prompt user for MIDAS-score
     midas: str = ensure_input(get_midas, numbers_list, "MIDAS-Score [5 Zahlen]: ", "12345")
@@ -99,11 +97,11 @@ if __name__ == "__main__":
     treatments.set_medication(patient)
 
     # Generate letter from data
-    write_data(apply_gender("{pat_appell}"), patient,
-               apply_gender(midas),
-               apply_gender(whodas),
-               apply_gender(str(treatments)),
-               apply_gender(f"{eval_depression}. {eval_personality}"))
+    write_data(patient,
+               midas,
+               whodas,
+               str(treatments),
+               f"{eval_depression}. {eval_personality}")
 
 
 

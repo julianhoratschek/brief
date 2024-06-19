@@ -4,6 +4,8 @@ from pathlib import Path
 from operator import itemgetter
 from zipfile import ZipFile
 
+from gender import Gender
+
 _text_pattern: re.Pattern = re.compile(r"<w:t(?:\s.*?)?>(.*?)</w:t>")
 
 
@@ -23,10 +25,10 @@ def extract_diagnosis(text: str) -> list[tuple[str, str]]:
 class Patient:
     db_path: Path = Path(".")
 
-    def __init__(self, admission_file: Path, addr: str = "Frau"):
+    def __init__(self, admission_file: Path, gender: Gender):
         self.first_name: str = ""
         self.last_name: str = ""
-        self.appellation: str = addr
+        self.gender: Gender = gender
         self.address: str = ""
         self.doctor: str = ""
         self.psychologist: str = ""

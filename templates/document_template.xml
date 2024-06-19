@@ -933,6 +933,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="yellow"/>
                             </w:rPr>
                             <w:t xml:space="preserve">[Arzt]</w:t>
                         </w:r>
@@ -953,6 +954,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="yellow"/>
                             </w:rPr>
                             <w:t>[Facharztbezeichnung]</w:t>
                         </w:r>
@@ -973,6 +975,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="yellow"/>
                             </w:rPr>
                             <w:t>[Adresse]</w:t>
                         </w:r>
@@ -993,6 +996,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="yellow"/>
                             </w:rPr>
                             <w:t>[PLZ Ort]</w:t>
                         </w:r>
@@ -1540,7 +1544,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve">berichten über die stationäre multimodale schmerztherapeutische Behandlung der o.g. Patientin. </w:t>
+                <w:t xml:space="preserve">berichten über die stationäre multimodale schmerztherapeutische Behandlung von {patient_appellation}. </w:t>
             </w:r>
             <w:r w:rsidRPr="00CC4D4A">
                 <w:rPr>
@@ -1782,6 +1786,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="yellow"/>
                             </w:rPr>
                             <w:t xml:space="preserve">[Oberarzt]</w:t>
                         </w:r>
@@ -6260,7 +6265,7 @@
                                 <w:sz w:val="16"/>
                                 <w:szCs w:val="16"/>
                             </w:rPr>
-                            <w:t>Der Patient / Die Patientin wurde auf die eingeschränkte Reaktionsfähigkeit
+                            <w:t>{pat_nom} wurde auf die eingeschränkte Reaktionsfähigkeit
                                 insbesondere während der Eindosierungsphase durch o.g. Medikation hingewiesen sowie eine
                                 hierdurch bedingte mögliche Beei
                             </w:t>
@@ -6463,7 +6468,7 @@
                                 <w:szCs w:val="16"/>
                                 <w:highlight w:val="yellow"/>
                             </w:rPr>
-                            <w:t>Der Patient / Die Patientin</w:t>
+                            <w:t>{pat_nom}</w:t>
                         </w:r>
                         <w:r>
                             <w:rPr>
@@ -11725,7 +11730,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>schmerz vom Spannungstyp, der ebenfalls in der Häufigkeit zunahm. Seit vielen Jahren tritt dieser nach zunächst episodischem Beginn in der chronischen Verlaufsform als Dauerkopfschmerz auf. Insgesamt ist die Patientin zu keinem Zeitpunkt schmerzfrei. Die Kriterien einer chronischen Migräne nach ICHD-</w:t>
+                <w:t>schmerz vom Spannungstyp, der ebenfalls in der Häufigkeit zunahm. Seit vielen Jahren tritt dieser nach zunächst episodischem Beginn in der chronischen Verlaufsform als Dauerkopfschmerz auf. Insgesamt ist {pat_nom} zu keinem Zeitpunkt schmerzfrei. Die Kriterien einer chronischen Migräne nach ICHD-</w:t>
             </w:r>
             <w:r>
                 <w:rPr>
@@ -11951,86 +11956,7 @@
                 </w:rPr>
             </w:pPr>
         </w:p>
-        <w:p w:rsidR="00877D06" w:rsidRPr="00213423" w:rsidRDefault="00877D06" w:rsidP="00213423">
-            <w:pPr>
-                <w:tabs>
-                    <w:tab w:val="left" w:pos="1701"/>
-                    <w:tab w:val="left" w:pos="2268"/>
-                    <w:tab w:val="left" w:pos="6804"/>
-                </w:tabs>
-                <w:jc w:val="both"/>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-            </w:pPr>
-            <w:r w:rsidRPr="00213423">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">Der Einsatz von </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>..............</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00213423">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve"> an mehr als 10 Tagen im Monat überschreitet die Grenzschwellen für die Entstehung von Kopfschmerzen bei Medikamentenübergebrauch. Es besteht ein Fehlgebrauch durch </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00213423">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:lastRenderedPageBreak/>
-                <w:t>nicht-selektive Anwendung der Triptane bei Kopfschmerz vom Spannungstyp und Medikamentenübe</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00213423">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>r</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00213423">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>gebrauchskopfschmerzen. Es besteht ein Fehlgebrauch aufgrund nicht spezifischer Differenzierung der Akutmedikation in der Akutbehandlung der Migräne, Spannungskopfschmerzen und der Intervallkop</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00213423">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>f</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00213423">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>schmerzen. Es besteht ein Fehlgebrauch indem Triptane erst dann eingenommen werden, wenn die Migräneattacke ihre höchste Kopfschmerzintensität erreicht hat. Es besteht ein Fehlgebrauch aufgrund Wiederholung des primär eingesetzten Triptans bei primärer Unwirksamkeit im Anfall. Es besteht ein Fehlgebrauch bei der Anwendung von Escape-Medikation bei primärer Unwirksamkeit des Triptans. Bei status migraenosus werden über 5 Tage täglich Schmerzmitteln und Triptane eingesetzt.</w:t>
-            </w:r>
-        </w:p>
+        {overuse_letter_definition}
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="00213423">
             <w:pPr>
                 <w:tabs>
@@ -12104,7 +12030,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve">Bei der Patientin besteht </w:t>
+                <w:t xml:space="preserve">Bei {pat_dat} besteht </w:t>
             </w:r>
             <w:r w:rsidRPr="00213423">
                 <w:rPr>
@@ -12114,39 +12040,14 @@
                 </w:rPr>
                 <w:t xml:space="preserve">ein myofasziales Schmerzsyndrom und eine oromandibuläre Dysfunktion. </w:t>
             </w:r>
-            <w:r w:rsidRPr="00690B32">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="green"/>
-                </w:rPr>
-                <w:t>MÜK:</w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve"> </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00690B32">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t>Eine analgetische Behandlung dieser ebenfalls mit Schmerzen einhergehenden Erkrankungen interferiert gravierend mit der Behandlung der chronischen Migräne. Es besteht eine Aufrechterhaltung und weite-re Verstärkung des sowieso bestehenden Kopfschmerzes bei Medikamentenübergebrauch.</w:t>
-            </w:r>
+            {overuse_additional_risk}
             <w:r w:rsidRPr="00213423">
                 <w:rPr>
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> Diese Erkran-kungen erschweren die Schmerztherapie gravierend.</w:t>
+                <w:t xml:space="preserve"> Diese Erkrankungen erschweren die Schmerztherapie gravierend.</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="00213423">
@@ -12194,7 +12095,16 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> {patient_appellation} ist ledig, habe keine Kinder. Sie sei als Erzieherin in Vollzeit in einer Ki</w:t>
+                <w:t xml:space="preserve"> {patient_appellation} ist ledig, habe keine Kinder. </w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
+                    <w:sz w:val="18"/>
+                    <w:szCs w:val="18"/>
+                    <w:highlight w:val="yellow"/>
+                </w:rPr>
+                <w:t>{patient_appellation} arbeite als [Beruf].</w:t>
             </w:r>
             <w:r>
                 <w:rPr>
@@ -12202,15 +12112,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>n</w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">dertagesstätte angestellt. Eine Schwerbehinderung wurde bisher nicht beantragt. Es findet sich eine deutliche Beeinträchtigung der Alltagstauglichkeit sowie der Teilnahme am gesellschaftlichen Leben und der Arbeitsfähigkeit. </w:t>
+                <w:t xml:space="preserve"> Eine Schwerbehinderung wurde bisher nicht beantragt. Es findet sich eine deutliche Beeinträchtigung der Alltagstauglichkeit sowie der Teilnahme am gesellschaftlichen Leben und der Arbeitsfähigkeit. </w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="006B4EC6">
@@ -12231,7 +12133,6 @@
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="0099148E">
             <w:pPr>
                 <w:jc w:val="both"/>
-                <w:outlineLvl w:val="0"/>
                 <w:rPr>
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:b/>
@@ -12297,7 +12198,6 @@
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="0099148E">
             <w:pPr>
                 <w:jc w:val="both"/>
-                <w:outlineLvl w:val="0"/>
                 <w:rPr>
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:b/>
@@ -12730,7 +12630,7 @@
                     <w:szCs w:val="18"/>
                     <w:highlight w:val="yellow"/>
                 </w:rPr>
-                <w:t xml:space="preserve">Die Patientin raucht nicht und trinkt keinen Alkohol. </w:t>
+                <w:t xml:space="preserve">{pat_nom} raucht nicht und trinkt keinen Alkohol. </w:t>
             </w:r>
             <w:r w:rsidRPr="0099148E">
                 <w:rPr>
@@ -12932,15 +12832,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>Der Patient/D</w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">ie Patientin ist bewusstseinsklar und zu allen Qualitäten orientiert. </w:t>
+                <w:t>{pat_nom} ist bewusstseinsklar und zu allen Qualitäten orientiert. </w:t>
             </w:r>
             <w:r>
                 <w:rPr>
@@ -13056,7 +12948,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve">die Patientin ist </w:t>
+                <w:t xml:space="preserve">{pat_nom} ist </w:t>
             </w:r>
             <w:r w:rsidRPr="001C512A">
                 <w:rPr>
@@ -14022,7 +13914,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> der Kopfschmerzen erhielt die Patientin das trizyklische Antidepress</w:t>
+                <w:t xml:space="preserve"> der Kopfschmerzen erhielt {pat_nom} das trizyklische Antidepress</w:t>
             </w:r>
             <w:r w:rsidRPr="00851205">
                 <w:rPr>
@@ -14107,7 +13999,7 @@
                     <w:szCs w:val="18"/>
                     <w:highlight w:val="yellow"/>
                 </w:rPr>
-                <w:t>Zur Prophylaxe der Migräne erhielt die Patientin die hochdosierten Nahrungsergänzungsmittel Vitamin B2 und Magnesium.</w:t>
+                <w:t>Zur Prophylaxe der Migräne erhielt {pat_nom} die hochdosierten Nahrungsergänzungsmittel Vitamin B2 und Magnesium.</w:t>
             </w:r>
             <w:r>
                 <w:rPr>
@@ -15000,27 +14892,8 @@
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
                 </w:rPr>
-                <w:t xml:space="preserve">In den Einzeltherapiesitzungen als auch in der Gruppenbehandlung zeigte sich eine </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t>hohe</w:t>
-            </w:r>
-            <w:r w:rsidRPr="0010224B">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t xml:space="preserve"> Motivation, die erlernten Techniken im Alltag anzuwenden.</w:t>
+                <w:t xml:space="preserve">In den Einzeltherapiesitzungen als auch in der Gruppenbehandlung zeigte sich eine hohe Motivation, die erlernten Techniken im Alltag anzuwenden.</w:t>
             </w:r>
             <w:r w:rsidRPr="00744612">
                 <w:rPr>
@@ -15028,130 +14901,10 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> Wir empfehlen nach dem Klinikaufenthalt</w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>,</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00744612">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve"> die verha</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00744612">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>l</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00744612">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>tenstherapeutischen Therapiemaßnahmen sowie Verlaufs- und Erfolgskontrollen regelmäßig anzuwe</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00744612">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>n</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00744612">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>den und fortzuführen.</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00E27723">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve"> </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00E27723">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t xml:space="preserve">Des Weiteren empfehlen </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t xml:space="preserve">wir die </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00E27723">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t xml:space="preserve">ambulante Fortführung der </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00E27723">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t>Analgetikapause für insgesamt vier Wochen</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00E27723">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t xml:space="preserve">. In dieser Phase </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t>kann es sinnvoll sein</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00E27723">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t xml:space="preserve"> die Patientin arbeitsunfähig zu schreiben.</w:t>
+                <w:t xml:space="preserve"> Wir empfehlen nach dem Klinikaufenthalt die verhaltenstherapeutischen Therapiemaßnahmen sowie Verlaufs- und Erfolgskontrollen regelmäßig anzuwenden und fortzuführen.</w:t>
             </w:r>
         </w:p>
+        {overuse_closing_statement}
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="008200BE">
             <w:pPr>
                 <w:jc w:val="both"/>
