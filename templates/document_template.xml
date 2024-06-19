@@ -13195,8 +13195,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>Normbefunde für alle routinemäßig erhobenen Laborparameter (kleines Blutbild, Kreatinin, GOT, GPT,
-                    y-GT). Außerhalb des Normbereiches lagen ………..
+                <w:t>Normbefunde für alle routinemäßig erhobenen Laborparameter (kleines Blutbild, Kreatinin, GOT, GPT, y-GT). Außerhalb des Normbereiches lagen ………..
                 </w:t>
             </w:r>
         </w:p>
@@ -13309,8 +13308,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>Normbefunde für alle routinemäßig erhobenen Laborparameter (kleines Blutbild, Kreatinin, GOT, GPT,
-                    y-GT). Außerhalb des Normbereiches lagen ………..
+                <w:t>Normbefunde für alle routinemäßig erhobenen Laborparameter (kleines Blutbild, Kreatinin, GOT, GPT, y-GT). Außerhalb des Normbereiches lagen ………..
                 </w:t>
             </w:r>
         </w:p>
@@ -14053,7 +14051,7 @@
                     <w:szCs w:val="18"/>
                     <w:highlight w:val="lightGray"/>
                 </w:rPr>
-                <w:t>..................</w:t>
+                <w:t>{pat_nom}</w:t>
             </w:r>
             <w:r w:rsidRPr="003B614F">
                 <w:rPr>

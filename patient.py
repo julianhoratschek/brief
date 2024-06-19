@@ -52,7 +52,6 @@ class Patient:
                         # First name, last Name
                         case 0:
                             self.last_name, self.first_name = extract_text(m.group(1)).split(", ")
-                            self.appellation = self.appellation + f" {self.last_name}"
 
                         # Birth Date
                         case 1:
