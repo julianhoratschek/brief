@@ -6,7 +6,7 @@ from docx import (DocxParagraph, DocxRunProperties,
                   DocxBigProperty, melt)
 
 
-def get_inserts(patient: Patient):
+def get_diagnosis_inserts(patient: Patient):
     # Paragraph Properties
     jc = DocxJustificationProperty()
     num = DocxNumberingProperty(0, 21)

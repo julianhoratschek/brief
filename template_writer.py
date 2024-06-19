@@ -1,5 +1,6 @@
 from patient import Patient
-from diagnosis_inserts import get_inserts
+from diagnosis_inserts import get_diagnosis_inserts
+from medication_inserts import get_medication_inserts
 from shutil import copy
 from pathlib import Path
 from zipfile import ZipFile
@@ -42,7 +43,8 @@ def write_data(patient: Patient,
             "prev_treatments": patient.gender.apply(treatments),
             "self_evaluation": patient.gender.apply(self_eval_text),
             "patient_allergies": patient.allergies,
-            **get_inserts(patient),
+            **get_diagnosis_inserts(patient),
+            **get_medication_inserts(patient),
             **patient.gender.gender_dict
         })
 

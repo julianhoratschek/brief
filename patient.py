@@ -22,6 +22,50 @@ def extract_diagnosis(text: str) -> list[tuple[str, str]]:
     return [(m.group(1), m.group(2)) for m in pattern.finditer(text)]
 
 
+def extract_medication_strings(pre_match: re.Match) -> list[str]:
+    return [medication.strip()
+            for meds in extract_text(pre_match.group(1)).splitlines()[1:]
+            for medication in meds.split(",")]
+
+
+class Medication:
+    def __init__(self, name: str, amount: str = "", unit: str = "", taken: list[str] | None = None):
+        self.name = name
+        self.amount = amount
+        self.unit = unit
+        self.taken: list[str] = taken
+
+    def has_intake_times(self) -> bool:
+        return self.taken is not None
+
+    def destructure_taken(self) -> tuple[str, str, str, str]:
+        if self.taken is None:
+            return '', '', '', ''
+
+        for _ in range(len(self.taken), 4):
+            self.taken.append('0')
+
+        return self.taken[0], self.taken[1], self.taken[2], self.taken[3]
+
+    def __str__(self):
+        return f"{self.name} {self.amount}[{self.unit}]\t{'\t-\t'.join(self.taken) if self.taken else ''}"
+
+
+def extract_medication_objects(pre_match: re.Match) -> list[Medication]:
+    # medication_pattern = re.compile(r"([a-zA-Z\s\-]*?)\s+([\d,./]+)\s*(.*?)\s+([\d\s,./\-]+)")
+    medication_pattern = re.compile(r"([a-zA-Z\s\-]*?)\s+([\d,./]+)\s*(.*?)\s+([\d\s,./]+(?:-[\d\s,./]+)+)")
+    medication = []
+
+    for line in extract_text(pre_match.group(1)).splitlines()[1:]:
+        if meds := medication_pattern.search(line):
+            medication.append(Medication(meds.group(1), meds.group(2), meds.group(3),
+                                         list(map(lambda s: s.strip(), meds.group(4).split("-")))))
+            continue
+        medication.append(Medication(line))
+
+    return medication
+
+
 class Patient:
     db_path: Path = Path(".")
 
@@ -36,6 +80,10 @@ class Patient:
 
         self.former_acute_medication: list[str] = []
         self.former_basis_medication: list[str] = []
+
+        # self.current_acute_medication: list[Medication] = []
+        self.current_basis_medication: list[Medication] = []
+        self.current_other_medication: list[Medication] = []
 
         self.diagnosis: list[tuple[str, str]] = []
 
@@ -97,22 +145,22 @@ class Patient:
                         case 45:
                             self.diagnosis.extend(extract_diagnosis(extract_text(m.group(1))))
 
-                        case 53:
-                            # TODO med basis aktuell
-                            pass
+                        # Current Base Medication
+                        case 52:
+                            self.current_basis_medication = extract_medication_objects(m)
+
+                        # Current Other Medication
                         case 55:
-                            # TODO sonstige meds
-                            pass
+                            self.current_other_medication = extract_medication_objects(m)
 
+                        # Former Acute Medication
                         case 58:
-                            self.former_acute_medication = [medication.strip()
-                                                            for meds in extract_text(m.group(1)).splitlines()[1:]
-                                                            for medication in meds.split(",")]
+                            self.former_acute_medication = extract_medication_strings(m)
 
+                        # Former Base Medication
                         case 59:
-                            self.former_basis_medication = [medication.strip()
-                                                            for meds in extract_text(m.group(1)).splitlines()[1:]
-                                                            for medication in meds.split(",")]
+                            self.former_basis_medication = extract_medication_strings(m)
+
                         case 60:
                             break
 

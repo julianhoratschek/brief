@@ -2334,6 +2334,7 @@
                     </w:p>
                 </w:tc>
             </w:tr>
+            {base_medication}
             <w:tr w:rsidR="00877D06" w:rsidRPr="00166F0D">
                 <w:tc>
                     <w:tcPr>
@@ -2360,6 +2361,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="yellow"/>
                             </w:rPr>
                             <w:t xml:space="preserve">Trimipramin </w:t>
                         </w:r>
@@ -2542,6 +2544,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="yellow"/>
                             </w:rPr>
                             <w:t xml:space="preserve">Magnesium </w:t>
                         </w:r>
@@ -2724,6 +2727,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="yellow"/>
                             </w:rPr>
                             <w:t>Vitamin B2</w:t>
                         </w:r>
@@ -9066,6 +9070,7 @@
                     </w:p>
                 </w:tc>
             </w:tr>
+            {other_medication}
             <w:tr w:rsidR="00877D06" w:rsidRPr="00166F0D">
                 <w:tc>
                     <w:tcPr>

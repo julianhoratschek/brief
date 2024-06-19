@@ -1,8 +1,5 @@
 from typing import Self, Optional
-
-
-def melt(it) -> str:
-    return "".join(map(str, it))
+from .util import melt
 
 
 class DocxParagraphProperty:
