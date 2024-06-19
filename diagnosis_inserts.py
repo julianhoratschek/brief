@@ -2,20 +2,30 @@ from patient import Patient
 from docx import (DocxParagraph, DocxRunProperties,
                   DocxIdentationProperty, DocxJustificationProperty,
                   DocxFontProperty, DocxSizeProperty,
-                  DocxNumberingProperty, DocxTabsProperty,
+                  DocxNumberingProperty, DocxTabsProperty, DocxHighlightProperty,
                   DocxBigProperty, melt)
 
 
 def get_inserts(patient: Patient):
-    font = DocxFontProperty()
+    # Paragraph Properties
     jc = DocxJustificationProperty()
+    num = DocxNumberingProperty(0, 21)
+
+    # Run Properties
+    font = DocxFontProperty()
     size18 = DocxSizeProperty(18)
+    size16 = DocxSizeProperty(16)
+    yellow = DocxHighlightProperty("yellow")
+    big = DocxBigProperty()
 
     rpr18 = DocxRunProperties([font, size18])
+    rpr16 = DocxRunProperties([font, size16])
 
     ppr_diagnoses = [DocxIdentationProperty(1134, 1134),
                      jc,
                      rpr18]
+    ppr18 = [rpr18]
+    ppr18_jc = [jc, rpr18]
 
     diagnoses_paragraphs: list[DocxParagraph] = []
 
@@ -24,6 +34,8 @@ def get_inserts(patient: Patient):
     cluster_letter_recommendations = []
     cluster_new_episode = []
     tth_letter_recommendations = []
+    overuse_base_recommendations = []
+    overuse_letter_recommendations = []
 
     for name, icd10 in patient.diagnosis:
         diagnoses_paragraphs.append(DocxParagraph(ppr_diagnoses).run(f"{icd10}\t{name}"))
@@ -32,25 +44,22 @@ def get_inserts(patient: Patient):
             # Migraine with aura
             case 'G43.1':
                 migraine_with_aura_letter_recommendations = [
-                    DocxParagraph([rpr18]).run("Bei ")
-                                          .run("Migräne mit Aura", rpr18.having(DocxBigProperty()))
-                                          .run(" ist der Einsatz von Triptanen während einer Aura kontraindiziert. "
-                                               "Hier empfiehlt sich die Einnahme von Akutanalgetika wie "
-                                               "Novaminsulfon® (Metamizol) 40° bis zu 4x täglich. Alternativ ist "
-                                               "Diclofenac 20°, maximal 3x täglich möglich. Nach sicher abgeklungener "
-                                               "Aurasymptomatik kann der Einsatz von Triptanen erfolgen.")
+                    DocxParagraph(ppr18).run("Bei ")
+                                        .run("Migräne mit Aura", rpr18.having(big))
+                                        .run(" ist der Einsatz von Triptanen während einer Aura kontraindiziert. "
+                                             "Hier empfiehlt sich die Einnahme von Akutanalgetika wie "
+                                             "Novaminsulfon® (Metamizol) 40° bis zu 4x täglich. Alternativ ist "
+                                             "Diclofenac 20°, maximal 3x täglich möglich. Nach sicher abgeklungener "
+                                             "Aurasymptomatik kann der Einsatz von Triptanen erfolgen.")
                 ]
 
             # Cluster
             case 'G44.0':
-                ppr_num = [DocxNumberingProperty(0, 21),
+                ppr_num = [num,
                            DocxTabsProperty([743, 6804]),
-                           DocxRunProperties([font, DocxSizeProperty(16)])]
+                           rpr16]
 
-                ppr_ltr = [jc, rpr18]
-
-                ppr_big = [DocxRunProperties([font, size18, DocxBigProperty()])]
-                ppr18 = [DocxRunProperties([font, size18])]
+                ppr_big = [rpr18.having(big)]
 
                 cluster_base_recommendations = [
                     DocxParagraph(ppr_num).run("Kontinuierlich Kopfschmerzkalender führen"),
@@ -141,7 +150,7 @@ def get_inserts(patient: Patient):
                     DocxParagraph(ppr18),
                 ]
                 cluster_letter_recommendations = [
-                    DocxParagraph(ppr_ltr).run("Die Dosierung des Verapamil retard (Isoptin®) sollte dem "
+                    DocxParagraph(ppr18_jc).run("Die Dosierung des Verapamil retard (Isoptin®) sollte dem "
                                                "Krankheitsverlauf angepasst werden. Bei unzureichender Wirkung kann "
                                                "ggf. eine weitere Dosissteigerung unter Beachtung vom "
                                                "Verträglichkeits- und Nebenwirkungsspektrum erfolgen, die Tagesdosis "
@@ -150,8 +159,8 @@ def get_inserts(patient: Patient):
                                                "Echokardiographie sowie bei jeder Dosissteigerung. Dosisreduktion des "
                                                "Verapamils nach 6-8 attackenfreien Wochen, hierbei schrittweise "
                                                "Ausdosieren."),
-                    DocxParagraph(ppr_ltr),
-                    DocxParagraph(ppr_ltr).run("Die Attackenbehandlung des Clusterkopfschmerzes kann durch Inhalation "
+                    DocxParagraph(ppr18_jc),
+                    DocxParagraph(ppr18_jc).run("Die Attackenbehandlung des Clusterkopfschmerzes kann durch Inhalation "
                                                "von Sauerstoff 15 l/min über 15 Minuten unter Verwendung einer "
                                                "Gesichtsmaske sowie bei Wirkungslosigkeit durch die Verwendung eines "
                                                "Triptans mit schnellem Wirkungseintritt, z.B. Migra-Pen® (Sumatriptan "
@@ -166,46 +175,81 @@ def get_inserts(patient: Patient):
 
             # Tension Type Headache
             case 'G44.2':
-                rpr = DocxRunProperties([font, size18])
-                ppr18 = [jc, rpr]
-                big_prop = DocxBigProperty()
-
                 tth_letter_recommendations = [
-                    DocxParagraph(ppr18).run("Bei der Behandlung chronischer ")
-                                        .run("Kopfschmerzen vom Spannungstyp", rpr.having(big_prop))
-                                        .run(" sind Verhaltensmaßnahmen in Form von Stressreduktion, "
-                                             "Entspannungsverfahren, Sporttherapie, Biofeedback, Wärmeanwendungen, "
-                                             "Massageanwendungen sowie ggf. eine Behandlung einer oromandibulären "
-                                             "Dysfunktion ein zentraler Baustein."),
-                    DocxParagraph(ppr18),
-                    DocxParagraph(ppr18).run("Die hier vermittelten nicht-medikamentöse Therapieoptionen bei ")
-                                        .run("Kopfschmerzen vom Spannungstyp", rpr.having(big_prop))
-                                        .run(" sollten auch ambulant fortgesetzt werden. "
-                                             "Diese beinhalten eine Reduktion psychischer Stressoren, eine Reduktion "
-                                             "muskulärer Stressoren, die Behandlung von Angst und Depression sowie die "
-                                             "Therapie einer oromandibulären Dysfunktion. Die diesbezüglichen "
-                                             "Strategien schließen Entspannungsverfahren wie die Progressive "
-                                             "Muskelrelaxation, im Biofeedback erlernte Strategien, "
-                                             "Stressbewältigungskompetenzen, Lerneinheiten aus Patientenseminaren "
-                                             "sowie sporttherapeutische Aktivitäten ein. Physikalische "
-                                             "Therapiemaßnahmen umfassen die Thermotherapie, Physiotherapie, "
-                                             "TENS-Behandlung sowie Reiztherapie. Üblicherweise ist der chronische "
-                                             "Kopfschmerz vom Spannungstyp nur nach mehrmonatiger intensiver und "
-                                             "nachhaltiger Behandlung zu verbessern."),
-                    DocxParagraph(ppr18),
-                    DocxParagraph(ppr18).run("Kopfschmerzen vom Spannungstyp", rpr.having(big_prop))
-                                        .run(" sollten möglichst nur in Ausnahmefällen, "
-                                             "maximal jedoch an 10 Tagen im Monat analgetisch behandelt werden, um die "
-                                             "Entstehung eines medikamenteninduzierten Dauerkopfschmerzes zu "
-                                             "vermeiden. Die medikamentöse Akuttherapie muss darauf ausgerichtet sein, "
-                                             "einen Kopfschmerz bei Medikamentenübergebrauch als Komplikation zu "
-                                             "vermeiden. Daher ist vorzugsweise die Anwendung von Pfefferminzöl in "
-                                             "alkoholischer Lösung (z. B. Euminz N) zu empfehlen, "
-                                             "Non-Opioid-Analgetika und Opioid-Analgetika im eigentlichen Sinn "
-                                             "sollten vermieden werden. Zur Therapiekontrolle sollte der "
-                                             "Kopfschmerzkalender oder die Migräne-App kontinuierlich geführt werden, "
-                                             "um sowohl Kopfschmerzsymptome, Medikamenteneinnahme als auch "
-                                             "Therapieeffekte im Verlauf zu protokollieren."),
+                    DocxParagraph(ppr18_jc).run("Bei der Behandlung chronischer ")
+                                           .run("Kopfschmerzen vom Spannungstyp", rpr18.having(big))
+                                           .run(" sind Verhaltensmaßnahmen in Form von Stressreduktion, "
+                                                "Entspannungsverfahren, Sporttherapie, Biofeedback, Wärmeanwendungen, "
+                                                "Massageanwendungen sowie ggf. eine Behandlung einer oromandibulären "
+                                                "Dysfunktion ein zentraler Baustein."),
+                    DocxParagraph(ppr18_jc),
+                    DocxParagraph(ppr18_jc).run("Die hier vermittelten nicht-medikamentöse Therapieoptionen bei ")
+                                           .run("Kopfschmerzen vom Spannungstyp", rpr18.having(big))
+                                           .run(" sollten auch ambulant fortgesetzt werden. "
+                                                "Diese beinhalten eine Reduktion psychischer Stressoren, eine Reduktion "
+                                                "muskulärer Stressoren, die Behandlung von Angst und Depression sowie die "
+                                                "Therapie einer oromandibulären Dysfunktion. Die diesbezüglichen "
+                                                "Strategien schließen Entspannungsverfahren wie die Progressive "
+                                                "Muskelrelaxation, im Biofeedback erlernte Strategien, "
+                                                "Stressbewältigungskompetenzen, Lerneinheiten aus Patientenseminaren "
+                                                "sowie sporttherapeutische Aktivitäten ein. Physikalische "
+                                                "Therapiemaßnahmen umfassen die Thermotherapie, Physiotherapie, "
+                                                "TENS-Behandlung sowie Reiztherapie. Üblicherweise ist der chronische "
+                                                "Kopfschmerz vom Spannungstyp nur nach mehrmonatiger intensiver und "
+                                                "nachhaltiger Behandlung zu verbessern."),
+                    DocxParagraph(ppr18_jc),
+                    DocxParagraph(ppr18_jc).run("Kopfschmerzen vom Spannungstyp", rpr18.having(big))
+                                           .run(" sollten möglichst nur in Ausnahmefällen, "
+                                                "maximal jedoch an 10 Tagen im Monat analgetisch behandelt werden, um die "
+                                                "Entstehung eines medikamenteninduzierten Dauerkopfschmerzes zu "
+                                                "vermeiden. Die medikamentöse Akuttherapie muss darauf ausgerichtet sein, "
+                                                "einen Kopfschmerz bei Medikamentenübergebrauch als Komplikation zu "
+                                                "vermeiden. Daher ist vorzugsweise die Anwendung von Pfefferminzöl in "
+                                                "alkoholischer Lösung (z. B. Euminz N) zu empfehlen, "
+                                                "Non-Opioid-Analgetika und Opioid-Analgetika im eigentlichen Sinn "
+                                                "sollten vermieden werden. Zur Therapiekontrolle sollte der "
+                                                "Kopfschmerzkalender oder die Migräne-App kontinuierlich geführt werden, "
+                                                "um sowohl Kopfschmerzsymptome, Medikamenteneinnahme als auch "
+                                                "Therapieeffekte im Verlauf zu protokollieren."),
+                ]
+
+            # Medication Overuse
+            case 'G44.4':
+                ppr_num = [DocxNumberingProperty(0, 21),
+                           DocxIdentationProperty(601, 241),
+                           rpr18]
+                rpr18_hi = rpr18.having(yellow)
+                ppr_hi = [jc, rpr18_hi]
+
+                overuse_base_recommendations = [
+                    DocxParagraph(ppr_num).run("Wir empfehlen die ambulante Fortführung der ")
+                                          .run("Analgetikapause für insgesamt vier Wochen", rpr18.having(DocxBigProperty()))
+                                          .run(". Medikamentenpause heißt: Alle Medikamente für die Akutbehandlung von "
+                                               "Kopfschmerzen dürfen für einen bestimmten Zeitraum nicht eingenommen "
+                                               "werden. Die Pause hat nach spätestens vier bis sechs Wochen  ihr Ziel "
+                                               "erreicht und kann beendet werden. Attacken können dann wieder mit "
+                                               "Akutmedikation behandelt werden. Eine medikamentöse Attackentherapie "
+                                               "kann auch dann wieder beginnen. Nach Abschluss der Analgetikapause "
+                                               "sollte eine Reevaluation der Kopfschmerzen und entsprechende "
+                                               "Diagnosesicherung erfolgen.")
+                ]
+                overuse_letter_recommendations = [
+                    DocxParagraph(ppr_hi).run("Mit Cortison:", rpr18_hi.having(big)),
+                    DocxParagraph(ppr_hi).run("Wir führten eine konsequente ")
+                                         .run("Medikamenten-Einnahmepause", rpr18_hi.having(big))
+                                         .run(" für jegliche Kopfschmerzakutmedikation durch. Zur Erleichterung der zu "
+                                              "erwartenden Umstellungsreaktion erfolgte eine befristete intravenöse "
+                                              "und orale Gabe von Prednisolon. Zum Einsatz kamen ebenfalls "
+                                              "Dimenhydrinat und Melperon, sowie Infusionen mit Dimenhydrinat "
+                                              "und Magnesium."),
+                    DocxParagraph(ppr_hi),
+                    DocxParagraph(ppr_hi).run("Ohne Cortison:", rpr18_hi.having(big)),
+                    DocxParagraph(ppr_hi).run("Wir führten eine konsequente ")
+                                         .run("Medikamenten-Einnahmepause", rpr18_hi.having(big))
+                                         .run(" für jegliche Kopfschmerzakutmedikation durch. Dabei wurde auf eine "
+                                              "intravenöse und orale Gabe von Prednisolon nach einem festen "
+                                              "Zeitschema verzichtet. Bedarfsweise erhielt die Patientin Medikamente "
+                                              "zur Schmerzdistanzierung.")
                 ]
 
     return {
@@ -215,5 +259,7 @@ def get_inserts(patient: Patient):
         "cluster_new_episode": melt(cluster_new_episode),
         "cluster_letter_recommendations": melt(cluster_letter_recommendations),
         "tth_letter_recommendations": melt(tth_letter_recommendations),
+        "overuse_base_recommendations": melt(overuse_base_recommendations),
+        "overuse_letter_recommendations": melt(overuse_letter_recommendations),
     }
 

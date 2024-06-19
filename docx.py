@@ -34,6 +34,14 @@ class DocxBigProperty(DocxRunProperty):
         return "<w:b/><w:bCs/>"
 
 
+class DocxHighlightProperty(DocxRunProperty):
+    def __init__(self, value: str = "yellow"):
+        self.value = value
+
+    def __str__(self):
+        return f'<w:highlight w:val="{self.value}"/>'
+
+
 class DocxRunProperties(DocxParagraphProperty):
     def __init__(self, properties: list[DocxRunProperty]):
         self.properties = properties
