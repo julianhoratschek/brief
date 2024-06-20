@@ -257,7 +257,7 @@ def get_diagnosis_inserts(patient: Patient):
             case 'G44.4':
                 ppr_num = [num,
                            DocxIndentationProperty(601, 241),
-                           rpr18]
+                           rpr16]
                 rpr18_hi = rpr18.having(yellow)
                 rpr18_hi_big = rpr18_hi.having(big)
                 ppr_hi = [jc, rpr18_hi]
@@ -265,7 +265,7 @@ def get_diagnosis_inserts(patient: Patient):
                 overuse_base_recommendations = [
                     DocxParagraph(ppr_num)
                     .run("Wir empfehlen die ambulante Fortführung der ")
-                    .run("Analgetikapause für insgesamt vier Wochen", rpr18_hi_big)
+                    .run("Analgetikapause für insgesamt vier Wochen", rpr16.having(big))
                     .run(". Medikamentenpause heißt: Alle Medikamente für die Akutbehandlung von Kopfschmerzen dürfen "
                          "für einen bestimmten Zeitraum nicht eingenommen werden. Die Pause hat nach spätestens vier "
                          "bis sechs Wochen ihr Ziel erreicht und kann beendet werden. Attacken können dann wieder mit "

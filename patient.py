@@ -87,6 +87,12 @@ class Patient:
         self.psychologist: str = ""
         self.allergies: str = "Keine bekannt"
 
+        self.age: int = 0
+        self.height: str = "XXXXX"
+        self.weight: str = "XXXXX"
+        self.blood_pressure: str = "XXXXX/XXXXX"
+        self.pulse: str = "XXXXX"
+
         self.former_acute_medication: list[str] = []
         self.former_basis_medication: list[str] = []
 
@@ -114,6 +120,7 @@ class Patient:
                         # Birth Date
                         case 1:
                             self.birth_date = datetime.strptime(extract_text(m.group(1)), "%d.%m.%Y")
+                            self.age = int((datetime.now() - self.birth_date).days / 365.25)
 
                         # Address
                         case 4:
