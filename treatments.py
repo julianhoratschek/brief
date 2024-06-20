@@ -18,7 +18,20 @@ class Treatments:
 
     alt_medicine_idx: list[int] = [0, 3, 4, 6, 8, 12, 27, 35]
 
-    def __init__(self, doctors, alternatives, physio):
+    def __init__(self, choices: list[bool]):
+        if len(choices) != len(Treatments.doctor_list):
+            doctors = ""
+            alternatives = ""
+            physio = ""
+
+        else:
+            doctors = ("Die bisherige Behandlung erfolgte bei Ärzten mit der Fach- bzw. Zusatzbezeichnung "
+                       + ", ".join([Treatments.doctor_list[idx] for idx in Treatments.medical_idx if choices[idx]]))
+            alternatives = ("Alternativmedizinische Behandlungsversuche umfassten "
+                            + ", ".join([Treatments.doctor_list[idx] for idx in Treatments.alt_medicine_idx if choices[idx]]))
+            physio = ("Zudem betätigte {pat_nom} sich regelmäßig sportlich, erhielt "
+                      + " und ".join([Treatments.doctor_list[idx] for idx in (29, 11) if choices[idx]]) + ".") if choices[11] or choices[29] else ""
+
         self.doctors: str = doctors
         self.alternatives: str = alternatives
         self.physio: str = physio
@@ -39,21 +52,4 @@ class Treatments:
     def __str__(self):
         return (f"{self.doctors}. {self.basis_medication}. "
                 f"{self.acute_medication}. {self.alternatives}. {self.physio}")
-
-    @classmethod
-    def build(cls, choices: list[bool]):
-        if len(choices) != len(cls.doctor_list):
-            return cls("", "", "")
-
-        return cls(
-            "Die bisherige Behandlung erfolgte bei Ärzten mit der Fach- bzw. Zusatzbezeichnung "
-            + ", ".join([cls.doctor_list[idx] for idx in cls.medical_idx if choices[idx]]),
-
-            "Alternativmedizinische Behandlungsversuche umfassten "
-            + ", ".join([cls.doctor_list[idx] for idx in cls.alt_medicine_idx if choices[idx]]),
-
-            ("Zudem betätigte {pat_nom} sich regelmäßig sportlich, erhielt "
-             + " und ".join([cls.doctor_list[idx] for idx in (29, 11) if choices[idx]]) + ".")
-            if choices[11] or choices[29] else ""
-        )
 

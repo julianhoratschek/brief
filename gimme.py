@@ -83,7 +83,7 @@ if __name__ == "__main__":
     # Prompt user for list (x or any other char) of previous treatments
     while True:
         txt = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" # input("Vorbehandlungen [40 x]: ")
-        treatments: Treatments = Treatments.build(check_list(txt))
+        treatments: Treatments = Treatments(check_list(txt))
         if treatments.valid():
             break
 

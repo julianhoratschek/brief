@@ -2,11 +2,17 @@ from .util import melt
 from .paragraph import DocxParagraph, DocxParagraphProperty
 
 
+# DocxTable implementation omitted as it won't be used in this project
+
+
 class DocxTableProperty:
+    """Base class for Table properties."""
     pass
 
 
 class DocxTableCellWidthProperty(DocxTableProperty):
+    """Width property used for table cells. Should be added to DocxTableCellProperties."""
+
     def __init__(self, width: int, w_type: str = "dxa"):
         self.width = width
         self.w_type = w_type
@@ -16,6 +22,7 @@ class DocxTableCellWidthProperty(DocxTableProperty):
 
 
 class DocxTableCellProperties:
+    """Collection of Properties for Table cells."""
     def __init__(self, properties: list[DocxTableProperty]):
         self.properties = properties
 
@@ -24,11 +31,15 @@ class DocxTableCellProperties:
 
 
 class DocxTableCell:
+    """Table cell class."""
+
     def __init__(self, properties: DocxTableCellProperties):
         self.properties = properties
         self.paragraphs: list[DocxParagraph] = []
 
     def p(self, properties: list[DocxParagraphProperty]) -> DocxParagraph:
+        """Generate DocxParagraph and add it to this cell. Returns the created paragraph."""
+
         paragraph = DocxParagraph(properties)
         self.paragraphs.append(paragraph)
         return paragraph
@@ -38,10 +49,14 @@ class DocxTableCell:
 
 
 class DocxTableRow:
+    """Table row class"""
+
     def __init__(self):
         self.cells: list[DocxTableCell] = []
 
     def cell(self, properties: DocxTableCellProperties) -> DocxTableCell:
+        """Creates a DocxTableCell and adds it to this row. Returns the created cell."""
+
         cell = DocxTableCell(properties)
         self.cells.append(cell)
         return cell
