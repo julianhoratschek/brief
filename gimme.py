@@ -54,7 +54,7 @@ def ensure_input(fn, conv, prompt, text) -> str:
     """
 
     while True:
-        user_input: str = text # input(prompt)
+        user_input: str = input(prompt)
 
         # User has the possibility to skip this step
         if user_input == "skip":
@@ -65,14 +65,20 @@ def ensure_input(fn, conv, prompt, text) -> str:
 
 
 if __name__ == "__main__":
+    with open("config.txt", "r") as config_file:
+        db_path: Path = Path(config_file.readline().split('=')[1].strip(" \n"))
+
     # If there were multiple matches, prompt user to select correct file
     patient_file: Path = ui_get_patient_file(
         get_patient_file_matches(
-            input("Nachname des Patienten: ").lower()))
+            input("Nachname des Patienten: ").lower(), db_path))
 
     # Retrieve data from admission file and determine gender
     patient: Patient = Patient(patient_file,
                                Gender(Gender.Male if input("Geschlecht: ").lower() == "m" else Gender.Female))
+
+    patient.height = input("Größe (in cm ohne Einheit): ")
+    patient.weight = input("Gewicht (in kg ohne Einheit): ")
 
     # Prompt user for MIDAS-score
     midas: str = ensure_input(get_midas, numbers_list, "MIDAS-Score [5 Zahlen]: ", "12345")

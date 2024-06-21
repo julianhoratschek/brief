@@ -6,6 +6,7 @@ class Gender:
     _gender_dict_male: dict[str, str] = {
         "pat_appell": "Herr",
         "pat_nom": "der Patient",
+        "pat_nom_cap": "Der Patient",
         "pat_gen": "des Patienten",
         "pat_dat": "dem Patienten",
         "pat_akk": "den Patienten",
@@ -18,6 +19,7 @@ class Gender:
     _gender_dict_female: dict[str, str] = {
         "pat_appell": "Frau",
         "pat_nom": "die Patientin",
+        "pat_nom_cap": "Die Patientin",
         "pat_gen": "der Patientin",
         "pat_dat": "der Patientin",
         "pat_akk": "die Patientin",

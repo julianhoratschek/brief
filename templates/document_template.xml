@@ -5574,7 +5574,7 @@
                                 <w:sz w:val="16"/>
                                 <w:szCs w:val="16"/>
                             </w:rPr>
-                            <w:t xml:space="preserve"> nach maximal 6 bis 9 Monaten (Gefahr von extrapyramidal- motorischen Störungen)Flunarizin kann zu depressiven Verstimmungen, Angstzuständen, Schlaflosigkeit und Asth</w:t>
+                            <w:t xml:space="preserve"> nach maximal 6 bis 9 Monaten (Gefahr von extrapyramidal- motorischen Störungen). Flunarizin kann zu depressiven Verstimmungen, Angstzuständen, Schlaflosigkeit und Asth</w:t>
                         </w:r>
                         <w:r w:rsidRPr="00DB3F3C">
                             <w:rPr>
@@ -12365,7 +12365,7 @@
                     <w:szCs w:val="18"/>
                     <w:highlight w:val="yellow"/>
                 </w:rPr>
-                <w:t xml:space="preserve">{pat_nom} raucht nicht und trinkt keinen Alkohol. </w:t>
+                <w:t xml:space="preserve">{pat_nom_cap} raucht nicht und trinkt keinen Alkohol. </w:t>
             </w:r>
             <w:r w:rsidRPr="0099148E">
                 <w:rPr>
@@ -12567,7 +12567,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>{pat_nom} ist bewusstseinsklar und zu allen Qualitäten orientiert. </w:t>
+                <w:t>{pat_nom_cap} ist bewusstseinsklar und zu allen Qualitäten orientiert. </w:t>
             </w:r>
             <w:r>
                 <w:rPr>

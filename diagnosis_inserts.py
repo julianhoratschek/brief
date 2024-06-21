@@ -1,5 +1,6 @@
 from patient import Patient
 from docx.paragraph import *
+from docx.table import *
 from docx import melt
 
 

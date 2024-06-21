@@ -76,8 +76,6 @@ def extract_medication_objects(pre_match: re.Match) -> list[Medication]:
 
 
 class Patient:
-    db_path: Path = Path(".")
-
     def __init__(self, admission_file: Path, gender: Gender):
         self.first_name: str = ""
         self.last_name: str = ""
@@ -193,11 +191,11 @@ class Patient:
                 f"Allergies: {self.allergies}\n")
 
 
-def get_patient_file_matches(patient_surname: str) -> list[tuple[tuple[str, str, datetime], Path]]:
+def get_patient_file_matches(patient_surname: str, search_path: Path) -> list[tuple[tuple[str, str, datetime], Path]]:
     name_pattern: re.Pattern = re.compile(r"(.*?), (.*?) (\d{8})")
     matches: list[tuple[tuple[str, str, datetime], Path]] = []
 
-    for docx_path in Patient.db_path.glob("*.docx"):
+    for docx_path in search_path.glob("*.docx"):
         if patient_surname not in docx_path.name.lower():
             continue
 
