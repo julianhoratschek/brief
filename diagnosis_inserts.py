@@ -3,13 +3,6 @@ from docx.paragraph import *
 from docx.table import *
 from docx import melt
 
-"""<w:tblGrid>
-                <w:gridCol w:w="3691"/>
-                <w:gridCol w:w="15"/>
-                <w:gridCol w:w="5371"/>
-                <w:gridCol w:w="20"/>
-            </w:tblGrid>"""
-
 
 def get_diagnosis_inserts(patient: Patient):
     """Inserts paragraphs depending on diagnoses found in the admission file."""
@@ -44,6 +37,7 @@ def get_diagnosis_inserts(patient: Patient):
 
     migraine_with_aura_acute_medication = []
     migraine_with_aura_letter_recommendations = []
+    status_migraenosus_acute_medication = []
     cluster_acute_medication = []
     cluster_base_recommendations = []
     cluster_letter_recommendations = []
@@ -57,6 +51,7 @@ def get_diagnosis_inserts(patient: Patient):
     overuse_additional_risk = []
     overuse_letter_recommendations = []
     overuse_closing_statement = []
+    fibromyalgia_letter_recommendations = []
 
     # Iterate over each found diagnosis
     for name, icd10 in patient.diagnosis:
@@ -119,6 +114,21 @@ def get_diagnosis_inserts(patient: Patient):
                          "Alternativ ist Diclofenac 20°, maximal 3x täglich möglich. Nach sicher abgeklungener "
                          "Aurasymptomatik kann der Einsatz von Triptanen erfolgen.")
                 ]
+
+            # Status migraenosus
+            case 'G43.2':
+                row = DocxTableRow()
+                cell1 = row.cell(c1)
+                cell1.p(ppr18_jc).run("Status migraenosus")
+                cell1.p(ppr18_jc).run("(Attackendauer mehr als 72 Stunden)")
+
+                cell2 = row.cell(c2)
+                cell2.p(ppr18_jc).run("Prednisolon 100 mg + ggf. Diazepam 10 mg zur Schmerzdistanzierung")
+                cell2.p(ppr18_jc)
+                cell2.p(ppr18_jc).run("Oder alternativ durch den Arzt durchzuführen:")
+                cell2.p(ppr18_jc).run("Aspirin 1.000 mg als Kurzinfusion")
+
+                status_migraenosus_acute_medication = [row]
 
             # Cluster
             case 'G44.0':
@@ -413,10 +423,21 @@ def get_diagnosis_inserts(patient: Patient):
                                               "arbeitsunfähig zu schreiben."))
                 ]
 
+            case 'M79.70':
+                fibromyalgia_letter_recommendations = [DocxParagraph(ppr18)
+                                                       .run("Zur Behandlung des Fibromyalgiesyndroms wird ein niedrig- "
+                                                            "bis mäßigdosiertes Ausdauertraining (Ziel: 2-3x/Woche für "
+                                                            "30-40 Minuten, z.B. Walking, Schwimmen, Fahrradfahren, "
+                                                            "Aquajogging) empfohlen. Zudem sollte ein "
+                                                            "Funktionstraining, ein niedrigdosiertes Krafttraining "
+                                                            "kombiniert mit Dehnübungen sowie Thai Qi oder Qi Gong "
+                                                            "oder Yoga zum Einsatz kommen.")]
+
     return {
         "insert_diagnoses": melt(diagnoses_paragraphs),
         "migraine_with_aura_acute_medication": melt(migraine_with_aura_acute_medication),
         "migraine_with_aura_letter_recommendations": melt(migraine_with_aura_letter_recommendations),
+        "status_migraenosus_acute_medication": melt(status_migraenosus_acute_medication),
         "cluster_acute_medication": melt(cluster_acute_medication),
         "cluster_base_recommendations": melt(cluster_base_recommendations),
         "cluster_new_episode": melt(cluster_new_episode),
@@ -428,6 +449,7 @@ def get_diagnosis_inserts(patient: Patient):
         "overuse_letter_definition": melt(overuse_letter_definition),
         "overuse_additional_risk": melt(overuse_additional_risk),
         "overuse_letter_recommendations": melt(overuse_letter_recommendations),
-        "overuse_closing_statement": melt(overuse_closing_statement)
+        "overuse_closing_statement": melt(overuse_closing_statement),
+        "fibromyalgia_letter_recommendations": melt(fibromyalgia_letter_recommendations),
     }
 

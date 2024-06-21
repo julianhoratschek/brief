@@ -79,6 +79,8 @@ if __name__ == "__main__":
 
     patient.height = input("Größe (in cm ohne Einheit): ")
     patient.weight = input("Gewicht (in kg ohne Einheit): ")
+    patient.blood_pressure = input("Blutdruck (in mmHg): ")
+    patient.pulse = input("Puls (in /Min.): ")
 
     # Prompt user for MIDAS-score
     midas: str = ensure_input(get_midas, numbers_list, "MIDAS-Score [5 Zahlen]: ", "12345")
