@@ -3,6 +3,13 @@ from docx.paragraph import *
 from docx.table import *
 from docx import melt
 
+"""<w:tblGrid>
+                <w:gridCol w:w="3691"/>
+                <w:gridCol w:w="15"/>
+                <w:gridCol w:w="5371"/>
+                <w:gridCol w:w="20"/>
+            </w:tblGrid>"""
+
 
 def get_diagnosis_inserts(patient: Patient):
     """Inserts paragraphs depending on diagnoses found in the admission file."""
@@ -27,16 +34,23 @@ def get_diagnosis_inserts(patient: Patient):
     ppr18 = [rpr18]
     ppr18_jc = [jc, rpr18]
 
+    c1 = DocxTableCellProperties([DocxTableCellWidthProperty(3706, "dxa")])
+    c2 = DocxTableCellProperties([DocxTableCellWidthProperty(5391, "dxa")])
+
     empty_paragraph = DocxParagraph(ppr18)
 
     # Empty elements for each insert
     diagnoses_paragraphs: list[DocxParagraph] = []
 
+    migraine_with_aura_acute_medication = []
     migraine_with_aura_letter_recommendations = []
+    cluster_acute_medication = []
     cluster_base_recommendations = []
     cluster_letter_recommendations = []
     cluster_new_episode = []
+    tth_acute_medication = []
     tth_letter_recommendations = []
+    overuse_acute_medication = []
     overuse_base_recommendations = []
     overuse_letter_paragraph = DocxParagraph([DocxTabsProperty([1701, 2268, 6804]), jc, rpr18])
     overuse_letter_definition = []
@@ -75,6 +89,27 @@ def get_diagnosis_inserts(patient: Patient):
 
             # Migraine with aura
             case 'G43.1':
+                row = DocxTableRow()
+                cell1 = row.cell(c1)
+                cell1.p(ppr18_jc).run("Migräne mit Aura")
+                cell1.p(ppr18_jc).run("(Nach der Schmerzmittelpause)")
+
+                cell2 = row.cell(c2)
+                cell2.p(ppr18_jc).run("Metamizol (z.B. Novalgin/Novaminsulfon) 1 g (entspr. 40 Tropfen) in "
+                                      "Abständen von 6-8 Stunden bis zu 4x am Tag möglich. Oder:")
+                cell2.p(ppr18_jc).run("Diclofenac: Initialdosis 50 mg (entspr. 20 Tropfen). Falls nach 2 Std. "
+                                      "keine ausreichende Besserung eintritt, zweite Dosis von 50 mg (20 Tropfen) "
+                                      "möglich. Weitere Dosen in Abständen von 4-6 Stunden möglich. Gesamtdosis "
+                                      "von 200 mg/Tag darf nicht überschritten werden.")
+                cell2.p(ppr18_jc)
+                cell2.p(ppr18_jc).run("Bei sicherer vollständiger Rückbildung der Aurasymptomatik Anschlussbehandlung "
+                                      "mittels Triptan (s. o.) möglich.")
+
+                cell2.p(ppr18_jc)
+                cell2.p(ppr18_jc).run("Triptane sind während einer Aura kontraindiziert.", rpr18.having(big))
+
+                migraine_with_aura_acute_medication = [row]
+
                 migraine_with_aura_letter_recommendations = [
                     DocxParagraph(ppr18)
                     .run("Bei ")
@@ -87,6 +122,30 @@ def get_diagnosis_inserts(patient: Patient):
 
             # Cluster
             case 'G44.0':
+                row = DocxTableRow()
+                cell1 = row.cell(c1)
+                cell1.p(ppr18_jc).run("Clusterkopfschmerz")
+
+                cell2 = row.cell(c2)
+                cell2.p(ppr18_jc).run("100% Sauerstoffinhalation 15 l/min über 15 Minuten mit Gesichtsmaske")
+                cell2.p(ppr18_jc)
+                cell2.p(ppr18_jc).run("oder")
+                cell2.p(ppr18_jc).run("Sumatriptan Inject 6 mg, maximal 2x täglich, Mindestabstand 4 Stunden, keine "
+                                      "Obergrenze in Form von Tagen/Monat ")
+                cell2.p(ppr18_jc)
+                cell2.p(ppr18_jc).run("alternativ")
+                cell2.p(ppr18_jc).run("Zolmitriptan 5 mg nasal maximal 2x täglich, Mindestabstand 4 Stunden, keine "
+                                      "Obergrenze in Form von Tagen/Monat")
+                cell2.p(ppr18_jc)
+                cell2.p(ppr18_jc).run("und/oder")
+                cell2.p(ppr18_jc).run("Xylocain-Nasenspray")
+
+                cell2.p(ppr18_jc)
+                cell2.p(ppr18_jc).run("und/oder")
+                cell2.p(ppr18_jc).run("10 ml Eiswasser")
+
+                cluster_acute_medication = [row]
+
                 ppr_num = [num,
                            DocxTabsProperty([743, 6804]),
                            rpr16]
@@ -216,6 +275,14 @@ def get_diagnosis_inserts(patient: Patient):
 
             # Tension Type Headache
             case 'G44.2':
+                row = DocxTableRow()
+                cell1 = row.cell(c1)
+                cell1.p(ppr18_jc).run("Kopfschmerz vom Spannungstyp")
+                cell2 = row.cell(c2)
+                cell2.p(ppr18_jc).run("Euminz N kutan im Bereich der schmerzhaften Kopfpartien 3x im Abstand von "
+                                      "jeweils 10 Minuten auftragen")
+                tth_acute_medication = [row]
+
                 tth_letter_recommendations = [
                     DocxParagraph(ppr18_jc)
                     .run("Bei der Behandlung chronischer ")
@@ -256,6 +323,30 @@ def get_diagnosis_inserts(patient: Patient):
 
             # Medication Overuse
             case 'G44.4':
+                row = DocxTableRow()
+                cell1 = row.cell(c1)
+                cell1.p(ppr18_jc).run("Migräneattacke während der Schmerzmittelpause")
+                cell1.p(ppr18_jc).run("für weitere 2 Wochen empfohlen")
+
+                cell2 = row.cell(c2)
+                cell2.p(ppr18_jc) \
+                    .run("Dimenhydrinat (Vomex A®) Dragee 50 mg (maximal 3x täglich) oder Dimenhydrinat (Vomex A®) "
+                         "als Suppositorium 150 mg (Tageshöchstdosis 300 mg) Melperon 10 mg (bis zu 5x täglich) "
+                         "unter Beachtung des Nebenwirkungsspektrums, insbesondere Reaktionsvermögen. Melperon "
+                         "kann bei regelmäßiger Einnahme Dyskinesien verursachen, zudem schränken beide Medikamente "
+                         "die Fahrtauglichkeit ein.")
+                cell2.p(ppr18_jc)
+                cell2.p(ppr18_jc) \
+                    .run("Im Notfall, bei Eskalation der Rebound-Kopfschmerzen: 16 mg Dexamethason in 250 ml NaCl "
+                         "als Kurzinfusion i.v.")
+                cell2.p(ppr18_jc)
+                cell2.p(ppr18_jc) \
+                    .run("Oder orale Anwendung:")
+                cell2.p(ppr18_jc) \
+                    .run("Prednisolon 100 mg oral (z.B. 2x50 mg Decortin H) oder als Suppositorium (Rectodelt 100 mg)")
+
+                overuse_acute_medication = [row]
+
                 ppr_num = [num,
                            DocxIndentationProperty(601, 241),
                            rpr16]
@@ -324,11 +415,15 @@ def get_diagnosis_inserts(patient: Patient):
 
     return {
         "insert_diagnoses": melt(diagnoses_paragraphs),
+        "migraine_with_aura_acute_medication": melt(migraine_with_aura_acute_medication),
         "migraine_with_aura_letter_recommendations": melt(migraine_with_aura_letter_recommendations),
+        "cluster_acute_medication": melt(cluster_acute_medication),
         "cluster_base_recommendations": melt(cluster_base_recommendations),
         "cluster_new_episode": melt(cluster_new_episode),
         "cluster_letter_recommendations": melt(cluster_letter_recommendations),
+        "tth_acute_medication": melt(tth_acute_medication),
         "tth_letter_recommendations": melt(tth_letter_recommendations),
+        "overuse_acute_medication": melt(overuse_acute_medication),
         "overuse_base_recommendations": melt(overuse_base_recommendations),
         "overuse_letter_definition": melt(overuse_letter_definition),
         "overuse_additional_risk": melt(overuse_additional_risk),
