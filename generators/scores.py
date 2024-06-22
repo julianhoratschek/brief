@@ -1,4 +1,8 @@
 def get_midas(numbers: list[int]) -> str | None:
+    """Generate text for MIDAS score from values. Only needs first 5 Items of the score.
+    Will write [!! INVALID !!] in front of generated text, if rules for MIDAS score were not followed correctly.
+    """
+
     if len(numbers) != 5:
         return None
 
@@ -22,6 +26,8 @@ def get_midas(numbers: list[int]) -> str | None:
 
 
 def get_whodas(numbers: list[int]) -> str | None:
+    """Generates text for WHODAS-2.0 Score from values."""
+
     categories: list = ["Verständnis und Kommunikation", "Mobilität", "Selbstversorgung", "Umgang mit anderen Menschen",
                         "Tätigkeiten des alltäglichen Lebens", "Teilnahme am gesellschaftlichen Leben"]
 
@@ -41,6 +47,9 @@ def get_whodas(numbers: list[int]) -> str | None:
 
 
 def get_depression_score(numbers: list[int]) -> str | None:
+    """Generates text for simplified BDI-II score from values. Numbers indicate checkmark of each token, where
+    1 is the first box checked, 2 the second box and so on."""
+
     options: list = [
         ["sei oft traurig", "sei ständig traurig", "sei so traurig und unglücklich, dass es nicht auszuhalten sei"],
         ["sehe mutloser in die Zukunft", "sei mutlos und erwarte nicht, dass die Situation besser werde",

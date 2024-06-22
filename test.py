@@ -2,8 +2,8 @@ from zipfile import ZipFile
 import re
 
 
-from patient import Patient, get_patient_file_matches
-from gender import Gender
+from loaders.patient import Patient, get_patient_file_matches
+from generators.gender import Gender
 from gimme import ui_get_patient_file
 
 

@@ -1,5 +1,5 @@
-from patient import Patient
-from insert_loader import XmlTemplateLoader
+from loaders.patient import Patient
+from loaders.insert_loader import XmlTemplateLoader
 from shutil import copy
 from pathlib import Path
 from zipfile import ZipFile
@@ -21,6 +21,8 @@ def write_data(patient: Patient,
                midas_text: str, whodas_text: str,
                treatments: str,
                self_eval_text: str):
+
+    # Load templates and inserts
     templates: XmlTemplateLoader = XmlTemplateLoader(Path("./templates/insert_template.xml"))
 
     # Copy template file with generated name into output-folder

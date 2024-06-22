@@ -1,9 +1,9 @@
-from patient import Patient
+from loaders.patient import Patient
 from docx.table import DocxTableRow, DocxTableCellProperties, DocxTableCellWidthProperty
 from docx.paragraph import DocxFontProperty, DocxJustificationProperty, DocxSizeProperty, DocxRunProperties
 from docx.util import melt
 
-
+"""
 # TODO unused
 def get_medication_inserts(patient: Patient):
     # Prepare Table cell widths for column positioning
@@ -43,3 +43,4 @@ def get_medication_inserts(patient: Patient):
         'other_medication': melt(generate_rows(patient.current_other_medication))
     }
 
+"""

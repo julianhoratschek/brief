@@ -1,12 +1,11 @@
-from patient import Patient
+from loaders.patient import Patient
 from docx.paragraph import *
 from docx.table import *
 from docx import melt
 
-
+"""
 # TODO Unused
 def get_diagnosis_inserts(patient: Patient):
-    """Inserts paragraphs depending on diagnoses found in the admission file."""
 
     # Paragraph Properties
     jc = DocxJustificationProperty()
@@ -454,3 +453,4 @@ def get_diagnosis_inserts(patient: Patient):
         "fibromyalgia_letter_recommendations": melt(fibromyalgia_letter_recommendations),
     }
 
+"""

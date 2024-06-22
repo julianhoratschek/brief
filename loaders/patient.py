@@ -4,7 +4,9 @@ from pathlib import Path
 from operator import itemgetter
 from zipfile import ZipFile
 
-from gender import Gender
+from generators.gender import Gender
+
+from .medication import Medication, extract_medication_objects, extract_medication_strings
 
 
 def extract_text(pre_match: str) -> str:
@@ -21,61 +23,9 @@ def extract_text(pre_match: str) -> str:
 
 def extract_diagnosis(text: str) -> list[tuple[str, str]]:
     """Finds diagnosis strings declared by <name><icd10-number>. Returns list of (<icd10>, <name>)."""
+
     pattern: re.Pattern = re.compile(r"(.*?)([A-Z]\d{2}\.\d{1,3}[A-Z!*]?)")
     return [(m.group(2), m.group(1)) for m in pattern.finditer(text)]
-
-
-def extract_medication_strings(pre_match: re.Match) -> list[str]:
-    """Finds a comma separated list in lines of pre_match, ignores first line."""
-
-    return [medication.strip()
-            for meds in extract_text(pre_match.group(1)).splitlines()[1:]
-            for medication in meds.split(",")]
-
-
-class Medication:
-    def __init__(self, name: str, amount: str = "", unit: str = "", taken: list[str] | None = None):
-        self.name: str = name
-        self.amount: str = amount
-        self.unit: str = unit
-        self.taken: list[str] | None = taken
-
-    def destructure_taken(self) -> tuple[str, str, str, str]:
-        if self.taken is None:
-            return '', '', '', ''
-
-        for _ in range(len(self.taken), 4):
-            self.taken.append('0')
-
-        return self.taken[0], self.taken[1], self.taken[2], self.taken[3]
-
-    def times(self) -> dict[str, str]:
-        return dict(zip(["morning", "noon", "evening", "night"], self.destructure_taken()))
-
-    def __str__(self):
-        # For debugging purposes
-        return f"{self.name} {self.amount}[{self.unit}]\t{'\t-\t'.join(self.taken) if self.taken else ''}"
-
-
-def extract_medication_objects(pre_match: re.Match) -> list[Medication]:
-    """
-    Finds medication notation in each line of pre_match searching for
-        <name> <dosage> <unit> <0-1-1(-0)>
-    If no match for the pattern could be matched, the whole string is saved as the name property of Medication.
-    """
-
-    medication_pattern: re.Pattern = re.compile(r"([a-zA-Z\s\-]*?)\s+([\d,./]+)\s*(.*?)\s+([\d\s,./]+(?:-[\d\s,./]+)+)")
-    medication: list[Medication] = []
-
-    for line in extract_text(pre_match.group(1)).splitlines()[1:]:
-        if meds := medication_pattern.search(line):
-            medication.append(Medication(meds.group(1), meds.group(2), meds.group(3),
-                                         list(map(lambda s: s.strip(), meds.group(4).split("-")))))
-            continue
-
-        medication.append(Medication(line))
-
-    return medication
 
 
 class Patient:
@@ -165,33 +115,22 @@ class Patient:
 
                         # Current Base Medication
                         case 52:
-                            self.current_basis_medication = extract_medication_objects(m)
+                            self.current_basis_medication = extract_medication_objects(extract_text(m.group(1)))
 
                         # Current Other Medication
                         case 55:
-                            self.current_other_medication = extract_medication_objects(m)
+                            self.current_other_medication = extract_medication_objects(extract_text(m.group(1)))
 
                         # Former Acute Medication
                         case 58:
-                            self.former_acute_medication = extract_medication_strings(m)
+                            self.former_acute_medication = extract_medication_strings(extract_text(m.group(1)))
 
                         # Former Base Medication
                         case 59:
-                            self.former_basis_medication = extract_medication_strings(m)
+                            self.former_basis_medication = extract_medication_strings(extract_text(m.group(1)))
 
                             # We don't need anything else
                             break
-
-    def __str__(self):
-        # For Debugging purposes
-        return (f"Name: {self.first_name} {self.last_name}\n"
-                f"Birth Date: {self.birth_date.strftime('%d.%m.%Y')}\n"
-                f"Address: {self.address}\n"
-                f"Admission Date: {self.admission.strftime('%d.%m.%Y')}\n"
-                f"Discharge Date: {self.discharge.strftime('%d.%m.%Y')}\n"
-                f"Doctor: {self.doctor}\n"
-                f"Psychologist: {self.psychologist}\n"
-                f"Allergies: {self.allergies}\n")
 
 
 def get_patient_file_matches(patient_surname: str, search_path: Path) -> list[tuple[tuple[str, str, datetime], Path]]:

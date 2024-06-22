@@ -2642,7 +2642,7 @@
                         <w:szCs w:val="18"/>
                         <w:highlight w:val="yellow"/>
                     </w:rPr>
-                    <w:t>wird ein niedrig- bis mäßigdosiertes Ausdauertraining (Ziel: 2-3x/Woche für 30-40 Minuten, z.B. Walking, Schwimmen, Fahrradfahren, Aquajogging) empfohlen. Zudem sollte ein Funktionstraining, ein niedrigdosiertes Krafttraining kombiniert mit Dehnübungen sowie Thai Qi oder Qi Gong oder Yoga zum Einsatz kommen.</w:t>
+                    <w:t xml:space="preserve"> wird ein niedrig- bis mäßigdosiertes Ausdauertraining (Ziel: 2-3x/Woche für 30-40 Minuten, z.B. Walking, Schwimmen, Fahrradfahren, Aquajogging) empfohlen. Zudem sollte ein Funktionstraining, ein niedrigdosiertes Krafttraining kombiniert mit Dehnübungen sowie Thai Qi oder Qi Gong oder Yoga zum Einsatz kommen.</w:t>
                 </w:r>
             </w:p>
         </insert>

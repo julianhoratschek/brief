@@ -1,7 +1,7 @@
-from patient import Patient, get_patient_file_matches
-from gender import Gender
-from scores import get_midas, get_whodas, get_depression_score, get_personality_score
-from treatments import Treatments
+from loaders.patient import Patient, get_patient_file_matches
+from generators.gender import Gender
+from generators.scores import get_midas, get_whodas, get_depression_score, get_personality_score
+from generators.treatments import Treatments
 from template_writer import write_data
 from pathlib import Path
 
