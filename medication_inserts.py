@@ -4,6 +4,7 @@ from docx.paragraph import DocxFontProperty, DocxJustificationProperty, DocxSize
 from docx.util import melt
 
 
+# TODO unused
 def get_medication_inserts(patient: Patient):
     # Prepare Table cell widths for column positioning
     c1 = DocxTableCellProperties([DocxTableCellWidthProperty(3686, "dxa")])

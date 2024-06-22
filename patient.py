@@ -20,9 +20,9 @@ def extract_text(pre_match: str) -> str:
 
 
 def extract_diagnosis(text: str) -> list[tuple[str, str]]:
-    """Finds diagnosis strings declared by <name><icd10-number>. Returns list of (<name>, <icd10>)."""
+    """Finds diagnosis strings declared by <name><icd10-number>. Returns list of (<icd10>, <name>)."""
     pattern: re.Pattern = re.compile(r"(.*?)([A-Z]\d{2}\.\d{1,3}[A-Z!*]?)")
-    return [(m.group(1), m.group(2)) for m in pattern.finditer(text)]
+    return [(m.group(2), m.group(1)) for m in pattern.finditer(text)]
 
 
 def extract_medication_strings(pre_match: re.Match) -> list[str]:
@@ -48,6 +48,9 @@ class Medication:
             self.taken.append('0')
 
         return self.taken[0], self.taken[1], self.taken[2], self.taken[3]
+
+    def times(self) -> dict[str, str]:
+        return dict(zip(["morning", "noon", "evening", "night"], self.destructure_taken()))
 
     def __str__(self):
         # For debugging purposes
@@ -98,7 +101,7 @@ class Patient:
         self.current_basis_medication: list[Medication] = []
         self.current_other_medication: list[Medication] = []
 
-        self.diagnosis: list[tuple[str, str]] = []
+        self.diagnosis: dict[str, str] = {}
 
         self.birth_date: datetime = datetime.now()
         self.admission: datetime = datetime.now()
@@ -146,19 +149,19 @@ class Patient:
 
                         # Pain Diagnosis
                         case 36:
-                            self.diagnosis.extend(extract_diagnosis(extract_text(m.group(1))))
+                            self.diagnosis |= extract_diagnosis(extract_text(m.group(1)))
 
                         # Misuse Diagnosis
                         case 39:
-                            self.diagnosis.extend(extract_diagnosis(extract_text(m.group(1))))
+                            self.diagnosis |= extract_diagnosis(extract_text(m.group(1)))
 
                         # Psych. Diagnosis
                         case 42:
-                            self.diagnosis.extend(extract_diagnosis(extract_text(m.group(1))))
+                            self.diagnosis |= extract_diagnosis(extract_text(m.group(1)))
 
                         # Phys. Diagnosis
                         case 45:
-                            self.diagnosis.extend(extract_diagnosis(extract_text(m.group(1))))
+                            self.diagnosis |= extract_diagnosis(extract_text(m.group(1)))
 
                         # Current Base Medication
                         case 52:

@@ -4,6 +4,7 @@ from docx.table import *
 from docx import melt
 
 
+# TODO Unused
 def get_diagnosis_inserts(patient: Patient):
     """Inserts paragraphs depending on diagnoses found in the admission file."""
 
@@ -54,7 +55,7 @@ def get_diagnosis_inserts(patient: Patient):
     fibromyalgia_letter_recommendations = []
 
     # Iterate over each found diagnosis
-    for name, icd10 in patient.diagnosis:
+    for icd10, name in patient.diagnosis:
 
         # Add diagnosis to list
         diagnoses_paragraphs.append(DocxParagraph(ppr_diagnoses).run(f"{icd10}\t{name}"))

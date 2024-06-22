@@ -54,7 +54,7 @@ def ensure_input(fn, conv, prompt, text) -> str:
     """
 
     while True:
-        user_input: str = input(prompt)
+        user_input: str = text # input(prompt)
 
         # User has the possibility to skip this step
         if user_input == "skip":
@@ -90,8 +90,8 @@ if __name__ == "__main__":
 
     # Prompt user for list (x or any other char) of previous treatments
     while True:
-        # txt = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-        txt = input("Vorbehandlungen [40 x]: ")
+        txt = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        # txt = input("Vorbehandlungen [40 x]: ")
         treatments: Treatments = Treatments(check_list(txt))
         if treatments.valid():
             break

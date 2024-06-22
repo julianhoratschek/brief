@@ -1,6 +1,5 @@
 from patient import Patient
-from diagnosis_inserts import get_diagnosis_inserts
-from medication_inserts import get_medication_inserts
+from insert_loader import XmlTemplateLoader
 from shutil import copy
 from pathlib import Path
 from zipfile import ZipFile
@@ -22,6 +21,7 @@ def write_data(patient: Patient,
                midas_text: str, whodas_text: str,
                treatments: str,
                self_eval_text: str):
+    templates: XmlTemplateLoader = XmlTemplateLoader(Path("./templates/insert_template.xml"))
 
     # Copy template file with generated name into output-folder
     file_path: Path = copy(template_file,
@@ -48,8 +48,21 @@ def write_data(patient: Patient,
             "prev_treatments": patient.gender.apply(treatments),
             "self_evaluation": patient.gender.apply(self_eval_text),
             "patient_allergies": patient.allergies,
-            **get_diagnosis_inserts(patient),
-            **get_medication_inserts(patient),
+
+            "insert_diagnoses": "".join([templates.apply_template("diagnosis", icd10=icd10, name=name)
+                                         for icd10, name in patient.diagnosis.items()]),
+
+            **templates.get_inserts(list(patient.diagnosis.keys())),
+
+            'base_medication': "".join([
+                templates.apply_template("medication", name=med.name,
+                                         dosage=f"{med.amount} {med.unit}", **med.times())
+                for med in patient.current_basis_medication]),
+            'other_medication': "".join([
+                templates.apply_template("medication", name=med.name,
+                                         dosage=f"{med.amount} {med.unit}", **med.times())
+                for med in patient.current_other_medication]),
+
             **patient.gender.gender_dict
         })
 
