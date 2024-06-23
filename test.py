@@ -4,7 +4,7 @@ import re
 
 from loaders.patient import Patient, get_patient_file_matches
 from generators.gender import Gender
-from gimme import ui_get_patient_file
+from main import ui_get_patient_file
 
 
 def extract_text(pre_match: str) -> str:

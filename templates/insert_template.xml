@@ -22,6 +22,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve">Der Einsatz von Schmerzmitteln und/oder Triptanen an mehr als 10 Tagen im Monat überschreitet die Grenzschwellen für die Entstehung von Kopfschmerzen bei Medikamentenübergebrauch. </w:t>
                 </w:r>
@@ -261,6 +262,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve">Bei </w:t>
                 </w:r>
@@ -272,6 +274,7 @@
                         <w:szCs w:val="18"/>
                         <w:b/>
                         <w:bCs/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Migräne mit Aura</w:t>
                 </w:r>
@@ -281,6 +284,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve"> ist der Einsatz von Triptanen während einer Aura kontraindiziert. Hier empfiehlt sich die Einnahme von Akutanalgetika wie Novaminsulfon® (Metamizol) 40° bis zu 4x täglich. Alternativ ist Diclofenac 20°, maximal 3x täglich möglich. Nach sicher abgeklungener Aurasymptomatik kann der Einsatz von Triptanen erfolgen.</w:t>
                 </w:r>
@@ -696,6 +700,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="16"/>
                         <w:szCs w:val="16"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Kontinuierlich Kopfschmerzkalender führen</w:t>
                 </w:r>
@@ -723,6 +728,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="16"/>
                         <w:szCs w:val="16"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Die Dosierung des Verapamils sollte dem Krankheitsverlauf angepasst werden. Bei unzureichender Wirkung kann ggf. eine weitere Dosissteigerung unter Beachtung von Verträglichkeit und Nebenwirkungsspektrum erfolgen, die Tagesdosis von 960 mg pro Tag nicht überschreitend</w:t>
                 </w:r>
@@ -750,6 +756,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="16"/>
                         <w:szCs w:val="16"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Unter der aktuellen Verapamil-Medikation bitten wir um regelmäßige kardiologische Kontrollen mittels EKG und Echokardiographie sowie bei jeder Dosissteigerung</w:t>
                 </w:r>
@@ -777,6 +784,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="16"/>
                         <w:szCs w:val="16"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Wegen des chronischen Verlaufs der Clusterkopfschmerzen ist die Einnahme von Verapamil zeitlich nicht befristet. Dosisreduktion des Verapamils nach 4-6 attackenfreien Wochen, hierbei schrittweise ausdosieren. Bei erneutem Ausbrechen von Clusterattacken erneute schrittweise Aufdosierung</w:t>
                 </w:r>
@@ -804,6 +812,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="16"/>
                         <w:szCs w:val="16"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Wir bitten um kardiologische Kontrolluntersuchung der o.g. Medikation mit Echokardiographie, Langzeitbelastungs-EKG zeitnah durchzuführen</w:t>
                 </w:r>
@@ -831,6 +840,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="16"/>
                         <w:szCs w:val="16"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Da Clusterkopfschmerz eine Schmerzform ist die überdurchschnittlich häufig bei Rauchern auftritt und durch Alkohol triggerbar ist, empfahlen wir dringend eine Nikotin- und Alkoholabstinenz</w:t>
                 </w:r>
@@ -858,6 +868,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="16"/>
                         <w:szCs w:val="16"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve">Kein Nitrospray bei Clusterkopfschmerzen </w:t>
                 </w:r>
@@ -885,6 +896,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="16"/>
                         <w:szCs w:val="16"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Wir bitten um Kontrolluntersuchung der o.g. Medikation</w:t>
                 </w:r>
@@ -966,6 +978,7 @@
                         <w:szCs w:val="18"/>
                         <w:b/>
                         <w:bCs/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Vorgehen bei neuer aktiver Clusterperiode</w:t>
                 </w:r>
@@ -1902,6 +1915,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Die Dosierung des Verapamil retard (Isoptin®) sollte dem Krankheitsverlauf angepasst werden. Bei unzureichender Wirkung kann ggf. eine weitere Dosissteigerung unter Beachtung vom Verträglichkeits- und Nebenwirkungsspektrum erfolgen, die Tagesdosis von 960 mg pro Tag nicht überschreitend. Unter Verapamil-Medikation bitten wir um regelmäßige kardiologische Kontrollen mittels EKG und Echokardiographie sowie bei jeder Dosissteigerung. Dosisreduktion des Verapamils nach 6-8 attackenfreien Wochen, hierbei schrittweise Ausdosieren.</w:t>
                 </w:r>
@@ -1932,6 +1946,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Die Attackenbehandlung des Clusterkopfschmerzes kann durch Inhalation von Sauerstoff 15 l/min über 15 Minuten unter Verwendung einer Gesichtsmaske sowie bei Wirkungslosigkeit durch die Verwendung eines Triptans mit schnellem Wirkungseintritt, z.B. Migra-Pen® (Sumatriptan 3 mg) als Autoinjektor s.c. oder 4 mg Fertigspritze erfolgen. Hier ist darauf zu achten, dass die Maximaldosis von Sumatriptan in 24 Stunden 12 mg s.c. beträgt. Im Gegensatz zur Migränebehandlung mit Triptanen besteht jedoch keine Höchstgrenze der Anwendung in Tagen pro Monat, da medikamenteninduzierte Kopfschmerzen bei Triptanübergebrauch auf dem Boden von Clusterkopfschmerzen bisher nicht beschrieben sind.</w:t>
                 </w:r>
@@ -2008,6 +2023,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve">Bei der Behandlung chronischer </w:t>
                 </w:r>
@@ -2019,6 +2035,7 @@
                         <w:szCs w:val="18"/>
                         <w:b/>
                         <w:bCs/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Kopfschmerzen vom Spannungstyp</w:t>
                 </w:r>
@@ -2028,6 +2045,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve"> sind Verhaltensmaßnahmen in Form von Stressreduktion, Entspannungsverfahren, Sporttherapie, Biofeedback, Wärmeanwendungen, Massageanwendungen sowie ggf. eine Behandlung einer oromandibulären Dysfunktion ein zentraler Baustein.</w:t>
                 </w:r>
@@ -2058,6 +2076,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve">Die hier vermittelten nicht-medikamentöse Therapieoptionen bei </w:t>
                 </w:r>
@@ -2069,6 +2088,7 @@
                         <w:szCs w:val="18"/>
                         <w:b/>
                         <w:bCs/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Kopfschmerzen vom Spannungstyp</w:t>
                 </w:r>
@@ -2078,6 +2098,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve"> sollten auch ambulant fortgesetzt werden. Diese beinhalten eine Reduktion psychischer Stressoren, eine Reduktion muskulärer Stressoren, die Behandlung von Angst und Depression sowie die Therapie einer oromandibulären Dysfunktion. Die diesbezüglichen Strategien schließen Entspannungsverfahren wie die Progressive Muskelrelaxation, im Biofeedback erlernte Strategien, Stressbewältigungskompetenzen, Lerneinheiten aus Patientenseminaren sowie sporttherapeutische Aktivitäten ein. Physikalische Therapiemaßnahmen umfassen die Thermotherapie, Physiotherapie, TENS-Behandlung sowie Reiztherapie. Üblicherweise ist der chronische Kopfschmerz vom Spannungstyp nur nach mehrmonatiger intensiver und nachhaltiger Behandlung zu verbessern.</w:t>
                 </w:r>
@@ -2110,6 +2131,7 @@
                         <w:szCs w:val="18"/>
                         <w:b/>
                         <w:bCs/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Kopfschmerzen vom Spannungstyp</w:t>
                 </w:r>
@@ -2119,6 +2141,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve"> sollten möglichst nur in Ausnahmefällen, maximal jedoch an 10 Tagen im Monat analgetisch behandelt werden, um die Entstehung eines medikamenteninduzierten Dauerkopfschmerzes zu vermeiden. Die medikamentöse Akuttherapie muss darauf ausgerichtet sein, einen Kopfschmerz bei Medikamentenübergebrauch als Komplikation zu vermeiden. Daher ist vorzugsweise die Anwendung von Pfefferminzöl in alkoholischer Lösung (z. B. Euminz N) zu empfehlen, Non-Opioid-Analgetika und Opioid-Analgetika im eigentlichen Sinn sollten vermieden werden. Zur Therapiekontrolle sollte der Kopfschmerzkalender oder die Migräne-App kontinuierlich geführt werden, um sowohl Kopfschmerzsymptome, Medikamenteneinnahme als auch Therapieeffekte im Verlauf zu protokollieren.</w:t>
                 </w:r>
@@ -2301,6 +2324,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="16"/>
                         <w:szCs w:val="16"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve">Wir empfehlen die ambulante Fortführung der </w:t>
                 </w:r>
@@ -2312,6 +2336,7 @@
                         <w:szCs w:val="16"/>
                         <w:b/>
                         <w:bCs/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>Analgetikapause für insgesamt vier Wochen</w:t>
                 </w:r>
@@ -2321,6 +2346,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="16"/>
                         <w:szCs w:val="16"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>. Medikamentenpause heißt: Alle Medikamente für die Akutbehandlung von Kopfschmerzen dürfen für einen bestimmten Zeitraum nicht eingenommen werden. Die Pause hat nach spätestens vier bis sechs Wochen ihr Ziel erreicht und kann beendet werden. Attacken können dann wieder mit Akutmedikation behandelt werden. Eine medikamentöse Attackentherapie kann auch dann wieder beginnen. Nach Abschluss der Analgetikapause sollte eine Reevaluation der Kopfschmerzen und entsprechende Diagnosesicherung erfolgen.</w:t>
                 </w:r>
@@ -2332,6 +2358,7 @@
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
+                    <w:highlight w:val="cyan"/>
                 </w:rPr>
                 <w:t xml:space="preserve">Der Einsatz von Schmerzmitteln und/oder Triptanen an mehr als 10 Tagen im Monat überschreitet die Grenzschwellen für die Entstehung von Kopfschmerzen bei Medikamentenübergebrauch. </w:t>
             </w:r>
@@ -2402,6 +2429,7 @@
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
+                    <w:highlight w:val="cyan"/>
                 </w:rPr>
                 <w:t>Eine analgetische Behandlung dieser ebenfalls mit Schmerzen einhergehenden Erkrankungen interferiert gravierend mit der Behandlung der chronischen Migräne. Es besteht eine Aufrechterhaltung und weitere Verstärkung des sowieso bestehenden Kopfschmerzes bei Medikamentenübergebrauch.</w:t>
             </w:r>
@@ -2563,7 +2591,6 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
-                        <w:highlight w:val="yellow"/>
                     </w:rPr>
                 </w:pPr>
                 <w:r>
@@ -2572,7 +2599,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
-                        <w:highlight w:val="yellow"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve">Des Weiteren empfehlen wir die ambulante Fortführung der </w:t>
                 </w:r>
@@ -2582,7 +2609,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
-                        <w:highlight w:val="yellow"/>
+                        <w:highlight w:val="cyan"/>
                         <w:b/>
                         <w:bCs/>
                     </w:rPr>
@@ -2594,7 +2621,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
-                        <w:highlight w:val="yellow"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>. In dieser Phase kann es sinnvoll sein die Patientin arbeitsunfähig zu schreiben.</w:t>
                 </w:r>
@@ -2609,7 +2636,6 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
-                        <w:highlight w:val="yellow"/>
                     </w:rPr>
                 </w:pPr>
                 <w:r>
@@ -2618,7 +2644,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
-                        <w:highlight w:val="yellow"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve">Zur Behandlung des </w:t>
                 </w:r>
@@ -2628,7 +2654,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
-                        <w:highlight w:val="yellow"/>
+                        <w:highlight w:val="cyan"/>
                         <w:b/>
                         <w:bCs/>
                     </w:rPr>
@@ -2640,7 +2666,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
-                        <w:highlight w:val="yellow"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t xml:space="preserve"> wird ein niedrig- bis mäßigdosiertes Ausdauertraining (Ziel: 2-3x/Woche für 30-40 Minuten, z.B. Walking, Schwimmen, Fahrradfahren, Aquajogging) empfohlen. Zudem sollte ein Funktionstraining, ein niedrigdosiertes Krafttraining kombiniert mit Dehnübungen sowie Thai Qi oder Qi Gong oder Yoga zum Einsatz kommen.</w:t>
                 </w:r>

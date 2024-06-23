@@ -1,1 +1,6 @@
-db_path=.
+db=.
+output=./output/
+docx=./templates/template.docx
+header=./templates/header1_template.xml
+document=./templates/document_template.xml
+inserts=./templates/insert_template.xml

@@ -1,7 +1,6 @@
 from datetime import datetime
 import re
 from pathlib import Path
-from operator import itemgetter
 from zipfile import ZipFile
 
 from generators.gender import Gender
@@ -9,15 +8,19 @@ from generators.gender import Gender
 from .medication import Medication, extract_medication_objects, extract_medication_strings
 
 
-def extract_text(pre_match: str) -> str:
+def extract_text(text: str) -> str:
     """Joins text in runs in paragraphs in pre_match. Paragraphs are joined using \n"""
 
     result: list[str] = []
+
+    # Match everything between text-tags
     _text_pattern: re.Pattern = re.compile(r"<w:t(?:\s.*?)?>(.*?)</w:t>")
 
-    for line in pre_match.split("</w:p>"):
+    # Split matches by paragraphs
+    for line in text.split("</w:p>"):
         result.append("".join([text.group(1) for text in _text_pattern.finditer(line)]))
 
+    # Join and omit empty strings
     return "\n".join(filter(bool, result))
 
 
@@ -57,6 +60,13 @@ class Patient:
         self.admission: datetime = datetime.now()
         self.discharge: datetime = datetime.now()
 
+        self.load_from_file(admission_file)
+
+    def load_from_file(self, admission_file: Path):
+        """Parses admission file for information on patient. The file should be a *.docx with pre defined
+        content structure."""
+
+        # Look for table cells
         pattern = re.compile(r"<w:tc>(.*?)</w:tc>")
 
         # Parse the admission file for information
@@ -132,18 +142,3 @@ class Patient:
                             # We don't need anything else
                             break
 
-
-def get_patient_file_matches(patient_surname: str, search_path: Path) -> list[tuple[tuple[str, str, datetime], Path]]:
-    name_pattern: re.Pattern = re.compile(r"(.*?), (.*?) (\d{8})")
-    matches: list[tuple[tuple[str, str, datetime], Path]] = []
-
-    for docx_path in search_path.glob("*.docx"):
-        if patient_surname not in docx_path.name.lower():
-            continue
-
-        if found_match := name_pattern.match(docx_path.name):
-            last_name, first_name, admission = found_match.groups()
-            matches.append(((last_name, first_name, datetime.strptime(admission, "%d%m%Y")), docx_path))
-
-    matches.sort(key=itemgetter(0), reverse=True)
-    return matches

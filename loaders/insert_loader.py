@@ -50,5 +50,5 @@ class XmlTemplateLoader:
         return result
 
     def apply_template(self, template_name: str, **kwargs) -> str:
-        return self.templates[template_name].format(**kwargs)
+        return self.templates[template_name].format(**kwargs) if template_name in self.templates else ""
 

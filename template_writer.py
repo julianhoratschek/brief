@@ -1,36 +1,31 @@
 from loaders.patient import Patient
 from loaders.insert_loader import XmlTemplateLoader
+from loaders.config_loader import ConfigurationLoader
 from shutil import copy
 from pathlib import Path
 from zipfile import ZipFile
 
 
-# Paths to templates. This should not be changed.
-template_file: Path = Path("./templates/template.docx")
-document_template_file: Path = Path("./templates/document_template.xml")
-header1_template_file: Path = Path("./templates/header1_template.xml")
-output_folder: Path = Path("./output")
-
-
-# Create output folder if necessary
-if not output_folder.exists():
-    output_folder.mkdir()
-
-
-def write_data(patient: Patient,
+def write_data(configs: ConfigurationLoader, patient: Patient,
                midas_text: str, whodas_text: str,
                treatments: str,
                self_eval_text: str):
 
     # Load templates and inserts
-    templates: XmlTemplateLoader = XmlTemplateLoader(Path("./templates/insert_template.xml"))
+    templates: XmlTemplateLoader = XmlTemplateLoader(configs.get_path("inserts"))
+    output_path: Path = configs.get_path("output")
+
+    # If Output path does not exist, create it
+    if not output_path.exists():
+        output_path.mkdir()
 
     # Copy template file with generated name into output-folder
-    file_path: Path = copy(template_file,
-             output_folder / f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx")
+    file_path: Path = copy(configs.get_path("docx"),
+                           output_path /
+                           f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx")
 
     # Read the document text from document template, insert text fields
-    with open(document_template_file, "rb") as xml_file:
+    with open(configs.get_path("document"), "rb") as xml_file:
         document_text: str = xml_file.read().decode("utf-8").format(**{
             "patient_appellation": patient.gender.apply(f"{{pat_appell}} {patient.last_name}"),
             "patient_discharge": patient.discharge.strftime('%d.%m.%Y'),
@@ -69,7 +64,7 @@ def write_data(patient: Patient,
         })
 
     # Read header-data from template file and insert text fields
-    with open(header1_template_file, "rb") as xml_file:
+    with open(configs.get_path("header"), "rb") as xml_file:
         header_text: str = xml_file.read().decode("utf-8").format(**{
             "patient_data": f"{patient.last_name}, {patient.first_name}, *{patient.birth_date.strftime('%d.%m.%Y')}",
         })
