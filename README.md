@@ -1,6 +1,11 @@
 # Brief
 
 
+**Achtung: Brief generiert eine Datei im in config.txt angegebenen output-Ordner.
+Die Datei wird den Namen "A-Nachname, Vorname Aufnahmedatum.docx" tragen. Existierende
+Dateien werden ohne Rückfrage überschrieben!!**
+
+
 ## Was ist Brief?
 Ein simples Skript, um Arztbriefe aus einem vordefinierten
 Aufnahmezettelformat zu generieren. Brief nimmt hierbei Rücksicht
@@ -39,6 +44,71 @@ In Windows Powershell öffnen).
 Alternativ wird eine ausführbare Datei angeboten, die selbstständig
 ein Konsolenfenster öffnet. Die ausführbare Datei muss im gleichen Verzeichnis
 wie ihre config.txt Datei liegen.
+
+## Nutzung
+
+### Ausgelesene Daten
+
+Brief liest einen Aufnahmebogen mit vordefiniertem Format aus. Folgende
+Daten werden hierbei übernommen:
+
+- Vor- und Nachname
+- Geburtsdatum, Alter wird errechnet
+- Zugehöriger Arzt + Psychotherapeut (nur Nachnamen)
+- Aufnahmedatum und Entlassdatum
+- Allergien (als exakt notierter Text)
+- Diagnosen
+  - Schmerzdiagnosen
+  - Fehlgebrauch
+  - Psychische Diagnosen
+  - Somatische Diagnosen
+- Medikation
+  - Aktuelle Schmerzmedikation
+  - Aktuelle weitere Medikation
+  - Frühere Akutmedikation
+  - Frühere Basismedikation
+
+### Besondere Formate
+
+Diagnosen sowie Medikamente werden nicht als reiner Text übernommen,
+sondern weiter prozessiert. Hierfür werden spezielle
+Formatierungsannahmen getroffen. Werden diese nicht erfüllt,
+so wird die Textzeile dennoch als reiner Text übernommen.
+
+#### Diagnosen: Format
+
+Das erwartete Format einer Diagnose ist:
+
+```
+[Name der Diagnose][ICD10-Nummer der Diagnose]
+```
+
+Hierbei wird eine Diagnose pro Zeile erwartet. Vor und hinter dem
+Format können beliebige weitere Zeichen (Leerzeichen, Notizen etc.)
+stehen, diese werden nicht übernommen. Zeilen, die dem Format nicht
+folgen, werden als reine Textzeile übernommen und vollständig aufgeführt.
+**Sonderfall**: G43.8 und G43.3 werden als Diagnosen zusammengefasst.
+
+#### Medikation: Format
+
+Das erwartete Format einer Medikation ist für aktuelle Medikamente
+(Basismedikation Schmerz sowie aktuelle andere Medikation):
+
+```
+[Name des Medikamentes] [Zahl (Dosis)] [Dosiseinheit (z.B. mg)] [1-0-0 oder ähnliches]
+```
+
+Hierbei wird ein Medikament pro Zeile erwartet. Erfüllt eine Zeile
+das Format nicht, so wird sie vollständig als Text übernommen und als
+Spalte "Name" in der Auflistung der entsprechenden Medikation aufgeführt.
+Die Einnahmezeitpunkte sind flexibel gestaltbar, so sind Formate wie
+1-0-1 oder 1/2 - 0 - 1.5 oder 0,2 - 0 - 1 - 1 unterstützt.
+
+Frühere Schmerzbasismedikation sowie akute Schmerzmedikation wird
+ebenfalls ausgelesen, hierbei muss nicht eine Zeile pro Medikation
+erstellt werden. Stattdessen wird eine kommaseparierte Liste von
+Medikamentennamen erwartet (Absätze trennen Medikamente jedoch ebenfalls).
+Kommentare nach dem Medikamentennamen werden ebenfalls übernommen.
 
 ## Konfiguration
 Alle Pfade lassen sich in config.txt anpassen. Standardmäßig

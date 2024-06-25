@@ -107,6 +107,15 @@ if __name__ == "__main__":
     patient: Patient = Patient(patient_file,
                                Gender(Gender.Male if input("Geschlecht: ").lower() == "m" else Gender.Female))
 
+    # Make sure not to overwrite existing files
+    if ((configs.get_path("output") /
+            f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx").exists()
+        and "ja" != input("\n!!!! ACHTUNG !!!!\n\n"
+                          f"Eine generierte Datei für diesen Aufenthalt existiert bereits "
+                          f"in {configs.get_path('output')}.\n\nSoll die Datei überschrieben werden (ja/nein)?\n\n"
+                          f"Daten gehen hierbei unwiederbringlich verloren!!!! ").lower()):
+        exit(0)
+
     # Patient body data
     patient.height = "169" if is_test else input("Größe (in cm ohne Einheit): ")
     patient.weight = "78" if is_test else input("Gewicht (in kg ohne Einheit): ")
