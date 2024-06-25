@@ -1,9 +1,25 @@
 from loaders.patient import Patient
+from loaders.medication import Medication
 from loaders.insert_loader import XmlTemplateLoader
 from loaders.config_loader import ConfigurationLoader
 from shutil import copy
 from pathlib import Path
 from zipfile import ZipFile
+
+
+def get_medication(templates: XmlTemplateLoader, medication: list[Medication]) -> str:
+    return "".join([templates.apply_template("medication",
+                                             name=med.name,
+                                             dosage=f"{med.amount} {med.unit}",
+                                             **med.times())
+                    for med in medication])
+
+
+def get_diagnoses(templates: XmlTemplateLoader, diagnoses: dict[str, str]) -> str:
+    return "".join([templates.apply_template("diagnosis",
+                                             icd10=icd10,
+                                             name=name)
+                    for icd10, name in diagnoses.items()])
 
 
 def write_data(configs: ConfigurationLoader, patient: Patient,
@@ -27,38 +43,19 @@ def write_data(configs: ConfigurationLoader, patient: Patient,
     # Read the document text from document template, insert text fields
     with open(configs.get_path("document"), "rb") as xml_file:
         document_text: str = xml_file.read().decode("utf-8").format(**{
-            "patient_appellation": patient.gender.apply(f"{{pat_appell}} {patient.last_name}"),
-            "patient_discharge": patient.discharge.strftime('%d.%m.%Y'),
-            "patient_name": f"{patient.first_name} {patient.last_name}",
-            "patient_birthdate": patient.birth_date.strftime("%d.%m.%Y"),
-            "patient_age": patient.age,
-            "patient_height": patient.height,
-            "patient_weight": patient.weight,
-            "patient_bloodpressure": patient.blood_pressure,
-            "patient_pulse": patient.pulse,
-            "patient_address": patient.address,
-            "patient_admission": patient.admission.strftime("%d.%m."),
-            "assigned_doctor": patient.doctor,
-            "assigned_therapist": patient.psychologist,
+            **patient.get_data(),
+
             "midas": patient.gender.apply(midas_text),
             "whodas": patient.gender.apply(whodas_text),
             "prev_treatments": patient.gender.apply(treatments),
             "self_evaluation": patient.gender.apply(self_eval_text),
-            "patient_allergies": patient.allergies,
 
-            "insert_diagnoses": "".join([templates.apply_template("diagnosis", icd10=icd10, name=name)
-                                         for icd10, name in patient.diagnosis.items()]),
+            "insert_diagnoses": get_diagnoses(templates, patient.diagnosis),
 
             **templates.get_inserts(list(patient.diagnosis.keys())),
 
-            'base_medication': "".join([
-                templates.apply_template("medication", name=med.name,
-                                         dosage=f"{med.amount} {med.unit}", **med.times())
-                for med in patient.current_basis_medication]),
-            'other_medication': "".join([
-                templates.apply_template("medication", name=med.name,
-                                         dosage=f"{med.amount} {med.unit}", **med.times())
-                for med in patient.current_other_medication]),
+            'base_medication': get_medication(templates, patient.current_basis_medication),
+            'other_medication': get_medication(templates, patient.current_other_medication),
 
             **patient.gender.gender_dict
         })

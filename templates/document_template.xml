@@ -6442,7 +6442,7 @@
             <w:tr w:rsidR="00877D06" w:rsidRPr="00166F0D">
                 <w:tc>
                     <w:tcPr>
-                        <w:tcW w:w="auto" w:type="dxa"/>
+                        <w:tcW w:w="9097" w:type="dxa"/>
                         <w:gridSpan w:val="2"/>
                         <w:shd w:val="clear" w:color="auto" w:fill="D9D9D9"/>
                     </w:tcPr>
@@ -6993,7 +6993,7 @@
             <w:tr w:rsidR="00877D06" w:rsidRPr="00166F0D">
                 <w:tc>
                     <w:tcPr>
-                        <w:tcW w:w="auto" w:type="dxa"/>
+                        <w:tcW w:w="9097" w:type="dxa"/>
                         <w:gridSpan w:val="2"/>
                     </w:tcPr>
                     <w:p w:rsidR="00877D06" w:rsidRPr="004F573F" w:rsidRDefault="00877D06" w:rsidP="00747319">

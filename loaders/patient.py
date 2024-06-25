@@ -28,7 +28,8 @@ def extract_diagnosis(text: str) -> list[tuple[str, str]]:
     """Finds diagnosis strings declared by <name><icd10-number>. Returns list of (<icd10>, <name>)."""
 
     pattern: re.Pattern = re.compile(r"(.*?)([A-Z]\d{2}\.\d{1,3}[A-Z!*]?)")
-    return [(m.group(2), m.group(1)) for m in pattern.finditer(text)]
+    return [(m.group(2) if m.group(2) != 'G43.8' else 'G43.8/3', m.group(1))
+            for m in pattern.finditer(text) if m.group(2) != 'G43.3']
 
 
 class Patient:
@@ -142,3 +143,20 @@ class Patient:
                             # We don't need anything else
                             break
 
+    def get_data(self) -> dict[str, str]:
+        return {
+            "patient_appellation": self.gender.apply(f"{{pat_appell}} {self.last_name}"),
+            "patient_discharge": self.discharge.strftime('%d.%m.%Y'),
+            "patient_name": f"{self.first_name} {self.last_name}",
+            "patient_birthdate": self.birth_date.strftime("%d.%m.%Y"),
+            "patient_age": self.age,
+            "patient_height": self.height,
+            "patient_weight": self.weight,
+            "patient_bloodpressure": self.blood_pressure,
+            "patient_pulse": self.pulse,
+            "patient_address": self.address,
+            "patient_admission": self.admission.strftime("%d.%m."),
+            "assigned_doctor": self.doctor,
+            "assigned_therapist": self.psychologist,
+            "patient_allergies": self.allergies,
+        }

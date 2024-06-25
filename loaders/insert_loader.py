@@ -45,7 +45,7 @@ class XmlTemplateLoader:
                 result.update(buffer.pop(n))
 
         # For every other key only insert an empty string
-        result.update({key: "" for key, _ in buffer.values()})
+        result.update({key: "" for d in buffer.values() for key in d.keys()})
 
         return result
 

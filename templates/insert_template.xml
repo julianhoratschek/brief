@@ -110,6 +110,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="cyan"/>
                             </w:rPr>
                             <w:t>Migräne mit Aura</w:t>
                         </w:r>
@@ -130,6 +131,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="yellow"/>
                             </w:rPr>
                             <w:t>(Nach der Schmerzmittelpause)</w:t>
                         </w:r>
@@ -312,6 +314,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="cyan"/>
                             </w:rPr>
                             <w:t>Status migraenosus</w:t>
                         </w:r>
@@ -437,6 +440,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="cyan"/>
                             </w:rPr>
                             <w:t>Clusterkopfschmerz</w:t>
                         </w:r>
@@ -1974,6 +1978,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="cyan"/>
                             </w:rPr>
                             <w:t>Kopfschmerz vom Spannungstyp</w:t>
                         </w:r>
@@ -2169,6 +2174,7 @@
                                           w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="cyan"/>
                             </w:rPr>
                             <w:t>Migräneattacke während der Schmerzmittelpause</w:t>
                         </w:r>
@@ -2353,75 +2359,86 @@
             </w:p>
         </insert>
         <insert for="G44.4" name="overuse_letter_definition">
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="cyan"/>
-                </w:rPr>
-                <w:t xml:space="preserve">Der Einsatz von Schmerzmitteln und/oder Triptanen an mehr als 10 Tagen im Monat überschreitet die Grenzschwellen für die Entstehung von Kopfschmerzen bei Medikamentenübergebrauch. </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                              w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t xml:space="preserve">Es besteht ein Fehlgebrauch durch nicht-selektive Anwendung der Triptane bei Kopfschmerz vom Spannungstyp und Medikamentenübergebrauchskopfschmerzen. </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                              w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t xml:space="preserve">Es besteht ein Fehlgebrauch aufgrund nicht spezifischer Differenzierung der Akutmedikation in der Akutbehandlung der Migräne, Spannungskopfschmerzen und der Intervallkopfschmerzen. </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                              w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t xml:space="preserve">Es besteht ein Fehlgebrauch, indem Triptane erst dann eingenommen werden, wenn die Migräneattacke ihre höchste Kopfschmerzintensität erreicht hat. </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                              w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t xml:space="preserve">Es besteht ein Fehlgebrauch aufgrund Wiederholung des primär eingesetzten Triptans bei primärer Unwirksamkeit im Anfall. </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                              w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t xml:space="preserve">Es besteht ein Fehlgebrauch bei der Anwendung von Escape-Medikation bei primärer Unwirksamkeit des Triptans. </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                              w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t>Bei status migraenosus werden über 5 Tage täglich Schmerzmitteln und Triptane eingesetzt.</w:t>
-            </w:r>
+            <w:p>
+                <w:pPr>
+                    <w:jc w:val="both"/>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                                  w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                    </w:rPr>
+                </w:pPr>
+                <w:r>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
+                    </w:rPr>
+                    <w:t xml:space="preserve">Der Einsatz von Schmerzmitteln und/oder Triptanen an mehr als 10 Tagen im Monat überschreitet die Grenzschwellen für die Entstehung von Kopfschmerzen bei Medikamentenübergebrauch. </w:t>
+                </w:r>
+                <w:r>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                                  w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                        <w:highlight w:val="yellow"/>
+                    </w:rPr>
+                    <w:t xml:space="preserve">Es besteht ein Fehlgebrauch durch nicht-selektive Anwendung der Triptane bei Kopfschmerz vom Spannungstyp und Medikamentenübergebrauchskopfschmerzen. </w:t>
+                </w:r>
+                <w:r>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                                  w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                        <w:highlight w:val="yellow"/>
+                    </w:rPr>
+                    <w:t xml:space="preserve">Es besteht ein Fehlgebrauch aufgrund nicht spezifischer Differenzierung der Akutmedikation in der Akutbehandlung der Migräne, Spannungskopfschmerzen und der Intervallkopfschmerzen. </w:t>
+                </w:r>
+                <w:r>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                                  w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                        <w:highlight w:val="yellow"/>
+                    </w:rPr>
+                    <w:t xml:space="preserve">Es besteht ein Fehlgebrauch, indem Triptane erst dann eingenommen werden, wenn die Migräneattacke ihre höchste Kopfschmerzintensität erreicht hat. </w:t>
+                </w:r>
+                <w:r>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                                  w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                        <w:highlight w:val="yellow"/>
+                    </w:rPr>
+                    <w:t xml:space="preserve">Es besteht ein Fehlgebrauch aufgrund Wiederholung des primär eingesetzten Triptans bei primärer Unwirksamkeit im Anfall. </w:t>
+                </w:r>
+                <w:r>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                                  w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                        <w:highlight w:val="yellow"/>
+                    </w:rPr>
+                    <w:t xml:space="preserve">Es besteht ein Fehlgebrauch bei der Anwendung von Escape-Medikation bei primärer Unwirksamkeit des Triptans. </w:t>
+                </w:r>
+                <w:r>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                                  w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                        <w:highlight w:val="yellow"/>
+                    </w:rPr>
+                    <w:t>Bei status migraenosus werden über 5 Tage täglich Schmerzmitteln und Triptane eingesetzt.</w:t>
+                </w:r>
+            </w:p>
         </insert>
         <insert for="G44.4" name="overuse_additional_risk">
             <w:r>
@@ -2691,6 +2708,7 @@
                                   w:cs="Lucida Sans Unicode"/>
                         <w:sz w:val="18"/>
                         <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
                     </w:rPr>
                     <w:t>{icd10}</w:t>
                 </w:r>
@@ -2735,6 +2753,7 @@
                                 <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
+                                <w:highlight w:val="cyan"/>
                             </w:rPr>
                             <w:t>{name}</w:t>
                         </w:r>

@@ -30,28 +30,23 @@ class Treatments:
     def __init__(self, choices: list[bool]):
         """Translates checklist choices into text to insert into finished letter."""
 
+        self.doctors: str = ""
+        self.alternatives: str = ""
+        self.physio: str = ""
+
         # Only assign if a valid list was submitted
-        if len(choices) != len(Treatments.doctor_list):
-            doctors = ""
-            alternatives = ""
-            physio = ""
-
-        else:
-            doctors = ("Die bisherige Behandlung erfolgte bei Ärzten mit der Fach- bzw. Zusatzbezeichnung "
-                       + ", ".join([Treatments.doctor_list[idx]
-                                    for idx in Treatments.medical_idx if choices[idx]]))
-
-            alternatives = ("Alternativmedizinische Behandlungsversuche umfassten "
+        if len(choices) == len(Treatments.doctor_list):
+            self.doctors = ("Die bisherige Behandlung erfolgte bei Ärzten mit der Fach- bzw. Zusatzbezeichnung "
                             + ", ".join([Treatments.doctor_list[idx]
-                                         for idx in Treatments.alt_medicine_idx if choices[idx]]))
+                                         for idx in Treatments.medical_idx if choices[idx]]))
 
-            physio = ("Zudem betätigte {pat_nom} sich regelmäßig sportlich, erhielt "
-                      + " und ".join([Treatments.doctor_list[idx]
-                                      for idx in (29, 11) if choices[idx]])) if choices[11] or choices[29] else ""
+            self.alternatives = ("Alternativmedizinische Behandlungsversuche umfassten "
+                                 + ", ".join([Treatments.doctor_list[idx]
+                                              for idx in Treatments.alt_medicine_idx if choices[idx]]))
 
-        self.doctors: str = doctors
-        self.alternatives: str = alternatives
-        self.physio: str = physio
+            self.physio = ("Zudem betätigte {pat_nom} sich regelmäßig sportlich, erhielt "
+                           + " und ".join([Treatments.doctor_list[idx]
+                                           for idx in (29, 11) if choices[idx]])) if choices[11] or choices[29] else ""
 
         self.acute_medication: str = ""
         self.basis_medication: str = ""

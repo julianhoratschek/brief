@@ -11,17 +11,21 @@ from datetime import datetime
 from operator import itemgetter
 
 
-is_test = False
+is_test = True
 
 
 def check_list(text: str) -> list[bool]:
     """Returns a boolean list with length of text which is True for each x in the string.
     """
-    return list(map(lambda x: x == "x", text.lower()))
+    return list(map(lambda x: x == "x", text.replace(" ", "").lower()))
 
 
 def numbers_list(text: str) -> list[int]:
-    return list(map(int, text.split() if " " in text else text))
+    try:
+        return list(map(int, text.split() if " " in text else text))
+
+    except ValueError:
+        return []
 
 
 def get_patient_file_matches(patient_surname: str, search_path: Path) -> list[tuple[tuple[str, str, datetime], Path]]:
