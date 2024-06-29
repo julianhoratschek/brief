@@ -2995,6 +2995,11 @@
                 </w:r>
             </w:p>
         </insert>
+        <insert for="M54.2" name="backpain" collection="true">des chronischen HWS-Syndromes</insert>
+        <insert for="M54.3" name="backpain" collection="true">der Ischialgie</insert>
+        <insert for="M54.4" name="backpain" collection="true">der chronischen Lumboischialgie</insert>
+        <insert for="M54.5" name="backpain" collection="true">des chronischen Kreuzschmerzes</insert>
+        <insert for="M54.6" name="backpain" collection="true">der chronischen Schmerzen im Brustwirbelbereich</insert>
         <insert for="M79.70" name="fibromyalgia_letter_recommendations">
             <w:p>
                 <w:pPr>
@@ -3040,6 +3045,52 @@
                 </w:r>
             </w:p>
         </insert>
+
+        <collection for="backpain" name="backpain_letter_recommendations">
+            <w:p>
+                <w:pPr>
+                    <w:jc w:val="both"/>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                                  w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                    </w:rPr>
+                </w:pPr>
+                <w:r>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                                  w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
+                    </w:rPr>
+                    <w:t xml:space="preserve">Zur Behandlung </w:t>
+                </w:r>
+                <w:r>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                                  w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
+                        <w:b/>
+                        <w:bCs/>
+                    </w:rPr>
+                    <w:t>{collection}</w:t>
+                </w:r>
+                <w:r>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                                  w:cs="Lucida Sans Unicode"/>
+                        <w:sz w:val="18"/>
+                        <w:szCs w:val="18"/>
+                        <w:highlight w:val="cyan"/>
+                    </w:rPr>
+                    <w:t xml:space="preserve"> wird ein niedrig bis mäßig dosiertes Ausdauertraining (Ziel 2-3 x pro Woche für 30-40 Minuten, z. B. Walking, Schwimmen, Fahrradfahren, Aquajogging) empfohlen. Zudem sollte ein Funktionstraining, ein niedrig dosiertes Krafttraining kombiniert mit Dehnübungen sowie Tai Chi oder Qigong oder Yoga, zum Einsatz kommen.</w:t>
+                </w:r>
+            </w:p>
+        </collection>
 
         <template name="diagnosis">
             <w:p>
@@ -3139,7 +3190,7 @@
                     </w:tcPr>
                     <w:p>
                         <w:pPr>
-                            <w:jc w:val="both"/>
+                            <w:jc w:val="center"/>
                             <w:rPr>
                                 <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
@@ -3162,7 +3213,7 @@
                     </w:tcPr>
                     <w:p>
                         <w:pPr>
-                            <w:jc w:val="both"/>
+                            <w:jc w:val="center"/>
                             <w:rPr>
                                 <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
@@ -3184,7 +3235,7 @@
                     </w:tcPr>
                     <w:p>
                         <w:pPr>
-                            <w:jc w:val="both"/>
+                            <w:jc w:val="center"/>
                             <w:rPr>
                                 <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
@@ -3207,7 +3258,7 @@
                     </w:tcPr>
                     <w:p>
                         <w:pPr>
-                            <w:jc w:val="both"/>
+                            <w:jc w:val="center"/>
                             <w:rPr>
                                 <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                                 <w:sz w:val="18"/>
