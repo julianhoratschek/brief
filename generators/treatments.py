@@ -36,17 +36,18 @@ class Treatments:
 
         # Only assign if a valid list was submitted
         if len(choices) == len(Treatments.doctor_list):
-            self.doctors = ("Die bisherige Behandlung erfolgte bei Ärzten mit der Fach- bzw. Zusatzbezeichnung "
-                            + ", ".join([Treatments.doctor_list[idx]
-                                         for idx in Treatments.medical_idx if choices[idx]]))
+            if any((choices[i] for i in self.medical_idx)):
+                self.doctors = ("Die bisherige Behandlung erfolgte bei Ärzten mit der Fach- bzw. Zusatzbezeichnung "
+                                + ", ".join([Treatments.doctor_list[idx]
+                                             for idx in Treatments.medical_idx if choices[idx]]))
 
-            self.alternatives = ("Alternativmedizinische Behandlungsversuche umfassten "
-                                 + ", ".join([Treatments.doctor_list[idx]
-                                              for idx in Treatments.alt_medicine_idx if choices[idx]]))
+            if any((choices[i] for i in self.alt_medicine_idx)):
+                self.alternatives = ("Alternativmedizinische Behandlungsversuche umfassten " + ", ".join(
+                    [Treatments.doctor_list[idx] for idx in Treatments.alt_medicine_idx if choices[idx]]))
 
-            self.physio = ("Zudem betätigte {pat_nom} sich regelmäßig sportlich, erhielt "
-                           + " und ".join([Treatments.doctor_list[idx]
-                                           for idx in (29, 11) if choices[idx]])) if choices[11] or choices[29] else ""
+            if choices[11] or choices[29]:
+                self.physio = ("Zudem betätigte {pat_nom} sich regelmäßig sportlich, erhielt " + " und ".join(
+                    [Treatments.doctor_list[idx] for idx in (29, 11) if choices[idx]]))
 
         self.acute_medication: str = ""
         self.basis_medication: str = ""
@@ -54,13 +55,15 @@ class Treatments:
     def set_medication(self, patient: Patient):
         """Generate insert text from medication loaded by patient."""
 
-        self.basis_medication = ("Versuche einer Kopfschmerzprophylaxe waren leitliniengerecht mit "
-                                 + ", ".join(patient.former_basis_medication)
-                                 + " unternommen worden")
+        if patient.former_basis_medication:
+            self.basis_medication = ("Versuche einer Kopfschmerzprophylaxe waren leitliniengerecht mit "
+                                     + ", ".join(patient.former_basis_medication)
+                                     + " unternommen worden")
 
-        self.acute_medication = ("Zur Akutschmerzmedikation kamen "
-                                 + ", ".join(patient.former_acute_medication)
-                                 + " zum Einsatz")
+        if patient.former_acute_medication:
+            self.acute_medication = ("Zur Akutschmerzmedikation kamen "
+                                     + ", ".join(patient.former_acute_medication)
+                                     + " zum Einsatz")
 
     def valid(self) -> bool:
         """Simple helper function to increase readability"""
@@ -68,5 +71,8 @@ class Treatments:
         return self.doctors != ""
 
     def __str__(self):
-        return f"{self.doctors}. {self.basis_medication}. {self.acute_medication}. {self.alternatives}. {self.physio}."
+        return ". ".join(filter(
+            lambda x: x != "", [self.doctors, self.basis_medication,
+                                self.acute_medication, self.alternatives,
+                                self.physio])) + "."
 
