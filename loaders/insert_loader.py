@@ -17,8 +17,6 @@ class XmlTemplateLoader:
 
         collection_pattern: re.Pattern = re.compile(
             r'<collection for="(?P<for>.*?)" name="(?P<name>.*?)">(?P<text>.*?)</collection>', re.DOTALL)
-        #collection_insert: re.Pattern = re.compile(
-        #    r'<insert for="(?P<for>.*?)" collection="(?P<collection>.*?)">(?P<text>.*?)</insert>')
 
         full_text: str = insert_template_file.read_text(encoding='utf-8')
 
@@ -73,15 +71,10 @@ class XmlTemplateLoader:
         # For every other key only insert an empty string
         result.update({key: "" for d in buffer.values() for key in d.keys()})
 
+        # Insert texts for collections
         result.update({insert_id: "" if name not in collection_list
                                      else text.format(collection=", ".join(collection_list[name]))
                        for name, (insert_id, text) in self.collections.items()})
-
-        #for collection_name, (insert_id, text) in self.collections.items():
-        #    if collection_name not in collection_list:
-        #        coll_dict[insert_id] = ""
-        #    else:
-        #        coll_dict[insert_id] = text.format(collection=", ".join(collection_list[collection_name]))
 
         return result
 
