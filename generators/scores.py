@@ -4,10 +4,17 @@ def get_midas(numbers: list[int]) -> str | None:
     """
 
     if len(numbers) != 5:
-        return None
+
+        # Make sure to remove accidentally provided sum
+        if len(numbers) == 6:
+            numbers.pop()
+
+        # Otherwise we don't know what the user meant
+        else:
+            return None
 
     score: int = sum(numbers)
-    valid: bool = ((numbers[0] + numbers[1]) < 92) and ((numbers[2] + numbers[3]) < 92)
+    valid: str = "" if ((numbers[0] + numbers[1]) < 92) and ((numbers[2] + numbers[3]) < 92) else "[!! INVALID !!] "
 
     options: list[str] = [
         "An # Tagen in den letzten 3 Monaten ist {pat_nom} wegen der Schmerzen nicht zur Arbeit gegangen.",
@@ -19,23 +26,25 @@ def get_midas(numbers: list[int]) -> str | None:
         "An # Tagen in den letzten 3 Monaten konnte {pat_nom} an familiären, sozialen oder Freizeitaktivitäten wegen "
         "der Schmerzen nicht teilnehmen."]
 
-    return (("[!! INVALID !!] " if not valid else "")
-            + f"Im MIDAS-Score erreicht {{pat_nom}} einen Wert von {score}, einer sehr schweren Beeinträchtigung "
-              f"entsprechend. "
-            + " ".join([line.replace("#", str(nr)) for line, nr in zip(options, numbers) if nr != 0]))
+    return (f"{valid}Im MIDAS-Score erreicht {{pat_nom}} einen Wert von {score}, einer sehr schweren Beeinträchtigung "
+            f"entsprechend. "
+            " ".join([line.replace("#", str(nr)) for line, nr in zip(options, numbers) if nr != 0]))
 
 
 def whodas_categories(cat_list: list[bool]) -> str | None:
+    """Returns string describing all categories of whodas, optionally modified according to cat_list.
+    """
+
     if len(cat_list) != 6:
         return None
 
-    categories: str = ", ".join([s for c, s in zip(cat_list, [
+    categories: str = ", ".join([s for check, s in zip(cat_list, [
         "Verständnis und Kommunikation",
         "Mobilität",
         "Selbstversorgung",
         "Umgang mit anderen Menschen",
         "Tätigkeiten des alltäglichen Lebens",
-        "Teilnahme am gesellschaftlichen Leben"]) if c])
+        "Teilnahme am gesellschaftlichen Leben"]) if check])
 
     return f"Diese Angaben spiegeln sich auch im WHODAS-2.0 insbesondere im Bereich {categories} wider. "
 
@@ -46,6 +55,7 @@ def get_whodas(numbers: list[int]) -> str | None:
     if len(numbers) != 3:
         return None
 
+    # Only insert line if numbers[i] is greater than 0.
     content: str = " ".join([s for i, s in enumerate([
         f"An {numbers[0]} in den letzten 30 Tagen traten diese Schwierigkeiten auf.",
 
@@ -108,8 +118,12 @@ def get_depression_score(numbers: list[int]) -> str | None:
     ]
 
     if len(numbers) != len(options):
+
+        # remove last item if accidentally provided by user
         if len(numbers) == len(options) + 1:
             numbers.pop()
+
+        # Otherwise behaviour is not defined
         else:
             return None
 
