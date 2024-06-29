@@ -12253,6 +12253,8 @@
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="008A1328"/>
         {fibromyalgia_letter_recommendations}
         <w:p w:rsidR="00877D06" w:rsidRPr="005E3B51" w:rsidRDefault="00877D06" w:rsidP="008A1328"/>
+        {backpain_letter_recommendations}
+        <w:p/>
         {tth_letter_recommendations}
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="00F12FDC">
             <w:pPr>
