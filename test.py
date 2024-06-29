@@ -2,7 +2,7 @@ from zipfile import ZipFile
 import re
 
 
-from loaders.patient import Patient, get_patient_file_matches
+from loaders.patient import Patient
 from generators.gender import Gender
 from main import ui_get_patient_file
 
@@ -23,11 +23,6 @@ def show_all_fields():
 # show_all_fields()
 
 if __name__ == '__main__':
-    show_all_fields()
-    patient = Patient(ui_get_patient_file(get_patient_file_matches("bali")), Gender(Gender.Female))
-    for med in patient.current_basis_medication:
-        print(med)
-    print("-----")
-    for med in patient.current_other_medication:
-        print(med)
+    names = "23.10.1995"
+    print(names.splitlines()[0])
 

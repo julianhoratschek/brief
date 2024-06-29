@@ -77,11 +77,11 @@ class Patient:
                     match i:
                         # First name, last Name
                         case 0:
-                            self.last_name, self.first_name = extract_text(m.group(1)).split(", ")
+                            self.last_name, self.first_name = extract_text(m.group(1)).split(", ")[0:2]
 
                         # Birth Date
                         case 1:
-                            self.birth_date = datetime.strptime(extract_text(m.group(1)), "%d.%m.%Y")
+                            self.birth_date = datetime.strptime(extract_text(m.group(1)).splitlines()[0], "%d.%m.%Y")
                             self.age = int((datetime.now() - self.birth_date).days / 365.25)
 
                         # Address

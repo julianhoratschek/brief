@@ -10828,7 +10828,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>{pat_nom_cap} ist bewusstseinsklar und zu allen Qualitäten orientiert. </w:t>
+                <w:t xml:space="preserve">{pat_nom_cap} ist bewusstseinsklar und zu allen Qualitäten orientiert. </w:t>
             </w:r>
             <w:r>
                 <w:rPr>
