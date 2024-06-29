@@ -108,7 +108,10 @@ def get_depression_score(numbers: list[int]) -> str | None:
     ]
 
     if len(numbers) != len(options):
-        return None
+        if len(numbers) == len(options) + 1:
+            numbers.pop()
+        else:
+            return None
 
     return ("Es ist eine depressive Störung vorbeschrieben. Aktuell beschreibt "
             "{pat_nom} in der Selbstauskunft, {pron_nom} "
