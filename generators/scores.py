@@ -25,25 +25,39 @@ def get_midas(numbers: list[int]) -> str | None:
             + " ".join([line.replace("#", str(nr)) for line, nr in zip(options, numbers) if nr != 0]))
 
 
+def whodas_categories(cat_list: list[bool]) -> str | None:
+    if len(cat_list) != 6:
+        return None
+
+    categories: str = ", ".join([s for c, s in zip(cat_list, [
+        "Verständnis und Kommunikation",
+        "Mobilität",
+        "Selbstversorgung",
+        "Umgang mit anderen Menschen",
+        "Tätigkeiten des alltäglichen Lebens",
+        "Teilnahme am gesellschaftlichen Leben"]) if c])
+
+    return f"Diese Angaben spiegeln sich auch im WHODAS-2.0 insbesondere im Bereich {categories} wider. "
+
+
 def get_whodas(numbers: list[int]) -> str | None:
     """Generates text for WHODAS-2.0 Score from values."""
-
-    categories: list = ["Verständnis und Kommunikation", "Mobilität", "Selbstversorgung", "Umgang mit anderen Menschen",
-                        "Tätigkeiten des alltäglichen Lebens", "Teilnahme am gesellschaftlichen Leben"]
 
     if len(numbers) != 3:
         return None
 
-    return ("Diese Angaben spiegeln sich auch im WHODAS-2.0 insbesondere im Bereich Verständnis und Kommunikation, "
-            "Mobilität, Umgang mit anderen Menschen, Tätigkeiten des alltäglichen Lebens und Teilnahme am "
-            f"gesellschaftlichen Leben wider. An {numbers[0]} in den letzten 30 "
-            f"Tagen traten diese Schwierigkeiten auf. "
-            f"An {numbers[1]} in den letzten 30 Tagen war {{pat_nom}} aufgrund der Gesundheitsprobleme absolut unfähig "
-            f"alltägliche Aktivitäten oder {{pron_gen_sf}} Arbeit zu verrichten, an {numbers[2]} "
-            f"Tagen von 30 Tagen musste "
-            "{pat_nom} aufgrund {pron_gen_pf} Gesundheitsprobleme alltägliche Aktivitäten oder "
-            "{pron_gen_sf} Arbeit reduzieren. "
-            "Somit besteht eine ausgeprägte Beeinträchtigung sowohl der Lebensqualität als auch der Arbeitsfähigkeit. ")
+    content: str = " ".join([s for i, s in enumerate([
+        f"An {numbers[0]} in den letzten 30 Tagen traten diese Schwierigkeiten auf.",
+
+        f"An {numbers[1]} in den letzten 30 Tagen war {{pat_nom}} aufgrund der Gesundheitsprobleme absolut unfähig "
+        f"alltägliche Aktivitäten oder {{pron_gen_sf}} Arbeit zu verrichten.",
+
+        f"An {numbers[2]} Tagen von 30 Tagen musste {{pat_nom}} aufgrund {{pron_gen_pf}} Gesundheitsprobleme "
+        f"alltägliche Aktivitäten oder {{pron_gen_sf}} Arbeit reduzieren."
+    ]) if numbers[i] > 0])
+
+    return (f"{content}"
+            " Somit besteht eine ausgeprägte Beeinträchtigung sowohl der Lebensqualität als auch der Arbeitsfähigkeit.")
 
 
 def get_depression_score(numbers: list[int]) -> str | None:

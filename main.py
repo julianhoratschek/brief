@@ -1,7 +1,7 @@
 from loaders.patient import Patient
 from loaders.config_loader import ConfigurationLoader
 from generators.gender import Gender
-from generators.scores import get_midas, get_whodas, get_depression_score, get_personality_score
+from generators.scores import get_midas, whodas_categories, get_whodas, get_depression_score, get_personality_score
 from generators.treatments import Treatments
 from template_writer import write_data
 
@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 from datetime import datetime
 from operator import itemgetter
+from functools import partial
 
 
 is_test = False
@@ -126,7 +127,8 @@ if __name__ == "__main__":
     midas: str = ensure_input(get_midas, numbers_list, "MIDAS-Score [5 Zahlen]: ", "12345")
 
     # Prompt user for WHODAS-2.0 score
-    whodas: str = ensure_input(get_whodas, numbers_list, "WHODAS-Score [3 Zahlen]: ", "123")
+    whodas: str = ensure_input(whodas_categories, check_list, "WHODAS-Kategorien [6 x]: ", "xxxxxx")
+    whodas += ensure_input(get_whodas, numbers_list, "WHODAS-Score [3 Zahlen]: ", "123")
 
     # Prompt user for list (x or any other char) of previous treatments
     while True:
