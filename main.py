@@ -9,10 +9,9 @@ from pathlib import Path
 import re
 from datetime import datetime
 from operator import itemgetter
-from functools import partial
 
 
-is_test = False
+is_test = True
 
 
 def check_list(text: str) -> list[bool]:
@@ -22,8 +21,14 @@ def check_list(text: str) -> list[bool]:
 
 
 def numbers_list(text: str) -> list[int]:
+    """Converts space separated number string into list of integers. If no spaces are found, each
+    consecutive number is assumed to be a single digit number."""
+
+    if ',' in text:
+        text = text.replace(',', ' ')
+
     try:
-        return list(map(int, text.split() if " " in text else text))
+        return list(map(int, text.split() if ' ' in text else text))
 
     except ValueError:
         return []
