@@ -38,6 +38,7 @@ class Patient:
         self.last_name: str = ""
         self.gender: Gender = gender
         self.address: str = ""
+        self.occupation: str = ""
         self.doctor: str = ""
         self.psychologist: str = ""
         self.allergies: str = "Keine bekannt"
@@ -87,6 +88,10 @@ class Patient:
                         # Address
                         case 4:
                             self.address = extract_text(m.group(1))
+
+                        # Occupation
+                        case 8:
+                            self.occupation = extract_text(m.group(1))
 
                         # Assigned Doctor
                         case 19:
@@ -155,6 +160,7 @@ class Patient:
             "patient_bloodpressure": self.blood_pressure,
             "patient_pulse": self.pulse,
             "patient_address": self.address,
+            "patient_occupation": self.occupation,
             "patient_admission": self.admission.strftime("%d.%m."),
             "assigned_doctor": self.doctor,
             "assigned_therapist": self.psychologist,

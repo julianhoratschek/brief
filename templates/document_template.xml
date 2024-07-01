@@ -10074,9 +10074,26 @@
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
+                </w:rPr>
+                <w:t xml:space="preserve">{patient_appellation} arbeite als </w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
+                    <w:sz w:val="18"/>
+                    <w:szCs w:val="18"/>
+                    <w:highlight w:val="cyan"/>
+                </w:rPr>
+                <w:t>{patient_occupation}</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
+                    <w:sz w:val="18"/>
+                    <w:szCs w:val="18"/>
                     <w:highlight w:val="yellow"/>
                 </w:rPr>
-                <w:t>{patient_appellation} arbeite als [Beruf].</w:t>
+                <w:t xml:space="preserve"> in Vollzeit.</w:t>
             </w:r>
             <w:r>
                 <w:rPr>
