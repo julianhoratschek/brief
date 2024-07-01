@@ -3035,10 +3035,7 @@
                                 <w:szCs w:val="18"/>
                                 <w:highlight w:val="yellow"/>
                             </w:rPr>
-                            <w:t>Als zusätzliche Prophylaxe setzten wir bei der hier vorliegenden chronischen Migräne
-                                Botulinumtoxin Typ A nach dem PREEMPT-Schema ein. Bei guter Wirksamkeit empfehlen wir
-                                eine Wiederholung alle 3 Monate.
-                            </w:t>
+                            <w:t>Als zusätzliche Prophylaxe setzten wir bei der hier vorliegenden chronischen Migräne Botulinumtoxin Typ A nach dem PREEMPT-Schema ein. Bei guter Wirksamkeit empfehlen wir eine Wiederholung alle 3 Monate.</w:t>
                         </w:r>
                         <w:r>
                             <w:rPr>
@@ -4159,18 +4156,7 @@
                                 <w:sz w:val="16"/>
                                 <w:szCs w:val="16"/>
                             </w:rPr>
-                            <w:t>Mirtazapin</w:t>
-                        </w:r>
-                        <w:r>
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:b/>
-                                <w:bCs/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t>s</w:t>
+                            <w:t>Mirtazapins</w:t>
                         </w:r>
                         <w:r>
                             <w:rPr>
@@ -4179,25 +4165,7 @@
                                 <w:sz w:val="16"/>
                                 <w:szCs w:val="16"/>
                             </w:rPr>
-                            <w:t>.</w:t>
-                        </w:r>
-                        <w:r w:rsidRPr="00784B1F">
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t xml:space="preserve"> </w:t>
-                        </w:r>
-                        <w:r>
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t xml:space="preserve">Diese ist aus schmerztherapeutischer Sicht 30-45mg. </w:t>
+                            <w:t>. Diese ist aus schmerztherapeutischer Sicht 30-45mg. </w:t>
                         </w:r>
                         <w:r w:rsidRPr="00BF7770">
                             <w:rPr>
@@ -4585,16 +4553,7 @@
                                 <w:sz w:val="16"/>
                                 <w:szCs w:val="16"/>
                             </w:rPr>
-                            <w:t xml:space="preserve"> empfehlen wir bei guter Verträglichkeit und Wirksa</w:t>
-                        </w:r>
-                        <w:r>
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t>m</w:t>
+                            <w:t xml:space="preserve"> empfehlen wir bei guter Verträglichkeit und Wirksam</w:t>
                         </w:r>
                         <w:r>
                             <w:rPr>
@@ -4604,27 +4563,7 @@
                                 <w:szCs w:val="16"/>
                             </w:rPr>
                             <w:lastRenderedPageBreak/>
-                            <w:t>keit frühestens nach 9-12 Monaten. Duloxetin beim Auslassversuch bitte sukzessive in
-                                der Dosis red
-                            </w:t>
-                        </w:r>
-                        <w:r>
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t>u</w:t>
-                        </w:r>
-                        <w:r>
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t>zieren, um unangenehme Absetzsymptome (in der Regel grippeartig) zu vermeiden.</w:t>
+                            <w:t>keit frühestens nach 9-12 Monaten. Duloxetin beim Auslassversuch bitte sukzessive in der Dosis reduzieren, um unangenehme Absetzsymptome (in der Regel grippeartig) zu vermeiden.</w:t>
                         </w:r>
                     </w:p>
                     <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="005863E9">
@@ -4764,54 +4703,7 @@
                                 <w:sz w:val="16"/>
                                 <w:szCs w:val="16"/>
                             </w:rPr>
-                            <w:t xml:space="preserve"> auch zur Migräneprophylaxe, bei a</w:t>
-                        </w:r>
-                        <w:r w:rsidRPr="00B104BB">
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t>r</w:t>
-                        </w:r>
-                        <w:r w:rsidRPr="00B104BB">
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t>terieller Hypertonie ist die Einnahme nicht primär zeitlich begrenzt. Unter der
-                                Eindosierung sollen r
-                            </w:t>
-                        </w:r>
-                        <w:r w:rsidRPr="00B104BB">
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t>e</w:t>
-                        </w:r>
-                        <w:r w:rsidRPr="00B104BB">
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t>gelmäßige Blutdruckkontrollen erfolgen. Eine Dosisanpassung kann ebenfalls entsprechend der Blu</w:t>
-                        </w:r>
-                        <w:r w:rsidRPr="00B104BB">
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t>t</w:t>
+                            <w:t xml:space="preserve"> auch zur Migräneprophylaxe, bei arterieller Hypertonie ist die Einnahme nicht primär zeitlich begrenzt. Unter der Eindosierung sollen regelmäßige Blutdruckkontrollen erfolgen. Eine Dosisanpassung kann ebenfalls entsprechend der Blut</w:t>
                         </w:r>
                         <w:r w:rsidRPr="00B104BB">
                             <w:rPr>
@@ -5444,25 +5336,7 @@
                                 <w:sz w:val="16"/>
                                 <w:szCs w:val="16"/>
                             </w:rPr>
-                            <w:t xml:space="preserve"> kann abhängig vom klinischen Verlauf bei guter Verträglichkeit und unter L</w:t>
-                        </w:r>
-                        <w:r w:rsidRPr="00675C3C">
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t>e</w:t>
-                        </w:r>
-                        <w:r w:rsidRPr="00675C3C">
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                            </w:rPr>
-                            <w:t>berwert- und Elektrolytkontrolle weiter erhöht werden. Zieldosis aus schmerztherapeutischer Sicht sind 1.200-2.400 mg/</w:t>
+                            <w:t xml:space="preserve"> kann abhängig vom klinischen Verlauf bei guter Verträglichkeit und unter Leberwert- und Elektrolytkontrolle weiter erhöht werden. Zieldosis aus schmerztherapeutischer Sicht sind 1.200-2.400 mg/</w:t>
                         </w:r>
                         <w:r>
                             <w:rPr>
@@ -6760,20 +6634,7 @@
                                 <w:szCs w:val="16"/>
                                 <w:highlight w:val="yellow"/>
                             </w:rPr>
-                            <w:t>Kardiovaskuläre Risikofaktoren bestehen nach individueller Abklärung nicht. Aufgrund
-                                dieser Situation sehen wir aktuell nach ausführlicher Aufklärung keine individuelle
-                                Kontraindikation für die Behandlung mit Sumatriptan über dem 65
-                            </w:t>
-                        </w:r>
-                        <w:r>
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="16"/>
-                                <w:szCs w:val="16"/>
-                                <w:highlight w:val="yellow"/>
-                            </w:rPr>
-                            <w:t>.</w:t>
+                            <w:t>Kardiovaskuläre Risikofaktoren bestehen nach individueller Abklärung nicht. Aufgrund dieser Situation sehen wir aktuell nach ausführlicher Aufklärung keine individuelle Kontraindikation für die Behandlung mit Sumatriptan über dem 65.</w:t>
                         </w:r>
                         <w:r w:rsidRPr="00A27897">
                             <w:rPr>
@@ -8234,25 +8095,7 @@
                                 <w:sz w:val="18"/>
                                 <w:szCs w:val="18"/>
                             </w:rPr>
-                            <w:t>keit, Schwindel Schlafstörungen, Konzentrationsstörungen, Müdigkeit, B</w:t>
-                        </w:r>
-                        <w:r>
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="18"/>
-                                <w:szCs w:val="18"/>
-                            </w:rPr>
-                            <w:t>e</w:t>
-                        </w:r>
-                        <w:r>
-                            <w:rPr>
-                                <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                          w:cs="Lucida Sans Unicode"/>
-                                <w:sz w:val="18"/>
-                                <w:szCs w:val="18"/>
-                            </w:rPr>
-                            <w:t>rührungsempfindlichkeit</w:t>
+                            <w:t>keit, Schwindel Schlafstörungen, Konzentrationsstörungen, Müdigkeit, Berührungsempfindlichkeit</w:t>
                         </w:r>
                     </w:p>
                     <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="00C54D31">
@@ -10861,25 +10704,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>ren. Während Aura Neologismen und Wortfindungsstörungen. Inhaltliches Denken auf Schmerz foku</w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>s</w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>siert, Hoffnungslosigkeit und Verlust der Zuversicht wegen bisheriger frustraner Behandlungen. Das
-                    Denken ist auf die Schmerzproblematik eingeengt. Grübeln und Gedankenkreisen bezüglich der akt
-                </w:t>
+                <w:t>ren. Während Aura Neologismen und Wortfindungsstörungen. Inhaltliches Denken auf Schmerz fokussiert, Hoffnungslosigkeit und Verlust der Zuversicht wegen bisheriger frustraner Behandlungen. Das Denken ist auf die Schmerzproblematik eingeengt. Grübeln und Gedankenkreisen bezüglich der akt</w:t>
             </w:r>
             <w:r>
                 <w:rPr>
@@ -11127,36 +10952,6 @@
                 </w:rPr>
                 <w:t xml:space="preserve"> (</w:t>
             </w:r>
-            <w:r w:rsidR="00764662">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="begin"/>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:instrText xml:space="preserve">  </w:instrText>
-            </w:r>
-            <w:r w:rsidR="00764662">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="end"/>
-            </w:r>
             <w:r>
                 <w:rPr>
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
@@ -11191,8 +10986,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>Normbefunde für alle routinemäßig erhobenen Laborparameter (kleines Blutbild, Kreatinin, GOT, GPT, y-GT). Außerhalb des Normbereiches lagen ………..
-                </w:t>
+                <w:t>Normbefunde für alle routinemäßig erhobenen Laborparameter (kleines Blutbild, Kreatinin, GOT, GPT, y-GT). Außerhalb des Normbereiches lagen ………..</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="008A1328">
@@ -11240,36 +11034,6 @@
                 </w:rPr>
                 <w:t xml:space="preserve"> (</w:t>
             </w:r>
-            <w:r w:rsidR="00764662">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="begin"/>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:instrText xml:space="preserve">  </w:instrText>
-            </w:r>
-            <w:r w:rsidR="00764662">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="end"/>
-            </w:r>
             <w:r>
                 <w:rPr>
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
@@ -11304,8 +11068,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>Normbefunde für alle routinemäßig erhobenen Laborparameter (kleines Blutbild, Kreatinin, GOT, GPT, y-GT). Außerhalb des Normbereiches lagen ………..
-                </w:t>
+                <w:t>Normbefunde für alle routinemäßig erhobenen Laborparameter (kleines Blutbild, Kreatinin, GOT, GPT, y-GT). Außerhalb des Normbereiches lagen ………..</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00877D06" w:rsidRPr="00764B64" w:rsidRDefault="00877D06" w:rsidP="008A1328">
@@ -11344,16 +11107,6 @@
                 </w:rPr>
                 <w:t>EKG (</w:t>
             </w:r>
-            <w:r w:rsidR="00764662">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="begin"/>
-            </w:r>
             <w:r>
                 <w:rPr>
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
@@ -11363,16 +11116,6 @@
                     <w:szCs w:val="18"/>
                 </w:rPr>
                 <w:instrText xml:space="preserve">  </w:instrText>
-            </w:r>
-            <w:r w:rsidR="00764662">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:b/>
-                    <w:bCs/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="end"/>
             </w:r>
             <w:r>
                 <w:rPr>
@@ -11391,97 +11134,6 @@
                     <w:szCs w:val="18"/>
                 </w:rPr>
                 <w:t xml:space="preserve"> Indifferenztyp, Sinusrhythmus, </w:t>
-            </w:r>
-            <w:r w:rsidR="00764662">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="begin">
-                    <w:ffData>
-                        <w:name w:val="Text28"/>
-                        <w:enabled/>
-                        <w:calcOnExit w:val="0"/>
-                        <w:textInput/>
-                    </w:ffData>
-                </w:fldChar>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:instrText xml:space="preserve"> FORMTEXT </w:instrText>
-            </w:r>
-            <w:r w:rsidR="00764662">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-            </w:r>
-            <w:r w:rsidR="00764662">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="separate"/>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:noProof/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t> </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:noProof/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t> </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:noProof/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t> </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:noProof/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t> </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:noProof/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t> </w:t>
-            </w:r>
-            <w:r w:rsidR="00764662">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:fldChar w:fldCharType="end"/>
             </w:r>
             <w:r>
                 <w:rPr>
@@ -11611,111 +11263,13 @@
                 </w:rPr>
                 <w:t>Therapie und Verlauf:</w:t>
             </w:r>
-            <w:r w:rsidRPr="00764B64">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve"> </w:t>
-            </w:r>
             <w:r w:rsidRPr="00246AE5">
                 <w:rPr>
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve">Die Behandlung von {patient_appellation}</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00246AE5">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve"> basierte auf einem multimodalen Therapi</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00246AE5">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>e</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00246AE5">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>konzept mit medizinisch-pharmakologischen, psychologisch-verhaltensmedizinischen und physioth</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00246AE5">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>e</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00246AE5">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>rapeutischen Maßnahmen. Es erfolgte eine interdisziplinäre Diagnostik durch neurologische, speziell-schmerztherapeutische, ärztlich-psychotherapeutische, psychologisch-psychotherapeutische, interni</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00246AE5">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>s</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00246AE5">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>tische und allgemeinärztliche Disziplinen, gleichzeitige integrierte Anwendung von aktiven multimod</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00246AE5">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>a</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00246AE5">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>len Therapieverfahren, Überprüfung des Behandlungsverlaufs durch ein standardisiertes therapeut
-                </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00246AE5">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>i</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00246AE5">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>sches Assessment, tägliche ärztliche Visite und interdisziplinäre wöchentliche Teambesprechungen.
-                </w:t>
+                <w:t xml:space="preserve"> Die Behandlung von {patient_appellation} basierte auf einem multimodalen Therapiekonzept mit medizinisch-pharmakologischen, psychologisch-verhaltensmedizinischen und physiotherapeutischen Maßnahmen. Es erfolgte eine interdisziplinäre Diagnostik durch neurologische, speziell-schmerztherapeutische, ärztlich-psychotherapeutische, psychologisch-psychotherapeutische, internistische und allgemeinärztliche Disziplinen, gleichzeitige integrierte Anwendung von aktiven multimodalen Therapieverfahren, Überprüfung des Behandlungsverlaufs durch ein standardisiertes therapeutisches Assessment, tägliche ärztliche Visite und interdisziplinäre wöchentliche Teambesprechungen.</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="008A1328">
@@ -11744,64 +11298,7 @@
                     <w:szCs w:val="18"/>
                 </w:rPr>
                 <w:lastRenderedPageBreak/>
-                <w:t xml:space="preserve">Aufgrund der </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">ausgeprägten </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00F544EA">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>depressiven Erschöpfung</w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>sreaktion</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00F544EA">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>, der komplexen bestehenden unterha</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00F544EA">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>l</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00F544EA">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>tenden psychischen Komorbidität, der gravierenden somatischen Begleiterkrankungen, des schwerwi
-                </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00F544EA">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>e</w:t>
+                <w:t xml:space="preserve">Aufgrund der ausgeprägten depressiven Erschöpfungsreaktion, der komplexen bestehenden unterhaltenden psychischen Komorbidität, der gravierenden somatischen Begleiterkrankungen, des schwerwie</w:t>
             </w:r>
             <w:r w:rsidRPr="00F544EA">
                 <w:rPr>
@@ -11908,31 +11405,16 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> der Kopfschmerzen erhielt {pat_nom} das trizyklische Antidepress</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00851205">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>i</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00851205">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">vum </w:t>
+                <w:t xml:space="preserve"> der Kopfschmerzen erhielt {pat_nom} das trizyklische Antidepressivum </w:t>
             </w:r>
             <w:r>
                 <w:rPr>
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
+                    <w:highlight w:val="yellow"/>
                 </w:rPr>
-                <w:t>...................</w:t>
+                <w:t>[Medikament]</w:t>
             </w:r>
             <w:r w:rsidRPr="00851205">
                 <w:rPr>
@@ -11947,8 +11429,9 @@
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
+                    <w:highlight w:val="yellow"/>
                 </w:rPr>
-                <w:t>................</w:t>
+                <w:t>[Dosis]</w:t>
             </w:r>
             <w:r w:rsidRPr="00851205">
                 <w:rPr>

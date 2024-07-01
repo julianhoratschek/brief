@@ -11,7 +11,7 @@ from datetime import datetime
 from operator import itemgetter
 
 
-is_test = True
+is_test = False
 
 
 def check_list(text: str) -> list[bool]:

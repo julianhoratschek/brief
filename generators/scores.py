@@ -17,14 +17,14 @@ def get_midas(numbers: list[int]) -> str | None:
     valid: str = "" if ((numbers[0] + numbers[1]) < 92) and ((numbers[2] + numbers[3]) < 92) else "[!! INVALID !!] "
 
     options: list[str] = [
-        "An # Tagen in den letzten 3 Monaten ist {pat_nom} wegen der Schmerzen nicht zur Arbeit gegangen.",
+        "An # Tagen in den letzten 3 Monaten ist {pat_nom} wegen der Schmerzen nicht zur Arbeit gegangen. ",
         "An # Tagen in den letzten 3 Monaten war die Leistungsfähigkeit am Arbeitsplatz um die Hälfte oder "
-        "mehr eingeschränkt.",
-        "An # Tagen in den letzten 3 Monaten konnte {pat_nom} wegen der Schmerzen keine Hausarbeit verrichten.",
+        "mehr eingeschränkt. ",
+        "An # Tagen in den letzten 3 Monaten konnte {pat_nom} wegen der Schmerzen keine Hausarbeit verrichten. ",
         "An # Tagen in den letzten 3 Monaten war die Leistungsfähigkeit im Haushalt um die Hälfte oder "
-        "mehr eingeschränkt.",
+        "mehr eingeschränkt. ",
         "An # Tagen in den letzten 3 Monaten konnte {pat_nom} an familiären, sozialen oder Freizeitaktivitäten wegen "
-        "der Schmerzen nicht teilnehmen."]
+        "der Schmerzen nicht teilnehmen. "]
 
     return (f"{valid}Im MIDAS-Score erreicht {{pat_nom}} einen Wert von {score}, einer sehr schweren Beeinträchtigung "
             f"entsprechend. "
