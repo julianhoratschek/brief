@@ -79,28 +79,28 @@ def get_afflictions(numbers: list[int]) -> str | None:
     #   19: Mangel geschlechtlicher Erregbarkeit
     afflictions: list[str] = [
         "Kreuz- und Rückenschmerzen", "Überempfindlichkeit gegen Wärme", "Überempfindlichkeit gegen Kälte",
-        "Kurzatmigkeit", "Stiche, Schmerzen oder Ziehen in der Brust", "Kloßgefühl, Enge oder Würgen im Hals",
-        "starkes Schwitzen", "Schweregefühl in den Beinen", "Unruhe in den Beinen", "Nacken- oder Schulterschmerzen",
-        "Schwindelgefühl", "Übermäßiges Schlafbedürfnis", "Schlaflosigkeit",
+        "Kurzatmigkeit", "Stichen, Schmerzen oder Ziehen in der Brust", "Kloßgefühl, Enge oder Würgen im Hals",
+        "starkem Schwitzen", "Schweregefühl in den Beinen", "Unruhe in den Beinen", "Nacken- oder Schulterschmerzen",
+        "Schwindelgefühl", "Übermäßigem Schlafbedürfnis", "Schlaflosigkeit",
         "Kopfscherzen, Druck im Kopf, Gesichtsschmerzen", "Erstickungsgefühl", "Appetitlosigkeit",
         "Herzklopfen, Herzjagen oder Herzstolpern", "Verstopfung", "Mangel an geschlechtlicher Erregbarkeit",
-        "Taubheitsgefühle, Kribbel, Brennen", "Störungen beim Wasserlassen", "geschwollene Beine", "Blut im Stuhl",
-        "anfallsweise Atemnot", "Neigung zum Weinen", "Gelenk- oder Gliederschmerzen", "Mattigkeit", "Übelkeit",
-        "Grübelei", "innere Unruhe", "Schwächegefühl", "Schluckbeschwerden", "Leibschmerzen, Unterleibsschmerzen",
-        "kalte Füße", "Frieren", "trübe Gedanken", "chronischer Husten", "Durchfall", "Juckreiz", "Reizbarkeit",
+        "Taubheitsgefühlen, Kribbeln, Brennen", "Störungen beim Wasserlassen", "geschwollenen Beine", "Blut im Stuhl",
+        "Atemnot", "Neigung zum Weinen", "Gelenk- oder Gliederschmerzen", "Mattigkeit", "Übelkeit",
+        "Grübelei", "innerer Unruhe", "Schwächegefühl", "Schluckbeschwerden", "Leibschmerzen, Unterleibsschmerzen",
+        "kalten Füße", "Frieren", "trüben Gedanken", "chronischem Husten", "Durchfall", "Juckreiz", "Reizbarkeit",
         "Zittern", "Druck- oder Völlegefühl im Leib", "Gleichgewichtsstörungen", "Angstgefühl",
-        "Konzentrationsschwäche", "innere Gespanntheit", "Müdigkeit", "Schluckauf",
-        "aufsteigende Hitze, Hitzewallungen", "Energielosigkeit", "rasche Erschöpfbarkeit", "Heißhunger",
-        "Vergesslichkeit", "Ohnmachtsanfälle", "berufliche oder private Sorgen", "Unverträglichkeit bestimmter Speisen",
-        "Regelbeschwerden", "Sodbrennen oder saures Aufstoßen", "leichtes Erröten", "Gewichtsverlust", "starker Durst",
-        "Sehstörungen", "Lebensmüdigkeit", "Erbrechen", "Hautveränderungen"
+        "Konzentrationsschwäche", "innerer Gespanntheit", "Müdigkeit", "Schluckauf",
+        "aufsteigender Hitze, Hitzewallungen", "Energielosigkeit", "rascher Erschöpfbarkeit", "Heißhunger",
+        "Vergesslichkeit", "Ohnmachtsanfällen", "beruflichen oder privaten Sorgen",
+        "Unverträglichkeit bestimmter Speisen", "Regelbeschwerden", "Sodbrennen oder saurem Aufstoßen",
+        "leichtem Erröten", "Gewichtsverlust", "starkem Durst", "Sehstörungen", "Lebensmüdigkeit", "Erbrechen",
+        "Hautveränderungen"
     ]
 
     return ("In der Selbstauskunft beschreibt {pat_nom} das häufige Auftreten von "
             + ", ".join([afflictions[i - 1] for i in numbers
                          if 0 < i <= len(afflictions)
-                         and i != 19])
-            + ".")
+                         and i != 19]))
 
 
 def get_depression_score(numbers: list[int]) -> str | None:

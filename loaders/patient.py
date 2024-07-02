@@ -44,10 +44,10 @@ class Patient:
         self.allergies: str = "Keine bekannt"
 
         self.age: int = 0
-        self.height: str = "XXXXX"
-        self.weight: str = "XXXXX"
-        self.blood_pressure: str = "XXXXX/XXXXX"
-        self.pulse: str = "XXXXX"
+        self.height: str = "[Größe]"
+        self.weight: str = "[Gewicht]"
+        self.blood_pressure: str = "[Sys]/[Dias]"
+        self.pulse: str = "[HF]"
 
         self.former_acute_medication: list[str] = []
         self.former_basis_medication: list[str] = []
