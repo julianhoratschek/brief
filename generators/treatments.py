@@ -71,8 +71,7 @@ class Treatments:
         return self.doctors != ""
 
     def __str__(self):
-        return ". ".join(filter(
-            lambda x: x != "", [self.doctors, self.basis_medication,
-                                self.acute_medication, self.alternatives,
-                                self.physio]))
+        return ". ".join(filter(lambda x: x != "", [
+            self.doctors, self.basis_medication, self.acute_medication, self.alternatives, self.physio
+        ])) + ". "
 

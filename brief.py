@@ -12,9 +12,6 @@ from datetime import datetime
 from operator import itemgetter
 
 
-is_test = False
-
-
 def check_list(text: str) -> list[bool]:
     """Returns a boolean list with length of text which is True for each x in the string.
     """
@@ -166,7 +163,7 @@ def generate_brief(configs: ConfigurationLoader):
     # Generate letter from data
     write_data(configs, patient,
                midas, whodas, str(treatments),
-               ". ".join([eval_afflictions, eval_depression, eval_personality]))
+               ". ".join(filter(lambda x: x != "", [eval_afflictions, eval_depression, eval_personality])))
 
 
 

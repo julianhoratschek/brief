@@ -1,4 +1,6 @@
-v0.0.5-alpha
+v0.1.0-alpha
 - Beruf wird übernommen
 - Fixed MIDAS Scrambling
 - Add afflictions-score
+- Add support for arguments
+- Add support for "without" configuration

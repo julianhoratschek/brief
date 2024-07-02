@@ -4,4 +4,4 @@ docx=./templates/template.docx
 header=./templates/header1_template.xml
 document=./templates/document_template.xml
 inserts=./templates/insert_template.xml
-without=afflictions treatments body-data
+without=afflictions
