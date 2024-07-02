@@ -17,14 +17,14 @@ def get_midas(numbers: list[int]) -> str | None:
     valid: str = "" if ((numbers[0] + numbers[1]) < 92) and ((numbers[2] + numbers[3]) < 92) else "[!! INVALID !!] "
 
     options: list[str] = [
-        "An # Tagen in den letzten 3 Monaten ist {pat_nom} wegen der Schmerzen nicht zur Arbeit gegangen. ",
+        "An # Tagen in den letzten 3 Monaten ist {pat_nom} wegen der Schmerzen nicht zur Arbeit gegangen.",
         "An # Tagen in den letzten 3 Monaten war die Leistungsfähigkeit am Arbeitsplatz um die Hälfte oder "
-        "mehr eingeschränkt. ",
-        "An # Tagen in den letzten 3 Monaten konnte {pat_nom} wegen der Schmerzen keine Hausarbeit verrichten. ",
+        "mehr eingeschränkt.",
+        "An # Tagen in den letzten 3 Monaten konnte {pat_nom} wegen der Schmerzen keine Hausarbeit verrichten.",
         "An # Tagen in den letzten 3 Monaten war die Leistungsfähigkeit im Haushalt um die Hälfte oder "
-        "mehr eingeschränkt. ",
+        "mehr eingeschränkt.",
         "An # Tagen in den letzten 3 Monaten konnte {pat_nom} an familiären, sozialen oder Freizeitaktivitäten wegen "
-        "der Schmerzen nicht teilnehmen. "]
+        "der Schmerzen nicht teilnehmen."]
 
     return (f"{valid}Im MIDAS-Score erreicht {{pat_nom}} einen Wert von {score}, einer sehr schweren Beeinträchtigung "
             f"entsprechend. "
@@ -68,6 +68,39 @@ def get_whodas(numbers: list[int]) -> str | None:
 
     return (f"{content}"
             " Somit besteht eine ausgeprägte Beeinträchtigung sowohl der Lebensqualität als auch der Arbeitsfähigkeit.")
+
+
+def get_afflictions(numbers: list[int]) -> str | None:
+    """Creates list of afflictions assessed by the patient.
+    :param numbers: list of integers describing indices + 1 in afflictions
+    """
+
+    # Do not display (even when selected):
+    #   19: Mangel geschlechtlicher Erregbarkeit
+    afflictions: list[str] = [
+        "Kreuz- und Rückenschmerzen", "Überempfindlichkeit gegen Wärme", "Überempfindlichkeit gegen Kälte",
+        "Kurzatmigkeit", "Stiche, Schmerzen oder Ziehen in der Brust", "Kloßgefühl, Enge oder Würgen im Hals",
+        "starkes Schwitzen", "Schweregefühl in den Beinen", "Unruhe in den Beinen", "Nacken- oder Schulterschmerzen",
+        "Schwindelgefühl", "Übermäßiges Schlafbedürfnis", "Schlaflosigkeit",
+        "Kopfscherzen, Druck im Kopf, Gesichtsschmerzen", "Erstickungsgefühl", "Appetitlosigkeit",
+        "Herzklopfen, Herzjagen oder Herzstolpern", "Verstopfung", "Mangel an geschlechtlicher Erregbarkeit",
+        "Taubheitsgefühle, Kribbel, Brennen", "Störungen beim Wasserlassen", "geschwollene Beine", "Blut im Stuhl",
+        "anfallsweise Atemnot", "Neigung zum Weinen", "Gelenk- oder Gliederschmerzen", "Mattigkeit", "Übelkeit",
+        "Grübelei", "innere Unruhe", "Schwächegefühl", "Schluckbeschwerden", "Leibschmerzen, Unterleibsschmerzen",
+        "kalte Füße", "Frieren", "trübe Gedanken", "chronischer Husten", "Durchfall", "Juckreiz", "Reizbarkeit",
+        "Zittern", "Druck- oder Völlegefühl im Leib", "Gleichgewichtsstörungen", "Angstgefühl",
+        "Konzentrationsschwäche", "innere Gespanntheit", "Müdigkeit", "Schluckauf",
+        "aufsteigende Hitze, Hitzewallungen", "Energielosigkeit", "rasche Erschöpfbarkeit", "Heißhunger",
+        "Vergesslichkeit", "Ohnmachtsanfälle", "berufliche oder private Sorgen", "Unverträglichkeit bestimmter Speisen",
+        "Regelbeschwerden", "Sodbrennen oder saures Aufstoßen", "leichtes Erröten", "Gewichtsverlust", "starker Durst",
+        "Sehstörungen", "Lebensmüdigkeit", "Erbrechen", "Hautveränderungen"
+    ]
+
+    return ("In der Selbstauskunft beschreibt {pat_nom} das häufige Auftreten von "
+            + ", ".join([afflictions[i - 1] for i in numbers
+                         if 0 < i <= len(afflictions)
+                         and i != 19])
+            + ".")
 
 
 def get_depression_score(numbers: list[int]) -> str | None:

@@ -1,7 +1,8 @@
 from loaders.patient import Patient
 from loaders.config_loader import ConfigurationLoader
 from generators.gender import Gender
-from generators.scores import get_midas, whodas_categories, get_whodas, get_depression_score, get_personality_score
+from generators.scores import (get_midas, whodas_categories, get_whodas,
+                               get_afflictions, get_depression_score, get_personality_score)
 from generators.treatments import Treatments
 from template_writer import write_data
 
@@ -142,6 +143,10 @@ if __name__ == "__main__":
         if treatments.valid():
             break
 
+    # Prompt user for afflictions
+    eval_afflictions: str = ensure_input(get_afflictions, numbers_list, "Beschwerden Selbstauskunft (Zahlen): ",
+                                         "1 2 3 4 5 19 65 98")
+
     # Prompt user for depression score (BDI-II like)
     eval_depression: str = ensure_input(get_depression_score, numbers_list, "Depression-Score [19 Zahlen]: ",
                                         "2222222222222222222")
@@ -155,7 +160,7 @@ if __name__ == "__main__":
 
     # Generate letter from data
     write_data(configs, patient,
-               midas, whodas, str(treatments), f"{eval_depression}. {eval_personality}")
+               midas, whodas, str(treatments), f"{eval_afflictions}. {eval_depression}. {eval_personality}")
 
 
 
