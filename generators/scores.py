@@ -28,7 +28,7 @@ def get_midas(numbers: list[int]) -> str | None:
 
     return (f"{valid}Im MIDAS-Score erreicht {{pat_nom}} einen Wert von {score}, einer sehr schweren Beeinträchtigung "
             f"entsprechend. "
-            " ".join([line.replace("#", str(nr)) for line, nr in zip(options, numbers) if nr != 0]))
+            + " ".join([line.replace("#", str(nr)) for line, nr in zip(options, numbers) if nr != 0]))
 
 
 def whodas_categories(cat_list: list[bool]) -> str | None:
