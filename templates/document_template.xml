@@ -1479,6 +1479,28 @@
             </w:r>
         </w:p>
         {insert_diagnoses}
+        <w:p>
+            <w:pPr>
+                <w:ind w:left="1134" w:hanging="1134"/>
+                <w:jc w:val="both"/>
+                <w:rPr>
+                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                              w:cs="Lucida Sans Unicode"/>
+                    <w:sz w:val="18"/>
+                    <w:szCs w:val="18"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
+                              w:cs="Lucida Sans Unicode"/>
+                    <w:sz w:val="18"/>
+                    <w:szCs w:val="18"/>
+                    <w:highlight w:val="yellow"/>
+                </w:rPr>
+                <w:t>[Diagnosen ohne ICD-10 eintragen]</w:t>
+            </w:r>
+        </w:p>
         <w:p w:rsidR="00877D06" w:rsidRPr="00764B64" w:rsidRDefault="00877D06" w:rsidP="00980F2C">
             <w:pPr>
                 <w:ind w:left="1134" w:hanging="1134"/>
@@ -9910,7 +9932,16 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> Insgesamt besteht damit ein Fehlschlag der bisherigen unimodalen Schmerztherapie sowie einer Entzugsbehandlung.</w:t>
+                <w:t xml:space="preserve"> Insgesamt besteht damit ein Fehlschlag der bisherigen unimodalen Schmerztherapie </w:t>
+            </w:r>
+            <w:r w:rsidRPr="00213423">
+                <w:rPr>
+                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
+                    <w:sz w:val="18"/>
+                    <w:szCs w:val="18"/>
+                    <w:highlight w:val="yellow"/>
+                </w:rPr>
+                <w:t>sowie einer Entzugsbehandlung.</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00877D06" w:rsidRPr="00213423" w:rsidRDefault="00877D06" w:rsidP="00213423">
@@ -9929,6 +9960,7 @@
             </w:pPr>
         </w:p>
         {overuse_letter_definition}
+        {misuse_letter_definition}
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="00213423">
             <w:pPr>
                 <w:tabs>
