@@ -40,7 +40,7 @@ def extract_medication_objects(pre_match: str) -> list[Medication]:
     If no match for the pattern could be matched, the whole string is saved as the name property of Medication.
     """
 
-    medication_pattern: re.Pattern = re.compile(r"([a-zA-Z)(\s\-]*?)\s+([\d,./]+)\s*(.*?)\s+([\d\s,./]+(?:-[\d\s,./]+)+)")
+    medication_pattern: re.Pattern = re.compile(r"([a-zA-Z)(\d\s\-]*?)\s+([\d,./]+)\s*(.*?)\s+([\d\s,./]+(?:-[\d\s,./]+)+)")
     medication: list[Medication] = []
 
     for line in pre_match.splitlines()[1:]:
