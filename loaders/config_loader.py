@@ -1,9 +1,13 @@
 from pathlib import Path
+from operator import methodcaller
 import re
 
 
 class ConfigurationLoader:
     def __init__(self, config_path: Path):
+        """Load paths and configurations from config_path.
+        """
+
         configuration_pattern: re.Pattern = re.compile(r'(?P<key>.*?)\s*=\s*(?P<path>.*)')
 
         # Default Paths
@@ -30,11 +34,14 @@ class ConfigurationLoader:
 
         # Iterate over configurations
         for m in configuration_pattern.finditer(config_path.read_text(encoding='utf-8')):
-            key, value = map(lambda s: s.strip(), m.groups())
+
+            # We don't want whitespace in the keys
+            strip_fn: callable = methodcaller('strip')
+            key, value = map(strip_fn, m.groups())
 
             # Process block-exclusion configuration
             if key == "without":
-                values: list[str] = list(map(lambda s: s.strip(), value.split()))
+                values: list[str] = [strip_fn(s) for s in value.split()]
                 self.set_blocks(values, [False] * len(values))
 
             # Otherwise overwrite paths

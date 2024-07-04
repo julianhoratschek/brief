@@ -1,6 +1,5 @@
-v0.1.0-alpha
-- Beruf wird übernommen
-- Fixed MIDAS Scrambling
-- Add afflictions-score
-- Add support for arguments
-- Add support for "without" configuration
+v0.1.1-alpha
+- Medikamentennamen können Zahlen enthalten
+- Absätze und Whitespaces gefixt, Markierungen verbessert
+- Overuse inserts optimiert
+- Proprocessing für Inserts

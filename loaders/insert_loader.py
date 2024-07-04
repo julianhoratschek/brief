@@ -8,7 +8,7 @@ class XmlTemplateLoader:
     def __init__(self, insert_template_file: Path):
         # Load templates for inserts
         insert_pattern: re.Pattern = re.compile(
-            r'<insert for="(?P<for>.*?)" name="(?P<name>.*?)"(?P<collection> collection="true")?>(?P<text>.*?)</insert>',
+            r'<insert for="(?P<for>.*?)" name="(?P<name>.*?)"(?P<prep> preprocess="true")?>(?P<text>.*?)</insert>',
             re.DOTALL)
 
         # Load templates for repeating patterns
@@ -31,11 +31,21 @@ class XmlTemplateLoader:
         # Maps ICD10-number to (insert_id, text) or (collection_name, text)
         self.inserts: dict[str, dict[str, str]] = {}
 
+        # Saves names of inserts to preprocess
+        self.preprocess_names: list[str] = []
+
+        # Add Inserts from matches
         for m in insert_pattern.finditer(full_text):
             for_id: str = m.group('for')
             if for_id not in self.inserts:
                 self.inserts[for_id] = {}
+
             self.inserts[for_id][m.group('name')] = m.group('text')
+
+            # Test if this match should be preprocessed
+            if m.group('prep'):
+                self.preprocess_names.append(m.group('name'))
+
 
     def get_inserts(self, for_ids: list[str]) -> dict[str, str]:
         """Looks for the keys for_ids in inserts and returns them as a dict mapping the template name
@@ -57,16 +67,16 @@ class XmlTemplateLoader:
                 continue
 
             insert: dict[str, str] = buffer.pop(n)
-            insert_buffer: dict[str, str] = insert.copy()
+            insert_keys: list[str] = list(insert.keys())
 
             # Look for collection ids
-            for k in insert.keys():
+            for k in insert_keys:
                 if k in self.collections:
                     if k not in collection_list:
                         collection_list[k] = []
-                    collection_list[k].append(insert_buffer.pop(k))
+                    collection_list[k].append(insert.pop(k))
 
-            result.update(insert_buffer)
+            result.update(insert)
 
         # For every other key only insert an empty string
         result.update({key: "" for d in buffer.values() for key in d.keys()})
@@ -75,6 +85,11 @@ class XmlTemplateLoader:
         result.update({insert_id: "" if name not in collection_list
                                      else text.format(collection=", ".join(collection_list[name]))
                        for name, (insert_id, text) in self.collections.items()})
+
+        # Preprocess results
+        for k in result.keys():
+            if k in self.preprocess_names:
+                result[k] = result[k].format(**result)
 
         return result
 

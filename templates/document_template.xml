@@ -9742,75 +9742,14 @@
                 </w:rPr>
                 <w:t xml:space="preserve"> sind demnach erfüllt. </w:t>
             </w:r>
-            <w:r w:rsidRPr="00690B32">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="green"/>
-                </w:rPr>
-                <w:t>MÜK:</w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve"> </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00690B32">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t>Aufgrund der Intensität der Schmerzen, insbesondere der Migräne, we</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00690B32">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t>r</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00690B32">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t>den die Grenzschwellen für die Entstehung von Kopfschmerzen bei Medikamentenübergebrauch ei</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00690B32">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t>n</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00690B32">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t>deutig überschritten.</w:t>
-            </w:r>
+            {overuse_anamnesis}
             <w:r w:rsidRPr="00213423">
                 <w:rPr>
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> Keine der bisherigen Therapiemaßnahmen konnte verhindern, dass sich ein hochchronifiziertes Schmerzgeschehen eingestellt hat. </w:t>
+                <w:t>Keine der bisherigen Therapiemaßnahmen konnte verhindern, dass sich ein hochchronifiziertes Schmerzgeschehen eingestellt hat.</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00877D06" w:rsidRPr="00213423" w:rsidRDefault="00877D06" w:rsidP="00213423">
@@ -9932,16 +9871,16 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> Insgesamt besteht damit ein Fehlschlag der bisherigen unimodalen Schmerztherapie </w:t>
+                <w:t> Insgesamt besteht damit ein Fehlschlag der bisherigen unimodalen Schmerztherapie</w:t>
             </w:r>
+            {overuse_treatments_addition}
             <w:r w:rsidRPr="00213423">
                 <w:rPr>
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
                 </w:rPr>
-                <w:t>sowie einer Entzugsbehandlung.</w:t>
+                <w:t>.</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00877D06" w:rsidRPr="00213423" w:rsidRDefault="00877D06" w:rsidP="00213423">
@@ -11347,15 +11286,16 @@
                     <w:szCs w:val="18"/>
                 </w:rPr>
                 <w:lastRenderedPageBreak/>
-                <w:t xml:space="preserve">Aufgrund der ausgeprägten depressiven Erschöpfungsreaktion, der komplexen bestehenden unterhaltenden psychischen Komorbidität, der gravierenden somatischen Begleiterkrankungen, des schwerwie</w:t>
+                <w:t xml:space="preserve">Aufgrund der ausgeprägten depressiven Erschöpfungsreaktion, der komplexen bestehenden unterhaltenden psychischen Komorbidität, der gravierenden somatischen Begleiterkrankungen, des schwerwiegenden langen chronischen Verlaufes</w:t>
             </w:r>
+            {overuse_stay_recommendation}
             <w:r w:rsidRPr="00F544EA">
                 <w:rPr>
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve">genden langen chronischen Verlaufes und der notwendigen Minimierung des Rückfallrisikos in den Analgetika-Übergebrauch und Analgetika-Fehlgebrauch erforderte die Behandlung den Zeitraum bis zum </w:t>
+                <w:t xml:space="preserve"> erforderte die Behandlung den Zeitraum bis zum </w:t>
             </w:r>
             <w:r w:rsidRPr="00213423">
                 <w:rPr>
@@ -11364,32 +11304,9 @@
                     <w:szCs w:val="18"/>
                     <w:highlight w:val="yellow"/>
                 </w:rPr>
-                <w:t>{patient_discharge}</w:t>
+                <w:t>{patient_discharge}.</w:t>
             </w:r>
-            <w:r w:rsidRPr="00F544EA">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">. Es kam zu wiederholten schweren </w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>Kopfschmerz</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00F544EA">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>attacken, die den Behandlungsprozess verlangsamten, schwere Rebound-Kopfschmerzen mussten mit Escape-Medikation behandelt werden, welche die multimodalen Behandlungsmaßnahmen behinderten.</w:t>
-            </w:r>
+            {overuse_stay_rebound}
         </w:p>
         <w:p w:rsidR="00877D06" w:rsidRDefault="00877D06" w:rsidP="0049333C">
             <w:pPr>
@@ -11621,20 +11538,13 @@
                 </w:rPr>
                 <w:t xml:space="preserve">Wir empfahlen </w:t>
             </w:r>
-            <w:r w:rsidRPr="00334C70">
-                <w:rPr>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                    <w:highlight w:val="yellow"/>
-                </w:rPr>
-                <w:t>nach Abschluss der Medikamentenpause</w:t>
-            </w:r>
+            {overuse_acute_recommendations}
             <w:r w:rsidRPr="00334C70">
                 <w:rPr>
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> zur </w:t>
+                <w:t xml:space="preserve">zur </w:t>
             </w:r>
             <w:r w:rsidRPr="00334C70">
                 <w:rPr>

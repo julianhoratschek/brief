@@ -4,5 +4,5 @@ docx=./templates/template.docx
 header=./templates/header1_template.xml
 document=./templates/document_template.xml
 inserts=./templates/insert_template.xml
-without=afflictions
-#without=afflictions body-data whodas-cats whodas midas treatments bdi f45
+#without=afflictions
+without=afflictions body-data whodas-cats whodas midas treatments bdi f45
