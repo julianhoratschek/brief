@@ -5,10 +5,17 @@ from loaders.config_loader import ConfigurationLoader
 from shutil import copy
 from pathlib import Path
 from zipfile import ZipFile
-from loaders.insert_patcher import create_output_file
+import re
 
 
 def get_medication(templates: XmlTemplateLoader, medication: list[Medication]) -> str:
+    """
+    Returns medication formatted to match xml templates.
+    :param templates: XmlTemplateLoader instance with loaded template "medication"
+    :param medication: List of Medication objects
+    :return: String produced by applying templates to medication
+    """
+
     return "".join([templates.apply_template("medication",
                                              name=med.name,
                                              dosage=f"{med.amount} {med.unit}",
@@ -17,29 +24,58 @@ def get_medication(templates: XmlTemplateLoader, medication: list[Medication]) -
 
 
 def get_diagnoses(templates: XmlTemplateLoader, diagnoses: dict[str, str]) -> str:
+    """
+    Returns diagnoses formatted to match xml templates.
+    :param templates: XmlTemplateLoader instance with loaded template "diagnoses"
+    :param diagnoses: Dictionary mapping icd10 codes to diagnose names.
+    :return: Text produced by applying templates to diagnoses
+    """
+
     return "".join([templates.apply_template("diagnosis",
                                              icd10=icd10,
                                              name=name)
                     for icd10, name in diagnoses.items()])
 
 
+def create_output_file(output_path: Path, docx_template_path: Path, document_text: str, header_text: str):
+    """
+    Generate DOCX-File from templates.
+    :param output_path: Path to output file
+    :param docx_template_path: Path to docx template file
+    :param document_text: Text to write into word/document.xml
+    :param header_text: Text to write into word/header1.xml
+    """
+
+    # If Output path does not exist, create it
+    if not output_path.parent.exists():
+        output_path.parent.mkdir()
+
+    # Copy ZIP file to output location
+    patch_path: Path = copy(docx_template_path,
+                            output_path)
+
+    # Write missing document.xml and header1.xml files to ZIP archive
+    with ZipFile(patch_path, "a") as zip_file:
+        zip_file.writestr("word/document.xml", document_text.encode("utf-8"))
+        zip_file.writestr("word/header1.xml", header_text.encode("utf-8"))
+
+
 def write_data(configs: ConfigurationLoader, patient: Patient,
                midas_text: str, whodas_text: str,
                treatments: str,
                self_eval_text: str):
+    """
+    Insert template string into document_template.xml, generate docx
+    :param configs: ConfigurationLoader containing all needed paths
+    :param patient: Patient object with loaded data
+    :param midas_text: Text to write into {midas} block
+    :param whodas_text: Text to write into {whodas} block
+    :param treatments: Text to write into {prev_treatments} block
+    :param self_eval_text: Text to write into {self_eval_text} block
+    """
 
     # Load templates and inserts
     templates: XmlTemplateLoader = XmlTemplateLoader(configs.get_path("inserts"))
-    # output_path: Path = configs.get_path("output")
-
-    # If Output path does not exist, create it
-    # if not output_path.exists():
-    #    output_path.mkdir()
-
-    # Copy template file with generated name into output-folder
-    # file_path: Path = copy(configs.get_path("docx"),
-    #                       output_path /
-    #                       f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx")
 
     # Read the document text from document template, insert text fields
     with open(configs.get_path("document"), "rb") as xml_file:
@@ -67,14 +103,48 @@ def write_data(configs: ConfigurationLoader, patient: Patient,
             "patient_data": f"{patient.last_name}, {patient.first_name}, *{patient.birth_date.strftime('%d.%m.%Y')}",
         })
 
-    create_output_file(f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx",
-                       configs, document_text, header_text)
-
-    # Write missing files with generated content to the *.docx file
-    # with ZipFile(file_path, "a") as zip_file:
-    #    zip_file.writestr("word/document.xml", document_text.encode("utf-8"))
-    #    zip_file.writestr("word/header1.xml", header_text.encode("utf-8"))
+    # Write data
+    create_output_file(configs.get_path("output") / patient.file_name(),
+                       configs.get_path("docx"), document_text, header_text)
 
 
 def patch_data(configs: ConfigurationLoader, patient: Patient):
-    pass
+    """
+    Reload an already generated docx-file and re process its content, adding text blocks which were omitted before.
+    This only works for inserting new insert templates depending on diagnoses read from patient.
+    :param configs: ConfigurationLoader containing all needed paths
+    :param patient: Patient object with loaded data
+    """
+
+    # Load Templates
+    templates: XmlTemplateLoader = XmlTemplateLoader(configs.get_path("inserts"))
+
+    # Get generated file path
+    file_path: Path = configs.get_path("output") / patient.file_name()
+
+    # Do not proceed if file was not created
+    if not file_path.exists():
+        return
+
+    with ZipFile(file_path, 'r') as zip_file:
+        with zip_file.open('word/document.xml') as document_xml:
+            # Replace commented insert hooks with working ones
+            full_document_text: str = (re.sub(
+                r"<!-- insert_id: \[(.*?)] !-->",
+                r"{\1}",
+
+                # In the text read from the loaded docx file
+                document_xml.read().decode('utf-8'))
+
+                # Then reformat string
+                .format(**templates.get_inserts(list(patient.diagnosis.keys()))))
+
+        # Load already generated header from docx-file
+        with zip_file.open('word/header1.xml') as header_xml:
+            full_header_text: str = header_xml.read().decode('utf-8')
+
+    # Write everything into new file
+    create_output_file(file_path.with_stem(f"{file_path.stem} patch"),
+                       configs.get_path("docx"),
+                       full_document_text, full_header_text)
+

@@ -93,8 +93,7 @@ class XmlTemplateLoader:
 
                     # If id matches a pattern, add key id to buffer and remove pattern
                     if glob_str(insert_id, n):
-                        buffer[n] = buffer[insert_id]
-                        del buffer[insert_id]
+                        buffer[n] = buffer.pop(insert_id)
                         break
 
                 # If id didn't match a glob pattern, continue
@@ -117,10 +116,10 @@ class XmlTemplateLoader:
             result.update(insert)
 
         # For every other key only insert a comment for later patching
-        result.update({key: f"<!-- insert_id: {{{key}}} !-->" for d in buffer.values() for key in d.keys()})
+        result.update({key: f"<!-- insert_id: [{key}] !-->" for d in buffer.values() for key in d.keys()})
 
         # Insert texts for collections
-        result.update({insert_id: f"<!-- insert_id: {{{insert_id}}} !-->" if name not in collection_list else
+        result.update({insert_id: f"<!-- insert_id: [{insert_id}] !-->" if name not in collection_list else
                                   text.format(collection=", ".join(collection_list[name]))
                        for name, (insert_id, text) in self.collections.items()})
 

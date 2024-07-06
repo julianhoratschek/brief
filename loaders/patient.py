@@ -148,7 +148,14 @@ class Patient:
                             # We don't need anything else
                             break
 
+    def file_name(self) -> str:
+        """Return filename from patient data"""
+
+        return f"A-{self.last_name}, {self.first_name} {self.admission.strftime('%d%m%Y')}.docx"
+
     def get_data(self) -> dict[str, str]:
+        """Return data as dictionary, used for format-strings"""
+
         return {
             "patient_appellation": self.gender.apply(f"{{pat_appell}} {self.last_name}"),
             "patient_discharge": self.discharge.strftime('%d.%m.%Y'),

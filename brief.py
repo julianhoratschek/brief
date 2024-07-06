@@ -4,7 +4,7 @@ from generators.gender import Gender
 from generators.scores import (get_midas, whodas_categories, get_whodas,
                                get_afflictions, get_depression_score, get_personality_score)
 from generators.treatments import Treatments
-from template_writer import write_data
+from template_writer import write_data, patch_data
 
 from pathlib import Path
 import re
@@ -103,6 +103,7 @@ def generate_brief(configs: ConfigurationLoader):
             input("Nachname des Patienten: ").lower(), configs.get_path("db")))
 
     if patient_file is None:
+        print("[!!] Der Inhalt der Patientenakte konnte nicht gelesen werden.")
         return
 
     # Retrieve data from admission file and determine gender
@@ -110,13 +111,23 @@ def generate_brief(configs: ConfigurationLoader):
                                Gender(Gender.Male if input("Geschlecht: ").lower() == "m" else Gender.Female))
 
     # Make sure not to overwrite existing files
-    if ((configs.get_path("output") /
-            f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx").exists()
-        and "ja" != input("\n!!!! ACHTUNG !!!!\n\n"
-                          f"Eine generierte Datei für diesen Aufenthalt existiert bereits "
-                          f"in {configs.get_path('output')}.\n\nSoll die Datei überschrieben werden (ja/nein)?\n\n"
-                          f"Daten gehen hierbei unwiederbringlich verloren!!!! ").lower()):
-        return
+    if (configs.get_path("output") / patient.file_name()).exists():
+
+        # Should we patch the file?
+        if "ja" == input(
+                f"Eine Datei '{patient.file_name()}' wurde bereits generiert. "
+                f"Soll die gefundene Datei gepatcht werden (ja/nein)? "):
+            patch_data(configs, patient)
+            print("Datei wurde gepatcht. Bereits generierte Inhalte wurden NICHT verändert.\n"
+                  "\t* Bereits generierte Inhalte müssen ggf. manuell angepasst werden\n"
+                  "\t* Neue Diagnosen müssen manuell eingefügt werden.\n"
+                  "\t* Alter Inhalt muss ggf. manuell entfernt werden.")
+            return
+
+        # Are we allowed to overwrite the file?
+        elif "ja" != input(
+                "Soll die gefundene Datei überschrieben werden (Daten gehen UNWIEDERBRINGLICH verloren) (ja/nein)? "):
+            return
 
     # Patient body data
     if configs.include_block("body-data"):
@@ -164,8 +175,4 @@ def generate_brief(configs: ConfigurationLoader):
     write_data(configs, patient,
                midas, whodas, str(treatments),
                ". ".join(filter(lambda x: x != "", [eval_afflictions, eval_depression, eval_personality])))
-
-
-
-
 
