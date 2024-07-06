@@ -5,6 +5,7 @@ from loaders.config_loader import ConfigurationLoader
 from shutil import copy
 from pathlib import Path
 from zipfile import ZipFile
+from loaders.insert_patcher import create_output_file
 
 
 def get_medication(templates: XmlTemplateLoader, medication: list[Medication]) -> str:
@@ -29,16 +30,16 @@ def write_data(configs: ConfigurationLoader, patient: Patient,
 
     # Load templates and inserts
     templates: XmlTemplateLoader = XmlTemplateLoader(configs.get_path("inserts"))
-    output_path: Path = configs.get_path("output")
+    # output_path: Path = configs.get_path("output")
 
     # If Output path does not exist, create it
-    if not output_path.exists():
-        output_path.mkdir()
+    # if not output_path.exists():
+    #    output_path.mkdir()
 
     # Copy template file with generated name into output-folder
-    file_path: Path = copy(configs.get_path("docx"),
-                           output_path /
-                           f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx")
+    # file_path: Path = copy(configs.get_path("docx"),
+    #                       output_path /
+    #                       f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx")
 
     # Read the document text from document template, insert text fields
     with open(configs.get_path("document"), "rb") as xml_file:
@@ -66,8 +67,14 @@ def write_data(configs: ConfigurationLoader, patient: Patient,
             "patient_data": f"{patient.last_name}, {patient.first_name}, *{patient.birth_date.strftime('%d.%m.%Y')}",
         })
 
-    # Write missing files with generated content to the *.docx file
-    with ZipFile(file_path, "a") as zip_file:
-        zip_file.writestr("word/document.xml", document_text.encode("utf-8"))
-        zip_file.writestr("word/header1.xml", header_text.encode("utf-8"))
+    create_output_file(f"A-{patient.last_name}, {patient.first_name} {patient.admission.strftime('%d%m%Y')}.docx",
+                       configs, document_text, header_text)
 
+    # Write missing files with generated content to the *.docx file
+    # with ZipFile(file_path, "a") as zip_file:
+    #    zip_file.writestr("word/document.xml", document_text.encode("utf-8"))
+    #    zip_file.writestr("word/header1.xml", header_text.encode("utf-8"))
+
+
+def patch_data(configs: ConfigurationLoader, patient: Patient):
+    pass

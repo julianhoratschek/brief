@@ -77,6 +77,7 @@
             </w:r>
         </w:p>
     </insert>
+
     <insert for="G43.0" name="migraine_without_aura_acute_medication" preprocess="true">
         <w:tr w:rsidR="00877D06" w:rsidRPr="00166F0D">
             <w:tc>
@@ -706,6 +707,7 @@
             </w:tc>
         </w:tr>
     </insert>
+
     <insert for="G44.0" name="cluster_acute_medication">
         <w:tr>
             <w:tc>
@@ -2242,6 +2244,7 @@
             </w:r>
         </w:p>
     </insert>
+
     <insert for="G44.2" name="tth_acute_medication">
         <w:tr>
             <w:tc>
@@ -2438,6 +2441,7 @@
             </w:r>
         </w:p>
     </insert>
+
     <insert for="G44.4" name="overuse_acute_medication">
         <w:tr>
             <w:tc>
@@ -2952,11 +2956,14 @@
             </w:r>
         </w:p>
     </insert>
+
     <insert for="M54.2" name="backpain">des chronischen HWS-Syndromes</insert>
     <insert for="M54.3" name="backpain">der Ischialgie</insert>
     <insert for="M54.4" name="backpain">der chronischen Lumboischialgie</insert>
     <insert for="M54.5" name="backpain">des chronischen Kreuzschmerzes</insert>
     <insert for="M54.6" name="backpain">der chronischen Schmerzen im Brustwirbelbereich</insert>
+    <insert for="M54.*" name="backpain">der Rückenschmerzen</insert>
+
     <insert for="M79.70" name="fibromyalgia_letter_recommendations">
         <w:p>
             <w:pPr>
@@ -3091,7 +3098,6 @@
             </w:r>
         </w:p>
     </template>
-
     <template name="medication">
         <w:tr>
             <w:tc>

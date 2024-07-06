@@ -2,6 +2,20 @@ import re
 from pathlib import Path
 
 
+def glob_str(pattern: str, text: str) -> bool:
+    """
+    Simulates glob pattern matching using regex.
+    :param pattern: The pattern to match.
+    :param text: The text to match.
+    :return: True if the pattern matches, False otherwise.
+    """
+
+    return re.search(pattern.replace('.', '\\.')
+                            .replace('?', '.?')
+                            .replace('*', '.*?'),
+                     text) is not None
+
+
 class XmlTemplateLoader:
     """Loads xml templates from ./templates/insert_template.xml."""
 
@@ -34,6 +48,9 @@ class XmlTemplateLoader:
         # Saves names of inserts to preprocess
         self.preprocess_names: list[str] = []
 
+        # Save glob keys for later
+        self.pattern_keys: list[str] = []
+
         # Add Inserts from matches
         for m in insert_pattern.finditer(full_text):
             for_id: str = m.group('for')
@@ -46,6 +63,9 @@ class XmlTemplateLoader:
             if m.group('prep'):
                 self.preprocess_names.append(m.group('name'))
 
+            # Test if key is a glob pattern
+            if '*' in for_id or '?' in for_id:
+                self.pattern_keys.append(for_id)
 
     def get_inserts(self, for_ids: list[str]) -> dict[str, str]:
         """Looks for the keys for_ids in inserts and returns them as a dict mapping the template name
@@ -57,14 +77,32 @@ class XmlTemplateLoader:
 
         # Do not change object
         buffer: dict[str, dict[str, str]] = self.inserts.copy()
+        pattern_buffer: list[str] = self.pattern_keys.copy()
 
         # Maps insert_text to list of text
         collection_list: dict[str, list[str]] = {}
 
         # Insert every block with a corresponding id in ids.
         for n in for_ids:
+
+            # If we don't find the id in our buffer
             if n not in buffer:
-                continue
+
+                # Test, if id matches a glob pattern
+                for id_i, insert_id in enumerate(pattern_buffer):
+
+                    # If id matches a pattern, add key id to buffer and remove pattern
+                    if glob_str(insert_id, n):
+                        buffer[n] = buffer[insert_id]
+                        del buffer[insert_id]
+                        break
+
+                # If id didn't match a glob pattern, continue
+                else:
+                    continue
+
+                # Remove glob pattern as we filled it in
+                pattern_buffer.pop(id_i)
 
             insert: dict[str, str] = buffer.pop(n)
             insert_keys: list[str] = list(insert.keys())
@@ -78,12 +116,12 @@ class XmlTemplateLoader:
 
             result.update(insert)
 
-        # For every other key only insert an empty string
-        result.update({key: "" for d in buffer.values() for key in d.keys()})
+        # For every other key only insert a comment for later patching
+        result.update({key: f"<!-- insert_id: {{{key}}} !-->" for d in buffer.values() for key in d.keys()})
 
         # Insert texts for collections
-        result.update({insert_id: "" if name not in collection_list
-                                     else text.format(collection=", ".join(collection_list[name]))
+        result.update({insert_id: f"<!-- insert_id: {{{insert_id}}} !-->" if name not in collection_list else
+                                  text.format(collection=", ".join(collection_list[name]))
                        for name, (insert_id, text) in self.collections.items()})
 
         # Preprocess results
