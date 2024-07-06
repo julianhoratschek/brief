@@ -113,20 +113,8 @@ class Patient:
                         case 31:
                             self.allergies = extract_text(m.group(1))
 
-                        # Pain Diagnosis
-                        case 36:
-                            self.diagnosis |= extract_diagnosis(extract_text(m.group(1)))
-
-                        # Misuse Diagnosis
-                        case 39:
-                            self.diagnosis |= extract_diagnosis(extract_text(m.group(1)))
-
-                        # Psych. Diagnosis
-                        case 42:
-                            self.diagnosis |= extract_diagnosis(extract_text(m.group(1)))
-
-                        # Phys. Diagnosis
-                        case 45:
+                        # Pain Diagnosis, Misuse Diagnosis, Psych. Diagnosis, Phys. Diagnosis
+                        case 36 | 39 | 42 | 45:
                             self.diagnosis |= extract_diagnosis(extract_text(m.group(1)))
 
                         # Current Base Medication

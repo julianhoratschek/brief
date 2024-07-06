@@ -9,7 +9,16 @@ from template_writer import write_data, patch_data
 from pathlib import Path
 import re
 from datetime import datetime
-from operator import itemgetter
+from operator import attrgetter
+from dataclasses import dataclass
+
+
+@dataclass
+class PatientData:
+    last_name: str
+    first_name: str
+    admission: datetime
+    docx_path: Path
 
 
 def check_list(text: str) -> list[bool]:
@@ -32,23 +41,34 @@ def numbers_list(text: str) -> list[int]:
         return []
 
 
-def get_patient_file_matches(patient_surname: str, search_path: Path) -> list[tuple[tuple[str, str, datetime], Path]]:
-    name_pattern: re.Pattern = re.compile(r"(.*?), (.*?) (\d{8})")
-    matches: list[tuple[tuple[str, str, datetime], Path]] = []
+def get_patient_file_matches(patient_surname: str, search_path: Path) -> list[PatientData]:
+    """Searches through search_path for all matches of patient_surname in admission files.
+    :param patient_surname: the surname of the patient to search
+    :param search_path: the path of the admission files to search
+    :return a sorted list of PatientData objects"""
 
+    name_pattern: re.Pattern = re.compile(r"(.*?), (.*?) (\d{8})")
+    matches: list[PatientData] = []
+
+    # Only look through docx-files
     for docx_path in search_path.glob("*.docx"):
+        # If we don't find a primitive match, don't bother looking
         if patient_surname not in docx_path.name.lower():
             continue
 
+        # Extract information from file name
         if found_match := name_pattern.match(docx_path.name):
             last_name, first_name, admission = found_match.groups()
-            matches.append(((last_name, first_name, datetime.strptime(admission, "%d%m%Y")), docx_path))
+            matches.append(
+                PatientData(last_name, first_name, datetime.strptime(admission, "%d%m%Y"), docx_path))
 
-    matches.sort(key=itemgetter(0), reverse=True)
+    # Sort and return results
+    matches.sort(key=attrgetter('last_name', 'first_name', 'admission'), reverse=True)
+
     return matches
 
 
-def ui_get_patient_file(matches) -> Path | None:
+def ui_get_patient_file(matches: list[PatientData]) -> Path | None:
     """Helper function to retrieve the definitive Filepath for the selected patient. Prompts user for choice, if
     multiple files are possible matches"""
 
@@ -58,18 +78,19 @@ def ui_get_patient_file(matches) -> Path | None:
 
     # If there is only one, this will be the one
     elif len(matches) == 1:
-        return matches[0][1]
+        return matches[0].docx_path
 
     # If multiple matches were found, prompt user to select one
     else:
         # Setup prompt string
-        for idx, ((last_name, first_name, admission), path) in enumerate(matches):
-            print(f"[{idx + 1}] {last_name}, {first_name} {admission.strftime('%d.%m.%Y')}")
+        for idx, patient_data in enumerate(matches):
+            print(f"[{idx + 1}] {patient_data.last_name}, {patient_data.first_name} "
+                  f"{patient_data.admission.strftime('%d.%m.%Y')}")
 
         try:
             # Get user selection
             selected: int = int(input(f"Eintrag [1 - {len(matches)}]: ")) - 1
-            return matches[selected][1]
+            return matches[selected].docx_path
 
         except (ValueError, IndexError):
             print(f"Eine Zahl zwischen 1 und {len(matches)} muss eingegeben werden.")
@@ -100,7 +121,8 @@ def generate_brief(configs: ConfigurationLoader):
     # If there were multiple matches, prompt user to select correct file
     patient_file: Path = ui_get_patient_file(
         get_patient_file_matches(
-            input("Nachname des Patienten: ").lower(), configs.get_path("db")))
+            input("Nachname des Patienten: ").lower(),
+            configs.paths["db"]))
 
     if patient_file is None:
         print("[!!] Der Inhalt der Patientenakte konnte nicht gelesen werden.")
@@ -111,13 +133,15 @@ def generate_brief(configs: ConfigurationLoader):
                                Gender(Gender.Male if input("Geschlecht: ").lower() == "m" else Gender.Female))
 
     # Make sure not to overwrite existing files
-    if (configs.get_path("output") / patient.file_name()).exists():
+    if (configs.paths["output"] / patient.file_name()).exists():
 
         # Should we patch the file?
         if "ja" == input(
                 f"Eine Datei '{patient.file_name()}' wurde bereits generiert. "
                 f"Soll die gefundene Datei gepatcht werden (ja/nein)? "):
+
             patch_data(configs, patient)
+
             print("Datei wurde gepatcht. Bereits generierte Inhalte wurden NICHT verändert.\n"
                   "\t* Bereits generierte Inhalte müssen ggf. manuell angepasst werden\n"
                   "\t* Neue Diagnosen müssen manuell eingefügt werden.\n"
@@ -138,35 +162,42 @@ def generate_brief(configs: ConfigurationLoader):
 
     # Prompt user for MIDAS-score
     midas: str = (ensure_input(get_midas, numbers_list, "MIDAS-Score [5 Zahlen]: ")
-                  if configs.include_block("midas") else get_midas([30] * 5))
+                  if configs.include_block("midas")
+                  else get_midas([30] * 5))
 
     # Prompt user for WHODAS-2.0 score
     whodas: str = (ensure_input(whodas_categories, check_list, "WHODAS-Kategorien [6 x]: ")
-                   if configs.include_block("whodas-cats") else whodas_categories([True] * 6))
+                   if configs.include_block("whodas-cats")
+                   else whodas_categories([True] * 6))
 
     whodas += (ensure_input(get_whodas, numbers_list, "WHODAS-Score [3 Zahlen]: ")
-               if configs.include_block("whodas") else get_whodas([30] * 3))
+               if configs.include_block("whodas")
+               else get_whodas([30] * 3))
 
     # Prompt user for list (x or any other char) of previous treatments
     while True:
         treatments: Treatments = Treatments(
             check_list(input("Vorbehandlungen [40 x]: "))
-            if configs.include_block("treatments") else check_list("x" * 40))
+            if configs.include_block("treatments")
+            else check_list("x" * 40))
 
         if treatments.valid():
             break
 
     # Prompt user for afflictions
     eval_afflictions: str = (ensure_input(get_afflictions, numbers_list, "Beschwerden Selbstauskunft (Zahlen): ")
-                             if configs.include_block("afflictions") else "")
+                             if configs.include_block("afflictions")
+                             else "")
 
     # Prompt user for depression score (BDI-II like)
     eval_depression: str = (ensure_input(get_depression_score, numbers_list, "Depression-Score [19 Zahlen]: ")
-                            if configs.include_block("bdi") else get_depression_score([1] * 19))
+                            if configs.include_block("bdi")
+                            else get_depression_score([1] * 19))
 
     # Prompt user for chronic-pain personality test
     eval_personality: str = (ensure_input(get_personality_score, check_list, "Personality-Score [15 x]: ")
-                             if configs.include_block("f45") else get_personality_score([True] * 15))
+                             if configs.include_block("f45")
+                             else get_personality_score([True] * 15))
 
     # Apply medication from patient data (from admission file) to list of previous treatments.
     treatments.set_medication(patient)

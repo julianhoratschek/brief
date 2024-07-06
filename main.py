@@ -1,3 +1,4 @@
+import loaders.config_loader
 from loaders.config_loader import ConfigurationLoader
 from brief import generate_brief
 
@@ -5,10 +6,44 @@ from pathlib import Path
 import argparse
 
 
+def log_configs(loaded_configuration: ConfigurationLoader):
+    path_names: dict[str, str] = {
+        "db": "Datenbank (Ordner mit Aufnahmebögen)",
+        "output": "Ausgabe-Ordner",
+        "docx": "Docx-Schablone",
+        "header": "Seiten-Header Schablone",
+        "document": "Dokument-Inhalt Schablone",
+        "inserts": "Einzufügende Blöcke"
+    }
+
+    block_names: dict[str, str] = {
+        "body-data": "Untersuchungsdaten",
+        "midas": "MIDAS-Score",
+        "whodas-cats": "WHODAS Kategorien",
+        "whodas": "WHODAS-Score",
+        "treatments": "Vorbehandlungen (ärztlich und nicht-medizinisch)",
+        "afflictions": "Körperliche und psychische Beschwerden",
+        "bdi": "BDI-II",
+        "f45": "Chronische Schmerzerkrankung: Score"
+    }
+
+    print("Folgende Pfade wurden geladen:")
+    for path_name, path in loaded_configuration.paths.items():
+        print(f"\t* {path_names[path_name]}: {path.absolute()}")
+
+    print("Folgende Schablonen werden NICHT abgefragt:")
+    for block, display in loaded_configuration.blocks.items():
+        if display:
+            continue
+
+        print(f"\t* {block_names[block]}")
+
+
 if __name__ == '__main__':
 
     # Load Configurations
     configs: ConfigurationLoader = ConfigurationLoader(Path("./config.txt"))
+    log_configs(configs)
 
     # Create command line arguments
     parser: argparse.ArgumentParser = argparse.ArgumentParser(

@@ -45,11 +45,12 @@ class ConfigurationLoader:
                 self.set_blocks(values, [False] * len(values))
 
             # Otherwise overwrite paths
-            else:
+            elif key in self.paths:
                 self.paths[key] = Path(value)
 
-    def get_path(self, key: str) -> Path:
-        return self.paths[key] if key in self.paths else Path()
+            # Notify about unknown key?
+            else:
+                pass
 
     def include_block(self, block_name: str) -> bool:
         """Returns true if user should be prompted for block described by block_name."""

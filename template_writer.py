@@ -75,10 +75,10 @@ def write_data(configs: ConfigurationLoader, patient: Patient,
     """
 
     # Load templates and inserts
-    templates: XmlTemplateLoader = XmlTemplateLoader(configs.get_path("inserts"))
+    templates: XmlTemplateLoader = XmlTemplateLoader(configs.paths["inserts"])
 
     # Read the document text from document template, insert text fields
-    with open(configs.get_path("document"), "rb") as xml_file:
+    with open(configs.paths["document"], "rb") as xml_file:
         document_text: str = xml_file.read().decode("utf-8").format(**{
             **patient.get_data(),
 
@@ -98,14 +98,14 @@ def write_data(configs: ConfigurationLoader, patient: Patient,
         })
 
     # Read header-data from template file and insert text fields
-    with open(configs.get_path("header"), "rb") as xml_file:
+    with open(configs.paths["header"], "rb") as xml_file:
         header_text: str = xml_file.read().decode("utf-8").format(**{
             "patient_data": f"{patient.last_name}, {patient.first_name}, *{patient.birth_date.strftime('%d.%m.%Y')}",
         })
 
     # Write data
-    create_output_file(configs.get_path("output") / patient.file_name(),
-                       configs.get_path("docx"), document_text, header_text)
+    create_output_file(configs.paths["output"] / patient.file_name(),
+                       configs.paths["docx"], document_text, header_text)
 
 
 def patch_data(configs: ConfigurationLoader, patient: Patient):
@@ -117,10 +117,10 @@ def patch_data(configs: ConfigurationLoader, patient: Patient):
     """
 
     # Load Templates
-    templates: XmlTemplateLoader = XmlTemplateLoader(configs.get_path("inserts"))
+    templates: XmlTemplateLoader = XmlTemplateLoader(configs.paths["inserts"])
 
     # Get generated file path
-    file_path: Path = configs.get_path("output") / patient.file_name()
+    file_path: Path = configs.paths["output"] / patient.file_name()
 
     # Do not proceed if file was not created
     if not file_path.exists():
@@ -145,6 +145,5 @@ def patch_data(configs: ConfigurationLoader, patient: Patient):
 
     # Write everything into new file
     create_output_file(file_path.with_stem(f"{file_path.stem} patch"),
-                       configs.get_path("docx"),
+                       configs.paths["docx"],
                        full_document_text, full_header_text)
-
