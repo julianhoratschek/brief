@@ -74,4 +74,3 @@ class Treatments:
         return ". ".join(filter(lambda x: x != "", [
             self.doctors, self.basis_medication, self.acute_medication, self.alternatives, self.physio
         ])) + ". "
-

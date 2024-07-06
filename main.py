@@ -1,4 +1,3 @@
-import loaders.config_loader
 from loaders.config_loader import ConfigurationLoader
 from brief import generate_brief
 
@@ -71,4 +70,3 @@ if __name__ == '__main__':
 
     # Generate Letter
     generate_brief(configs)
-

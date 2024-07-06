@@ -188,4 +188,3 @@ def get_personality_score(choices: list[bool]) -> str | None:
         return None
 
     return "Insgesamt gibt {pat_nom} an, " + ", ".join([options[i] for i, choice in enumerate(choices) if choice])
-

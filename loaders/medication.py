@@ -53,4 +53,3 @@ def extract_medication_objects(pre_match: str) -> list[Medication]:
         medication.append(Medication(line))
 
     return medication
-

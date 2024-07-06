@@ -33,4 +33,3 @@ class Gender:
 
     def apply(self, text: str) -> str:
         return text.format(**self.gender_dict)
-
