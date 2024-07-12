@@ -33,7 +33,7 @@ def extract_diagnosis(text: str) -> list[tuple[str, str]]:
 
 
 class Patient:
-    def __init__(self, admission_file: Path, gender: Gender):
+    def __init__(self, gender: Gender):
         self.first_name: str = ""
         self.last_name: str = ""
         self.gender: Gender = gender
@@ -62,14 +62,12 @@ class Patient:
         self.admission: datetime = datetime.now()
         self.discharge: datetime = datetime.now()
 
-        self.load_from_file(admission_file)
-
     def load_from_file(self, admission_file: Path):
-        """Parses admission file for information on patient. The file should be a *.docx with pre defined
+        """Parses admission file for information on patient. The file should be a *.docx with pre-defined
         content structure."""
 
         # Look for table cells
-        pattern = re.compile(r"<w:tc>(.*?)</w:tc>")
+        pattern: re.Pattern = re.compile(r"<w:tc>(.*?)</w:tc>")
 
         # Parse the admission file for information
         with ZipFile(admission_file, "r") as zip_file:

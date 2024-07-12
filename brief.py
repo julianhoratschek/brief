@@ -4,7 +4,7 @@ from generators.gender import Gender
 from generators.scores import (get_midas, whodas_categories, get_whodas,
                                get_afflictions, get_depression_score, get_personality_score)
 from generators.treatments import Treatments
-from template_writer import write_data, patch_data
+from template_writer import write_data, patch_data, write_employer_note
 
 from pathlib import Path
 import re
@@ -98,6 +98,28 @@ def ui_get_patient_file(matches: list[PatientData]) -> Path | None:
     return None
 
 
+def get_patient_by_input_name(configs: ConfigurationLoader) -> Patient | None:
+    """Tries to read patient data from the database by provided user input
+    """
+
+    # If there were multiple matches, prompt user to select correct file
+    patient_file: Path = ui_get_patient_file(
+        get_patient_file_matches(
+            input("Nachname des Patienten: ").lower(),
+            configs.paths["db"]))
+
+    # Abort, if no file could be found
+    if patient_file is None:
+        print("Der Inhalt der Patientenakte konnte nicht gelesen werden.")
+        return None
+
+    # Retrieve data from admission file and determine gender
+    patient: Patient = Patient(Gender(Gender.Male if input("Geschlecht: ").lower() == "m" else Gender.Female))
+    patient.load_from_file(patient_file)
+
+    return patient
+
+
 def ensure_input(fn, conv, prompt) -> str:
     """Loop until user gave a valid input. An input is valid, if fn(conv(input)) is not None.
     :param fn: Function pointer to call on the user input. Should return string or None.
@@ -118,19 +140,11 @@ def ensure_input(fn, conv, prompt) -> str:
 
 
 def generate_brief(configs: ConfigurationLoader):
-    # If there were multiple matches, prompt user to select correct file
-    patient_file: Path = ui_get_patient_file(
-        get_patient_file_matches(
-            input("Nachname des Patienten: ").lower(),
-            configs.paths["db"]))
+    # Read Patient data
+    patient: Patient = get_patient_by_input_name(configs)
 
-    if patient_file is None:
-        print("[!!] Der Inhalt der Patientenakte konnte nicht gelesen werden.")
+    if not patient:
         return
-
-    # Retrieve data from admission file and determine gender
-    patient: Patient = Patient(patient_file,
-                               Gender(Gender.Male if input("Geschlecht: ").lower() == "m" else Gender.Female))
 
     # Make sure not to overwrite existing files
     if (configs.paths["output"] / patient.file_name()).exists():
@@ -207,3 +221,7 @@ def generate_brief(configs: ConfigurationLoader):
                midas, whodas, str(treatments),
                ". ".join(filter(lambda x: x != "", [eval_afflictions, eval_depression, eval_personality])))
 
+
+def generate_employer_note(configs: ConfigurationLoader):
+    if patient := get_patient_by_input_name(configs):
+        write_employer_note(configs, patient)

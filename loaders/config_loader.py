@@ -17,7 +17,8 @@ class ConfigurationLoader:
             "docx": Path(r"./templates/template.docx"),
             "header": Path(r"./templates/header1_template.xml"),
             "document": Path(r"./templates/document_template.xml"),
-            "inserts": Path(r"./templates/insert_template.xml")
+            "inserts": Path(r"./templates/insert_template.xml"),
+            "employer": Path(r"./templates/employer_document_template.xml"),
         }
 
         # Default: prompt user for all blocks

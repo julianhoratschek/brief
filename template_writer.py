@@ -60,6 +60,19 @@ def create_output_file(output_path: Path, docx_template_path: Path, document_tex
         zip_file.writestr("word/header1.xml", header_text.encode("utf-8"))
 
 
+def generate_header(configs: ConfigurationLoader, patient: Patient) -> str:
+    """Read header-data from template file and insert text fields
+    :param configs: ConfigurationLoader
+    :param patient: Patient object
+    :return: String containing xml data for docx header
+    """
+
+    with open(configs.paths["header"], "rb") as xml_file:
+        return xml_file.read().decode("utf-8").format(**{
+            "patient_data": f"{patient.last_name}, {patient.first_name}, *{patient.birth_date.strftime('%d.%m.%Y')}",
+        })
+
+
 def write_data(configs: ConfigurationLoader, patient: Patient,
                midas_text: str, whodas_text: str,
                treatments: str,
@@ -97,15 +110,11 @@ def write_data(configs: ConfigurationLoader, patient: Patient,
             **patient.gender.gender_dict
         })
 
-    # Read header-data from template file and insert text fields
-    with open(configs.paths["header"], "rb") as xml_file:
-        header_text: str = xml_file.read().decode("utf-8").format(**{
-            "patient_data": f"{patient.last_name}, {patient.first_name}, *{patient.birth_date.strftime('%d.%m.%Y')}",
-        })
-
     # Write data
-    create_output_file(configs.paths["output"] / patient.file_name(),
-                       configs.paths["docx"], document_text, header_text)
+    create_output_file(output_path=configs.paths["output"] / patient.file_name(),
+                       docx_template_path=configs.paths["docx"],
+                       document_text=document_text,
+                       header_text=generate_header(configs, patient))
 
 
 def patch_data(configs: ConfigurationLoader, patient: Patient):
@@ -144,6 +153,26 @@ def patch_data(configs: ConfigurationLoader, patient: Patient):
             full_header_text: str = header_xml.read().decode('utf-8')
 
     # Write everything into new file
-    create_output_file(file_path.with_stem(f"{file_path.stem} patch"),
-                       configs.paths["docx"],
-                       full_document_text, full_header_text)
+    create_output_file(output_path=file_path.with_stem(f"{file_path.stem} patch"),
+                       docx_template_path=configs.paths["docx"],
+                       document_text=full_document_text,
+                       header_text=full_header_text)
+
+
+def write_employer_note(configs: ConfigurationLoader, patient: Patient):
+    """Create a document with a recommendation for the employer
+    """
+
+    # Read the document text from employer note template
+    with open(configs.paths["employer"], "rb") as xml_file:
+        document_text: str = xml_file.read().decode("utf-8").format(**{
+            **patient.get_data(),
+            **patient.gender.gender_dict
+        })
+
+    # Write data
+    create_output_file(
+        output_path=configs.paths["output"] / f"A-{patient.last_name}, {patient.first_name} Arbeitgebervorlage.docx",
+        docx_template_path=configs.paths["docx"],
+        document_text=document_text,
+        header_text=generate_header(configs, patient))
