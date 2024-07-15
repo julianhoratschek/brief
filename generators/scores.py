@@ -176,7 +176,7 @@ def get_depression_score(numbers: list[int]) -> str | None:
         ["könne sich nicht mehr so gut konzentrieren wie sonst",
          "könne sich nur schwer längere Zeit auf irgendwas konzentrieren", "könne sich gar nicht mehr konzentrieren"],
         ["werde schneller müde oder erschöpft als sonst",
-         "sei {pron_nom} zu müde oder erschöpft für viele Dinge, die {pron_nom} üblicherweise tue",
+         "sei zu müde oder erschöpft für viele Dinge, die {pron_nom} üblicherweise tue",
          "sei so müde oder erschöpft, dass {pron_nom} fast nichts mehr tun könne"]
     ]
 
