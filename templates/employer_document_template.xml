@@ -1727,25 +1727,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve">Die Schmerzintensität während </w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r w:rsidR="006864DA" w:rsidRPr="006864DA">
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                        <w:szCs w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r w:rsidR="006864DA" w:rsidRPr="006864DA">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">r Attacken ist </w:t>
+                <w:t xml:space="preserve">Die Schmerzintensität während der Attacken ist </w:t>
             </w:r>
             <w:r w:rsidR="004C7D3E">
                 <w:rPr>
@@ -1784,23 +1766,7 @@
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                 </w:rPr>
-                <w:t>Die Schmerzen wer</w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r w:rsidR="003E3F77">
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r w:rsidR="003E3F77">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">n von Übelkeit, Erbrechen, </w:t>
+                <w:t>Die Schmerzen werden von Übelkeit, Erbrechen, </w:t>
             </w:r>
             <w:r w:rsidR="00850C57">
                 <w:rPr>
@@ -1907,23 +1873,7 @@
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve">doch einen Teil </w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r w:rsidR="00923A70">
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r w:rsidR="00923A70">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                </w:rPr>
-                <w:t>r Schmerzen ohne en</w:t>
+                <w:t xml:space="preserve">doch einen Teil der Schmerzen ohne en</w:t>
             </w:r>
             <w:r w:rsidR="00923A70">
                 <w:rPr>
@@ -1937,23 +1887,7 @@
                     <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
                     <w:sz w:val="18"/>
                 </w:rPr>
-                <w:t>sprechen</w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r w:rsidR="00923A70">
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r w:rsidR="00923A70">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">n Akutschutz aushalten, um nicht die Komplikation eines Kopfschmerzes bei </w:t>
+                <w:t>sprechenden Akutschutz aushalten, um nicht die Komplikation eines Kopfschmerzes bei </w:t>
             </w:r>
             <w:r w:rsidR="00923A70" w:rsidRPr="003E3F77">
                 <w:rPr>
@@ -2013,64 +1947,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t>Zur Therapie ist ein umfangreiches verhaltensmedizinisches Behandlungsprogramm erfor</w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r w:rsidRPr="00FF7318">
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                  w:cs="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                        <w:szCs w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r w:rsidRPr="00FF7318">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">rlich, das zeitaufwendig ist. Zur Aufrechterhaltung </w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r w:rsidRPr="00FF7318">
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                  w:cs="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                        <w:szCs w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r w:rsidRPr="00FF7318">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>r Arbeitsfähigkeit wird aus medizinischen Grün</w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r w:rsidRPr="00FF7318">
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                  w:cs="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                        <w:szCs w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>n angeregt,</w:t>
+                <w:t>Zur Therapie ist ein umfangreiches verhaltensmedizinisches Behandlungsprogramm erforderlich, das zeitaufwendig ist. Zur Aufrechterhaltung der Arbeitsfähigkeit wird aus medizinischen Gründen angeregt,</w:t>
             </w:r>
             <w:r w:rsidRPr="00FF7318">
                 <w:rPr>
@@ -2078,26 +1955,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> während </w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r w:rsidRPr="00FF7318">
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                  w:cs="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                        <w:szCs w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r w:rsidRPr="00FF7318">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>r beruflichen Tätigkeit Gelegenheit für Pausen zu regelmäßiger Nahrungsaufnahme und Entspannungsverfahren zu e</w:t>
+                <w:t xml:space="preserve"> während der beruflichen Tätigkeit Gelegenheit für Pausen zu regelmäßiger Nahrungsaufnahme und Entspannungsverfahren zu e</w:t>
             </w:r>
             <w:r w:rsidRPr="00FF7318">
                 <w:rPr>
@@ -2228,26 +2086,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve">aussetzung für die Erhaltung </w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r w:rsidRPr="00FF7318">
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"
-                                  w:cs="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                        <w:szCs w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r w:rsidRPr="00FF7318">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode" w:cs="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>r Arbeit</w:t>
+                <w:t xml:space="preserve">aussetzung für die Erhaltung der Arbeit</w:t>
             </w:r>
             <w:r w:rsidRPr="00FF7318">
                 <w:rPr>
@@ -2566,85 +2405,7 @@
                     <w:sz w:val="18"/>
                     <w:szCs w:val="18"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> </w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r>
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                        <w:szCs w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>u</w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>t</w:t>
-            </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">lich in </w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r>
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                        <w:szCs w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>r Lebensführung behin</w:t>
-            </w:r>
-            <w:smartTag w:uri="urn:schemas-microsoft-com:office:smarttags" w:element="PersonName">
-                <w:r>
-                    <w:rPr>
-                        <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                        <w:sz w:val="18"/>
-                        <w:szCs w:val="18"/>
-                    </w:rPr>
-                    <w:t>de</w:t>
-                </w:r>
-            </w:smartTag>
-            <w:r>
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t>rt ist</w:t>
-            </w:r>
-            <w:r w:rsidRPr="00143C66">
-                <w:rPr>
-                    <w:rFonts w:ascii="Lucida Sans Unicode" w:hAnsi="Lucida Sans Unicode"/>
-                    <w:sz w:val="18"/>
-                    <w:szCs w:val="18"/>
-                </w:rPr>
-                <w:t xml:space="preserve">. </w:t>
+                <w:t xml:space="preserve"> deutlich in der Lebensführung behindert ist. </w:t>
             </w:r>
         </w:p>
         <w:p w14:paraId="738A12AD" w14:textId="77777777" w:rsidR="00744204" w:rsidRDefault="00744204">
