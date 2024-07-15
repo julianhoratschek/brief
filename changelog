@@ -2,7 +2,7 @@ v0.2.0-alpha
 - Medikamentennamen können Zahlen enthalten
 - Absätze und Whitespaces gefixt, Markierungen verbessert
 - Overuse inserts optimiert
-- Proprocessing für Inserts
+- Preprocessing für Inserts
 - globs in diagnosen
 - patches für diagnosen
 - generate letter to employer
