@@ -1,6 +1,6 @@
 def get_midas(numbers: list[int]) -> str | None:
     """Generate text for MIDAS score from values. Only needs first 5 Items of the score.
-    Will write [!! INVALID !!] in front of generated text, if rules for MIDAS score were not followed correctly.
+    Will try to correct values, if rules for MIDAS score were not followed correctly.
     """
 
     if len(numbers) != 5:
@@ -13,9 +13,38 @@ def get_midas(numbers: list[int]) -> str | None:
         else:
             return None
 
-    score: int = sum(numbers)
-    valid: str = "" if ((numbers[0] + numbers[1]) < 92) and ((numbers[2] + numbers[3]) < 92) else "[!! INVALID !!] "
+    # Track change of values
+    numbers_changed: bool = False
 
+    def correct_numbers(a: int, b: int) -> tuple[int, int]:
+        """Test for correct input (a+b < 92) and try to fix mistakes. Sets local variable numbers_changed to
+        True, if a change was made.
+        """
+
+        # Don't change anything if requirements are met
+        if (a + b) < 92:
+            return a, b
+
+        # Otherwise try to correct values and track changes
+        else:
+            nonlocal numbers_changed
+
+            numbers_changed = True
+
+            a, b = min(a, 92), min(b, 92)
+            return a, max(0, 92 - a)
+
+    # Try to correct errors
+    numbers[0:2] = correct_numbers(*numbers[0:2])
+    numbers[2:4] = correct_numbers(*numbers[2:4])
+
+    if numbers[4] > 92:
+        numbers_changed = True
+        numbers[4] = 92
+
+    score: int = sum(numbers)
+
+    # Setup output text
     options: list[str] = [
         "An # Tagen in den letzten 3 Monaten ist {pat_nom} wegen der Schmerzen nicht zur Arbeit gegangen.",
         "An # Tagen in den letzten 3 Monaten war die Leistungsfähigkeit am Arbeitsplatz um die Hälfte oder "
@@ -26,8 +55,9 @@ def get_midas(numbers: list[int]) -> str | None:
         "An # Tagen in den letzten 3 Monaten konnte {pat_nom} an familiären, sozialen oder Freizeitaktivitäten wegen "
         "der Schmerzen nicht teilnehmen."]
 
-    return (f"{valid}Im MIDAS-Score erreicht {{pat_nom}} einen Wert von {score}, einer sehr schweren Beeinträchtigung "
-            f"entsprechend. "
+    return (("!!! Eingabewerte waren nicht MIDAS kompatibel, Korrektur wurde versucht !!!\n" if numbers_changed else "")
+            + f"Im MIDAS-Score erreicht {{pat_nom}} einen Wert von {score}, "
+              f"einer sehr schweren Beeinträchtigung entsprechend. "
             + " ".join([line.replace("#", str(nr)) for line, nr in zip(options, numbers) if nr != 0]))
 
 
